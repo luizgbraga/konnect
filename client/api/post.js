@@ -16,7 +16,6 @@ export class PostAPI extends API {
     async vote(token, id, vote) {
         const body = JSON.stringify({ id, vote });
         return this.request('PUT', `/vote`, token, body, null);
-    
     }
 }
 
