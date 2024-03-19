@@ -16,11 +16,14 @@ export class UserAPI extends API {
 const api = new UserAPI();
 
 export class UserModel {
+    constructor(dto) {
+        this.dto = dto
+    }
+
     static async list() {
         const token = getToken();
         const res = await api.list(token);
         if (res.type === 'ERROR') throw new Error(res.cause);
-        return res.result;
+        return new UserModel(res.result);
     }
-
 }
