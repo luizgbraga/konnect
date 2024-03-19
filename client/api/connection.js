@@ -8,14 +8,9 @@ export class ConnectionAPI extends API {
         super(`${API_URL}/connection`);
     }
 
-    async create(token, content) {
-        const body = JSON.stringify({ content });
+    async invite(token, userId) {
+        const body = JSON.stringify({ userId });
         return this.request('POST', '', token, body, null);
-    }
-
-    async vote(token, id, vote) {
-        const body = JSON.stringify({ id, vote });
-        return this.request('PUT', `/vote`, token, body, null);
     }
 }
 
@@ -26,28 +21,10 @@ export class ConnectionModel {
         this.dto = dto
     }
 
-    static async create(content) {
+    static async invite(userId) {
         const token = getToken();
-        const res = await api.create(token, content);
+        const res = await api.create(token, userId);
         if (res.type === 'ERROR') throw new Error(res.cause);
         return new PostModel(res.result);
-    }
-
-    async upvote() {
-        const token = getToken();
-        const res = await api.vote(token, this.id, 1);
-        if (res.type === 'ERROR') throw new Error(res.cause);
-        return new PostModel(res.result);
-    }
-
-    async downvote() {
-        const token = getToken();
-        const res = await api.vote(token, this.id, -1);
-        if (res.type === 'ERROR') throw new Error(res.cause);
-        return new PostModel(res.result);
-    }
-
-    get id() {
-        return this.dto.id;
     }
 }
