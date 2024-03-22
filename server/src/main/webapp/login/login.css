@@ -1,0 +1,29 @@
+.greetings-ctn {
+  width: 45%;
+  height: 80%;
+  padding-left: 12px;
+}
+
+.create-account {
+  color: #7a7a7a;
+  gap: 12px;
+  bottom: 12px;
+}
+
+.credentials-ctn {
+  width: 45%;
+  height: 80%;
+  padding-right: 18px;
+}
+
+.credentials {
+  margin-bottom: 38px;
+  width: 70%;
+  gap: 18px;
+  padding: 10px 20px;
+}
+
+.login {
+  position: absolute;
+  bottom: 0px;
+}
