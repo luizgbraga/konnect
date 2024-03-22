@@ -73,29 +73,3 @@
   border-radius: 6px;
 }
 
-.btn {
-  font-size: 18px;
-  padding: 12px 24px;
-  border-radius: 30px;
-  cursor: pointer;
-}
-
-.primary-btn {
-  color: #F9F9F9;
-  background-color: var(--primary);
-  transition: 0.3s;
-}
-
-.primary-btn:hover {
-  background-color: var(--primary-hover);
-}
-
-.text-btn {
-  color: #292929;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.text-btn:hover {
-  color: var(--primary);
-}
