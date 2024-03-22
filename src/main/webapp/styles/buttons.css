@@ -1,0 +1,47 @@
+:root {
+  --white: #F9F9F9;
+  --black: #292929;
+  --gray: #F0F0F0;
+  --dark-gray: #7a7a7a;
+  --primary: #10436A;
+  --primary-hover: #308fd7;
+  --secondary: #5AA9E6;
+  --tertiary: #7FC8F8;
+  --quaternary: #ECF7FE;
+}
+
+.btn {
+  font-size: 18px;
+  padding: 12px 24px;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+.primary-btn {
+  color: #F9F9F9;
+  background-color: var(--primary);
+  transition: 0.3s;
+}
+
+.primary-btn:hover {
+  background-color: var(--primary-hover);
+}
+
+.secondary-btn {
+  color: var(--primary);
+  transition: 0.3s;
+}
+
+.secondary-btn:hover {
+  background-color: var(--gray);
+}
+
+.text-btn {
+  color: #292929;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.text-btn:hover {
+  color: var(--primary);
+}
