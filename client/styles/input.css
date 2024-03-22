@@ -1,7 +1,50 @@
+:root {
+  --white: #F9F9F9;
+  --black: #292929;
+  --gray: #F0F0F0;
+  --dark-gray: #7a7a7a;
+  --primary: #10436A;
+  --primary-hover: #308fd7;
+  --secondary: #5AA9E6;
+  --tertiary: #7FC8F8;
+  --quaternary: #ECF7FE;
+}
+
 * {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Arial, Helvetica;
+  font-size: 18px;
   padding: 0;
   margin: 0;
+}
+
+.background-ctn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: var(--quaternary);
+}
+
+.login-box {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 900px;
+  height: 400px;
+  background-color: #F9F9F9;
+  gap: 20px;
+  border-radius: 1rem;
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    width: 80%;
+    height: 600px;
+  }
+}
+
+.box-shadow {
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
 .nice-input {
@@ -15,12 +58,12 @@
   flex-direction: column;
   align-items: flex-startt;
   justify-content: center;
-  gap: 12px;
+  gap: 6px;
   width: 100%;
 }
 
 .forms label {
-  font-size: 12px;
+  font-size: 16px;
 }
 
 .forms input {
@@ -30,15 +73,29 @@
   border-radius: 6px;
 }
 
-.primary-button {
-  padding: 8px 12px;
-  color: #F9F9F9;
-  background-color: #10436A;
-  border-radius: 6px;
+.btn {
+  font-size: 18px;
+  padding: 12px 24px;
+  border-radius: 30px;
   cursor: pointer;
 }
 
-.text-button {
+.primary-btn {
+  color: #F9F9F9;
+  background-color: var(--primary);
+  transition: 0.3s;
+}
+
+.primary-btn:hover {
+  background-color: var(--primary-hover);
+}
+
+.text-btn {
   color: #292929;
   cursor: pointer;
+  transition: 0.3s;
+}
+
+.text-btn:hover {
+  color: var(--primary);
 }
