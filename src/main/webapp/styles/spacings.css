@@ -1,0 +1,103 @@
+.absolute {
+  position: absolute;
+}
+
+.relative {
+  position: relative;
+}
+
+.top-6 {
+  top: 6px;
+}
+
+.top-12 {
+  top: 12px;
+}
+
+.top-18 {
+  top: 18px;
+}
+
+.top-24 {
+  top: 24px;
+}
+
+.top-30 {
+  top: 30px;
+}
+
+.top-36 {
+  top: 36px;
+}
+
+.bottom-6 {
+  bottom: 6px;
+}
+
+.bottom-12 {
+  bottom: 12px;
+}
+
+.bottom-18 {
+  bottom: 18px;
+}
+
+.bottom-24 {
+  bottom: 24px;
+}
+
+.bottom-30 {
+  bottom: 30px;
+}
+
+.bottom-36 {
+  bottom: 36px;
+}
+
+.left-6 {
+  left: 6px;
+}
+
+.left-12 {
+  left: 12px;
+}
+
+.left-18 {
+  left: 18px;
+}
+
+.left-24 {
+  left: 24px;
+}
+
+.left-30 {
+  left: 30px;
+}
+
+.left-36 {
+  left: 36px;
+}
+
+.right-6 {
+  right: 6px;
+}
+
+.right-12 {
+  right: 12px;
+}
+
+.right-18 {
+  right: 18px;
+}
+
+.right-24 {
+  right: 24px;
+}
+
+.right-30 {
+  right: 30px;
+}
+
+.right-36 {
+  right: 36px;
+}

@@ -1,0 +1,59 @@
+:root {
+  --white: #F9F9F9;
+  --black: 292929;
+  --gray: #F0F0F0;
+  --dark-gray: #7a7a7a;
+  --primary: #10436A;
+  --secondary: #5AA9E6;
+  --tertiary: #7FC8F8;
+  --quaternary: #ECF7FE;
+}
+
+.body {
+  font-size: 12px;
+}
+
+.small-title {
+  font-size: 18px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.big-title {
+  font-size: 30px;
+}
+
+.white {
+  color: var(--white);
+}
+
+.black {
+  color: var(--black);
+}
+
+.gray {
+  color: var(--gray);
+}
+
+.dark-gray {
+  color: var(--dark-gray);
+}
+
+.primary {
+  color: var(--primary);
+}
+
+.secondary {
+  color: var(--secondary);
+}
+
+.tertiary {
+  color: var(--tertiary);
+}
+
+.quaternary {
+  color: var(--quaternary);
+}
