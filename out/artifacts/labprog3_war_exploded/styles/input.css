@@ -1,0 +1,52 @@
+* {
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 0;
+  margin: 0;
+}
+
+.nice-input {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 6px 12px;
+}
+
+.forms {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-startt;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+}
+
+.forms label {
+  font-size: 12px;
+}
+
+.forms input {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.btn {
+  font-size: 18px;
+  padding: 12px 24px;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+.primary-btn {
+  color: #F9F9F9;
+  background-color: #10436A;
+}
+
+.invisible-btn {
+  
+}
+
+.text-button {
+  color: #292929;
+  cursor: pointer;
+}
