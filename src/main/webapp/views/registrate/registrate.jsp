@@ -18,7 +18,9 @@
   <div class="background-ctn">
     <div class="login-box box-shadow">
       <div class="greetings-ctn relative flex flex-column align-start justify-center">
-        <img class="absolute top-12 title" src="${pageContext.request.contextPath}/assets/images/Konnect-logo.svg" alt="logo">
+        <a href="home.jsp">
+          <img class="absolute top-12 title" src="${pageContext.request.contextPath}/assets/images/Konnect-logo.svg" alt="logo">
+        </a>
         <p class="big-title">Criar uma conta do Konnect</p>
       </div>
   
