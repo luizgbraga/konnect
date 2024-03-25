@@ -10,14 +10,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="26bd33e0-0d88-4f79-950d-6880bb31939f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/social_network/server/UserRegistration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/images/Konnect-home.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/images/Konnect-logo.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/home.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/home.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/home.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/styles/background.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/social_network/server/HelloServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/social_network/server/UserLogin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/feed/feed.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/feed/feed.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/login/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/login/login.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/registrate/registrate.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/registrate/registrate.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/styles/buttons.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/styles/buttons.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/styles/grid.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/styles/grid.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/styles/spacings.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/styles/spacings.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/feed/feed.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/feed/feed.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/login/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/login/login.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/registrate/registrate.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/registrate/registrate.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/registrate/registrate.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/registrate/registrate.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,6 +36,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -63,7 +72,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "Tomcat Server.TomcatLocal.executor": "Run",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "home-page",
     "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -79,11 +88,13 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/webapp/assets/images" />
       <recent name="$PROJECT_DIR$/src/main/webapp" />
     </key>
   </component>
   <component name="RunManager">
     <configuration name="TomcatLocal" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 10.1.19" ALTERNATIVE_JRE_ENABLED="false">
+      <option name="BROWSER_ID" value="e5120d43-2c3f-47ef-9f26-65e539e05186" />
       <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
         <artifact name="server:war exploded">
@@ -188,6 +199,7 @@
       <workItem from="1711115916221" duration="420000" />
       <workItem from="1711116348531" duration="603000" />
       <workItem from="1711120142904" duration="1201000" />
+      <workItem from="1711372166044" duration="7548000" />
     </task>
     <servers />
   </component>

@@ -17,10 +17,15 @@
   cursor: pointer;
 }
 
+.btn:link, .btn:visited, .btn:active, .btn:hover {
+  text-decoration: none;
+}
+
 .primary-btn {
   color: #F9F9F9;
   background-color: var(--primary);
   transition: 0.3s;
+  text-decoration: none;
 }
 
 .primary-btn:hover {
@@ -30,6 +35,7 @@
 .secondary-btn {
   color: var(--primary);
   transition: 0.3s;
+  text-decoration: none;
 }
 
 .secondary-btn:hover {
@@ -40,8 +46,35 @@
   color: #292929;
   cursor: pointer;
   transition: 0.3s;
+  text-decoration: none;
 }
 
 .text-btn:hover {
   color: var(--primary);
+  text-decoration: none;
+}
+
+.text-btn:link, .text-btn:visited, .text-btn:active {
+  text-decoration: none;
+}
+
+.button {
+  display: block;
+  text-decoration: none;
+}
+
+.button:link, .button:visited, .button:active, .button:hover {
+  text-decoration: none;
+}
+
+.btn-ctn {
+  position: absolute;
+  bottom: 0px;
+  gap: 6px;
+}
+
+.btn-box {
+  width: fit-content;
+  background-color: #ff112c;
+  gap: 6px;
 }

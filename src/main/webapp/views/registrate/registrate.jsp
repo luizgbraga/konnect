@@ -1,3 +1,4 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,7 +18,7 @@
   <div class="background-ctn">
     <div class="login-box box-shadow">
       <div class="greetings-ctn relative flex flex-column align-start justify-center">
-        <p class="absolute top-12 title">KONNECT</p>
+        <img class="absolute top-12 title" src="${pageContext.request.contextPath}/assets/images/Konnect-logo.svg" alt="logo">
         <p class="big-title">Criar uma conta do Konnect</p>
       </div>
   
@@ -35,7 +36,7 @@
         </div>
 
         <div class="btn-ctn flex flex-row align-end">
-          <div id="login-button" class="btn secondary-btn back">Voltar</div>
+          <a class="btn secondary-btn" href="${pageContext.request.contextPath}/login">Voltar</a>
   
           <div id="login-button" class="btn primary-btn registrate">Cadastrar</div>
         </div>
