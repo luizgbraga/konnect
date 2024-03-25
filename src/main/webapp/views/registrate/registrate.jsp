@@ -5,12 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Konnect - Registrate</title>
   <link rel="stylesheet" href="registrate.css">
-  <link rel="stylesheet" href="../../styles/accounts.css">
-  <link rel="stylesheet" href="../../styles/input.css">
-  <link rel="stylesheet" href="../../styles/fonts.css">
-  <link rel="stylesheet" href="../../styles/spacings.css">
-  <link rel="stylesheet" href="../../styles/grid.css">
-  <link rel="stylesheet" href="../../styles/buttons.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/accounts.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/input.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/fonts.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/spacings.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/grid.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/buttons.css">
 </head>
 
 <body>

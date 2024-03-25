@@ -7,6 +7,6 @@
 <body>
 <h1><%= "Another one" %></h1>
 <br/>
-<a href="hello-servlet">Hello Servlet</a>
+<a href="login">Hello Servlet</a>
 </body>
 </html>
