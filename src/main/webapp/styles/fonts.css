@@ -26,6 +26,14 @@
   font-size: 30px;
 }
 
+.large-title {
+  font-size: 36px;
+}
+
+.xl-title {
+  font-size: 72px;
+}
+
 .white {
   color: var(--white);
 }
@@ -56,4 +64,8 @@
 
 .quaternary {
   color: var(--quaternary);
+}
+
+.uppercase {
+  text-transform: uppercase;
 }

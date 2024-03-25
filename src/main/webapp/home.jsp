@@ -18,8 +18,8 @@
 <body>
   <div class="bg-white flex relative">
     <div class="w-header flex flex-row justify-between align-center absolute top-0 pt-6 pb-6 pl-144 pr-144">
-      <img class="logo" src="${pageContext.request.contextPath}/assets/images/Konnect-logo.svg" alt="logo">
-      <div class="flex flex-row justify-end">
+      <img src="${pageContext.request.contextPath}/assets/images/Konnect-logo.svg" alt="logo">
+      <div class="flex flex-row justify-end gap-6">
         <a href="registrate" class="button">
           <div id="registrate-button" class="btn secondary-btn">Cadastrar</div>
         </a>
@@ -29,8 +29,17 @@
       </div>
     </div>
 
-    <div class="flex flex-column pt-92">
-      Home ctn
+    <div class="bg-white w-full min-h-100vh flex flex-column align-center pt-92 pl-144 pr-144">
+      <div class="flex flex-row justify-center w-full">
+        <div class="text-ctn h-full flex flex-column justify-center align-start">
+          <p class="uppercase large-title">Conectando você e a seus grupos</p>
+          <p class="xl-title">A verdadeira rede social</p>
+        </div>
+
+        <div class="img-ctn h-full flex justify-center align-start">
+          <img class="phone" src="${pageContext.request.contextPath}/assets/images/Konnect-home.svg" alt="home">
+        </div>
+      </div>
     </div>
   </div>
 </body>

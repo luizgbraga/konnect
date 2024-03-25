@@ -82,8 +82,8 @@
   width: calc(100% - 288px);
 }
 
-.mw-1000 {
-  max-width: 1000px;
+.min-h-100vh {
+  min-height: 100vh;
 }
 
 .h-full {
