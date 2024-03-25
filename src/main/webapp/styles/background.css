@@ -1,37 +1,45 @@
 :root {
   --white: #F9F9F9;
-  --black: 292929;
+  --black: #292929;
   --gray: #F0F0F0;
   --dark-gray: #7a7a7a;
   --primary: #10436A;
+  --primary-hover: #308fd7;
   --secondary: #5AA9E6;
   --tertiary: #7FC8F8;
   --quaternary: #ECF7FE;
 }
 
-.body {
-  font-size: 12px;
+.bg-white {
+  background-color: var(--white);
 }
 
-.small-title {
-  font-size: 18px;
+.bg-black {
+  background-color: var(--black);
 }
 
-.title {
-  font-size: 24px;
-  font-weight: 600;
+.bg-gray {
+  background-color: var(--gray);
 }
 
-.big-title {
-  font-size: 30px;
+.bg-dark-gray {
+  background-color: var(--dark-gray);
 }
 
-.large-title {
-  font-size: 36px;
+.bg-primary {
+  background-color: var(--primary);
 }
 
-.xl-title {
-  font-size: 48px;
+.bg-secondary {
+  background-color: var(--secondary);
+}
+
+.bg-tertiary {
+  background-color: var(--tertiary);
+}
+
+.bg-quaternary {
+  background-color: var(--quaternary);
 }
 
 .white {
@@ -64,8 +72,4 @@
 
 .quaternary {
   color: var(--quaternary);
-}
-
-.uppercase {
-  text-transform: uppercase;
 }
