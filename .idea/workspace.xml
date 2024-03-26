@@ -10,15 +10,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="26bd33e0-0d88-4f79-950d-6880bb31939f" name="Changes" comment="odeio java">
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/server_war_exploded.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/social_network/server/controllers/UserLoginAPI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/social_network/server/UserLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/social_network/server/views/UserLogin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/social_network/server/UserRegistration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/social_network/server/views/UserRegistration.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/api/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/api/login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/utils/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/utils/api.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/utils/model.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/utils/model.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/utils/storage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/utils/storage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/login/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/login/login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/login/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/login/login.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,8 +24,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="JavaScript File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -71,7 +67,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "Tomcat Server.Tomcat 10.1.19.executor": "Run",
     "Tomcat Server.TomcatLocal.executor": "Run",
-    "git-widget-placeholder": "migrating-js-stuff",
+    "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/luizb/OneDrive/Documentos/IME/COMP/3º Semestre/LabProgIII/labprog3/src/main/webapp/WEB-INF",
     "node.js.detected.package.eslint": "true",

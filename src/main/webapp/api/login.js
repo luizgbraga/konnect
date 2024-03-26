@@ -1,4 +1,4 @@
-const API_URL = 'idk';
+const API_URL = 'api';
 
 window.LoginAPI = class LoginAPI extends window.API {
     constructor() {
