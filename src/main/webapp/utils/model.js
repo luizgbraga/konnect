@@ -1,4 +1,4 @@
-export class API {
+window.API = class API {
     _route;
     constructor(route) {
         this._route = route;

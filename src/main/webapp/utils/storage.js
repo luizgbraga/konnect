@@ -1,4 +1,4 @@
-export class Storage {
+window.Storage = class Storage {
     static get(key) {
         const value = localStorage.getItem(key);
         if (!value) return null;

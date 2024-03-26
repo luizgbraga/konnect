@@ -1,8 +1,6 @@
-import { API } from '../utils/model';
-
 const API_URL = 'idk';
 
-export class LoginAPI extends API {
+window.LoginAPI = class LoginAPI extends window.API {
     constructor() {
         super(`${API_URL}/user`);
     }
@@ -18,9 +16,9 @@ export class LoginAPI extends API {
     }
 }
 
-const api = new LoginAPI();
+const api = new window.LoginAPI();
 
-export class LoginModel {
+window.LoginModel = class LoginModel {
     static async register(username, password) {
         const res = await api.register(username, password);
         if (res.type === 'ERROR') throw new Error(res.cause);

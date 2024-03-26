@@ -1,5 +1,3 @@
-import { LoginModel } from "../../api/login";
-
 const emailInput = document.getElementById('email-input');
 const passwordInput = document.getElementById('password-input');
 const loginButton = document.getElementById('login-button');
@@ -8,6 +6,7 @@ let email = '';
 let password = '';
 
 const handleEmailChange = (e) => {
+    console.log(e)
     email = e.target.value;
 }
 
@@ -16,7 +15,7 @@ const handlePasswordChange = (e) => {
 }
 
 const handleSubmit = () => {
-    LoginModel.login(email, password)
+    window.LoginModel.login(email, password)
         .then((res) => {
             console.log(res);
         })
