@@ -1,4 +1,4 @@
-package com.social_network.server;
+package com.social_network.server.views;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -10,7 +10,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @WebServlet(name="registrate", value="/registrate")
-public class UserRegistration extends HttpServlet {
+public class Register extends HttpServlet {
     public void init() {}
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         RequestDispatcher view = request.getRequestDispatcher("views/registrate/registrate.jsp");
