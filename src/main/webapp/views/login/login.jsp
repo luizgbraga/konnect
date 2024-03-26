@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Konnect - Login</title>
-  <link rel="stylesheet" href="login.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/views/login/login.css">
   <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/accounts.css">
   <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/input.css">
   <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/fonts.css">
@@ -51,5 +51,7 @@
     </div>
   </div>
 </body>
-<script src="login.js"></script>
+<script type="module" src="${pageContext.request.contextPath}/views/login/login.js"></script>
+<script type="module" src="${pageContext.request.contextPath}/utils/model.js"></script>
+<script type="module" src="${pageContext.request.contextPath}/api/login.js"></script>
 </html>
