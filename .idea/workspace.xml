@@ -12,6 +12,7 @@
     <list default="true" id="26bd33e0-0d88-4f79-950d-6880bb31939f" name="Changes" comment="odeio java">
       <change afterPath="$PROJECT_DIR$/src/main/java/com/social_network/server/controllers/UserLoginAPI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/social_network/server/UserLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/social_network/server/views/UserLogin.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/social_network/server/UserRegistration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/social_network/server/views/UserRegistration.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/api/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/api/login.js" afterDir="false" />
@@ -62,19 +63,24 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Tomcat Server.Tomcat 10.1.19.executor": "Run",
     "Tomcat Server.TomcatLocal.executor": "Run",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/luizb/OneDrive/Documentos/IME/COMP/3º Semestre/LabProgIII/labprog3/src/main/webapp/WEB-INF",
+    "kotlin-language-version-configured": "true",   
+    "Tomcat Server.Tomcat 10.1.19.executor": "Run",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.40574712",
     "project.structure.last.edited": "Artifacts",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
@@ -89,7 +95,7 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration name="Tomcat 10.1.19" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 10.1.19" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
+    <configuration name="TomcatLocal" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 10.1.19" ALTERNATIVE_JRE_ENABLED="false">
       <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
         <artifact name="server:war exploded">
@@ -203,15 +209,8 @@
       <workItem from="1711372166044" duration="8612000" />
       <workItem from="1711405918317" duration="1675000" />
       <workItem from="1711407762777" duration="335000" />
+      <workItem from="1711460855940" duration="1265000" />
       <workItem from="1711453207873" duration="3083000" />
-    </task>
-    <task id="LOCAL-00001" summary="odeio java">
-      <option name="closed" value="true" />
-      <created>1711455365245</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1711455365245</updated>
     </task>
     <option name="localTasksCounter" value="2" />
     <servers />
@@ -225,5 +224,9 @@
     </ignored-roots>
     <MESSAGE value="odeio java" />
     <option name="LAST_COMMIT_MESSAGE" value="odeio java" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
