@@ -51,5 +51,5 @@
     </div>
   </div>
 </body>
-<script src="login.js"></script>
+<script src="${pageContext.request.contextPath}/views/login/login.js"></script>
 </html>
