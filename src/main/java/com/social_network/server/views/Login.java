@@ -1,4 +1,4 @@
-package com.social_network.server;
+package com.social_network.server.views;
 
 import java.io.IOException;
 
@@ -10,7 +10,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.annotation.WebServlet;
 
 @WebServlet(name = "login", value = "/login")
-public class UserLogin extends HttpServlet {
+public class Login extends HttpServlet {
     public void init() {}
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
