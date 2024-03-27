@@ -10,12 +10,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="26bd33e0-0d88-4f79-950d-6880bb31939f" name="Changes" comment="odeio java">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/social_network/server/controllers/UserLoginAPI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/server_war_exploded.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/social_network/server/UserLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/social_network/server/views/UserLogin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/social_network/server/UserRegistration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/social_network/server/views/UserRegistration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/api/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/api/login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/social_network/server/views/Register.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/social_network/server/views/Register.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/images/Konnect-logo.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/assets/images/Konnect-logo.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/home.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/styles/buttons.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/styles/buttons.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/styles/fonts.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/styles/fonts.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/styles/grid.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/styles/grid.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/styles/input.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/styles/input.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/styles/spacings.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/styles/spacings.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/login/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/login/login.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/registrate/registrate.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/registrate/registrate.jsp" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,17 +77,15 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Tomcat Server.TomcatLocal.executor": "Run",
-    "kotlin-language-version-configured": "true",   
     "Tomcat Server.Tomcat 10.1.19.executor": "Run",
+    "Tomcat Server.TomcatLocal.executor": "Run",
+    "git-widget-placeholder": "new-home",
+    "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.40574712",
     "project.structure.last.edited": "Artifacts",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
@@ -96,6 +101,7 @@
   </component>
   <component name="RunManager">
     <configuration name="TomcatLocal" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 10.1.19" ALTERNATIVE_JRE_ENABLED="false">
+      <option name="BROWSER_ID" value="e5120d43-2c3f-47ef-9f26-65e539e05186" />
       <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
         <artifact name="server:war exploded">

@@ -9,6 +9,22 @@
   --quaternary: #ECF7FE;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Golos+Text:wght@400..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Golos+Text:wght@400..900&display=swap');
+
+* {
+  font-family: "Nunito", "Golos Text", sans-serif;
+  font-size: 18px;
+}
+
+.nunito {
+  font-family: "Nunito", sans-serif;
+}
+
+.golos {
+  font-family: "Golos Text", sans-serif;
+}
+
 .body {
   font-size: 12px;
 }
@@ -32,6 +48,10 @@
 
 .xl-title {
   font-size: 48px;
+}
+
+.xxl-title {
+  font-size: 60px;
 }
 
 .white {
@@ -68,4 +88,128 @@
 
 .uppercase {
   text-transform: uppercase;
+}
+
+.lowercase {
+  text-transform: lowercase;
+}
+
+.capitalize {
+  text-transform: capitalize;
+}
+
+.super-light {
+  font-weight: 100;
+}
+
+.lighter {
+  font-weight: 200;
+}
+
+.light {
+  font-weight: 300;
+}
+
+.normal {
+  font-weight: 400;
+}
+
+.semibold {
+  font-weight: 500;
+}
+
+.bold {
+  font-weight: 600;
+}
+
+.bolder {
+  font-weight: 700;
+}
+
+.heavy {
+  font-weight: 800;
+}
+
+.extra-heavy {
+  font-weight: 900;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-justify {
+  text-align: justify;
+}
+
+.text-nowrap {
+  white-space: nowrap;
+}
+
+.text-break {
+  word-wrap: break-word;
+}
+
+.xxs-spacing {
+  letter-spacing: 0.5px;
+}
+
+.xs-spacing {
+  letter-spacing: 1px;
+}
+
+.s-spacing {
+  letter-spacing: 1.5px;
+}
+
+.m-spacing {
+  letter-spacing: 2px;
+}
+
+.l-spacing {
+  letter-spacing: 2.5px;
+}
+
+.xl-spacing {
+  letter-spacing: 3px;
+}
+
+.xxl-spacing {
+  letter-spacing: 3.5px;
+}
+
+.xxs-height {
+  line-height: 1;
+}
+
+.xs-height {
+  line-height: 1.5;
+}
+
+.s-height {
+  line-height: 2;
+}
+
+.m-height {
+  line-height: 2.5;
+}
+
+.l-height {
+  line-height: 3;
+}
+
+.xl-height {
+  line-height: 3.5;
+}
+
+.xxl-height {
+  line-height: 4;
 }

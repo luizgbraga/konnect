@@ -19,13 +19,13 @@
     <div class="login-box box-shadow">
       <div class="greetings-ctn relative flex flex-column align-start justify-center">
         <a href="home.jsp">
-          <img class="absolute top-12 title" src="${pageContext.request.contextPath}/assets/images/Konnect-logo.svg" alt="logo">
+          <img class="absolute top-12 title" src="${pageContext.request.contextPath}/assets/images/konnect-logo.svg" alt="logo" width="48">
         </a>
         <p class="big-title">Seja bem-vindo ao Konnect</p>
 
         <div class="create-account absolute flex flex-row">
           <p>Não tem uma conta?</p>
-          <a class="text-btn" href="${pageContext.request.contextPath}/registrate">Criar conta</a>
+          <a class="text-btn primary" href="${pageContext.request.contextPath}/register">Criar conta</a>
         </div>
       </div>
   
