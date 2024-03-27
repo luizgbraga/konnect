@@ -42,8 +42,18 @@
   background-color: var(--gray);
 }
 
+.tertiary-btn {
+  color: var(--dark-gray);
+  transition: 0.3s;
+  text-decoration: none;
+}
+
+.tertiary-btn:hover {
+  background-color: var(--gray);
+  color: var(--primary);
+}
+
 .text-btn {
-  color: #292929;
   cursor: pointer;
   transition: 0.3s;
   text-decoration: none;

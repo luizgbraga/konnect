@@ -9,11 +9,11 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
-@WebServlet(name="registrate", value="/registrate")
+@WebServlet(name="register", value="/register")
 public class Register extends HttpServlet {
     public void init() {}
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        RequestDispatcher view = request.getRequestDispatcher("views/registrate/registrate.jsp");
+        RequestDispatcher view = request.getRequestDispatcher("views/register/register.jsp");
         view.forward(request, response);
     }
 

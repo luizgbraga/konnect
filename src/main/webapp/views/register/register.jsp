@@ -4,8 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Konnect - Registrate</title>
-  <link rel="stylesheet" href="registrate.css">
+  <title>Konnect - register</title>
+  <link rel="stylesheet" href="register.css">
   <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/accounts.css">
   <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/input.css">
   <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/fonts.css">
@@ -19,9 +19,9 @@
     <div class="login-box box-shadow">
       <div class="greetings-ctn relative flex flex-column align-start justify-center">
         <a href="home.jsp">
-          <img class="absolute top-12 title" src="${pageContext.request.contextPath}/assets/images/Konnect-logo.svg" alt="logo">
+          <img class="absolute top-12 title" src="${pageContext.request.contextPath}/assets/images/konnect-logo.svg" alt="logo" width="48">
         </a>
-        <p class="big-title">Criar uma conta do Konnect</p>
+        <p class="big-title">Crie sua conta</p>
       </div>
   
       <div class="credentials-ctn relative flex flex-column align-end justify-center">
@@ -40,7 +40,7 @@
         <div class="btn-ctn flex flex-row align-end">
           <a class="btn secondary-btn" href="${pageContext.request.contextPath}/login">Voltar</a>
   
-          <div id="login-button" class="btn primary-btn registrate">Cadastrar</div>
+          <div id="login-button" class="btn primary-btn register">Cadastrar</div>
         </div>
       </div>
     </div>
