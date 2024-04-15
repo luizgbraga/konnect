@@ -1,6 +1,10 @@
 package com.social_network.server.entities;
 
+import com.social_network.server.HibernateUtil;
 import jakarta.persistence.*;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.PBEKeySpec;
@@ -12,6 +16,13 @@ import java.security.spec.KeySpec;
 import java.sql.Time;
 import java.sql.Timestamp;
 import java.util.*;
+
+import java.util.Date;
+
+// Assuming you're using jjwt for JWT token generation
+import io.jsonwebtoken.Algorithm;
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.JWTCreationException;
 
 @Entity
 public class User {
@@ -121,4 +132,89 @@ public class User {
         this.userPosts.add(newPost);
     }
 
+    public static ArrayList<User> list() {
+        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.getTransaction();
+
+        try (session) {
+            transaction.begin();
+
+            // Create HQL query to retrieve all users
+            String hql = "FROM User";
+            Query query = session.createQuery(hql, User.class);
+
+            // Execute the query and cast the results to a List of User objects
+            ArrayList<User> users = (ArrayList<User>) query.getResultList();
+
+            transaction.commit();
+            return users;
+        } catch (Exception e) {
+            e.printStackTrace();
+            transaction.rollback();
+            return null;
+        }
+    }
+
+    public static User getByUsername(String username) {
+        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.getTransaction();
+
+        try (session) {
+            transaction.begin();
+            String hql = "FROM User WHERE username = :username";
+            Query query = session.createQuery(hql, User.class);
+            query.setParameter("username", username);
+            User user = (User) query.getSingleResult();
+
+            transaction.commit();
+            return user;
+        } catch (Exception e) {
+            e.printStackTrace();
+            transaction.rollback();
+            return null;
+        }
+    }
+
+    public static void login(String username, String password) {
+        try {
+            User user = getByUsername(username);
+            boolean isEqual = User.comparePassword(password, user.getPassword());
+
+        } catch (NoSuchAlgorithmException | InvalidKeySpecException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private static boolean comparePassword(String userPassword, String storedHashedPassword) throws NoSuchAlgorithmException, InvalidKeySpecException {
+        // Assuming storedHashedPassword includes both salt and hash combined (adjust if needed)
+        byte[] salt = extractSalt(storedHashedPassword); // Extract salt from stored hash if necessary
+        byte[] hash = extractHash(storedHashedPassword); // Extract hash from stored hash if necessary
+
+        KeySpec spec = new PBEKeySpec(userPassword.toCharArray(), salt, 65536, 128);
+        SecretKeyFactory factory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA512");
+        byte[] userHashedPassword = factory.generateSecret(spec).getEncoded();
+
+        return Arrays.equals(hash, userHashedPassword); // Compare byte arrays for equality
+    }
+
+    private static String generateJwtToken(User user) {
+        // Replace 'your_secret_key' with your actual secret key
+        String secretKey = "your_secret_key";
+
+        // Use a JWT library (e.g., jjwt) for token generation
+        try {
+            Algorithm algorithm = Algorithm.HMAC256(secretKey);
+            String token = JWT.create()
+                    .withIssuer("your_issuer") // Replace with your issuer claim
+                    .withSubject(user.getUsername())
+                    .withIssuedAt(new Date())
+                    .withExpiresAt(new Date(System.currentTimeMillis() + JWTConstants.EXPIRATION_TIME))
+                    .sign(algorithm);
+            return token;
+        } catch (JWTCreationException e) {
+            throw new RuntimeException("Failed to generate JWT token", e);
+        }
+    }
 }

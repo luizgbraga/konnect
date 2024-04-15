@@ -9,41 +9,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="26bd33e0-0d88-4f79-950d-6880bb31939f" name="Changes" comment=""/>
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     <list default="true" id="26bd33e0-0d88-4f79-950d-6880bb31939f" name="Changes" comment="odeio java">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/social_network/server/HibernateUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/social_network/server/controllers/RegisterAPI.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/social_network/server/entities/ConnectsTo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/social_network/server/entities/ConnectsToPK.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/social_network/server/entities/Kn.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/social_network/server/entities/KnUser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/social_network/server/entities/KnUserPK.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/social_network/server/entities/Post.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/social_network/server/entities/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/social_network/server/utils/Status.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/web/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/server_war_exploded.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c0a6dd5d-23f2-40b7-a1ce-faeed089e68b.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/c0a6dd5d-23f2-40b7-a1ce-faeed089e68b.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/social_network/server/controllers/LoginAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/social_network/server/controllers/LoginAPI.java" afterDir="fals
-    <list default="true" id="26bd33e0-0d88-4f79-950d-6880bb31939f" name="Changes" comment="odeio java">
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/server_war_exploded.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/social_network/server/views/Register.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/social_network/server/views/Register.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/images/Konnect-logo.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/assets/images/Konnect-logo.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/home.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/styles/buttons.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/styles/buttons.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/styles/fonts.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/styles/fonts.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/styles/grid.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/styles/grid.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/styles/input.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/styles/input.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/styles/spacings.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/styles/spacings.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/login/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/login/login.jsp" afterDir="fals
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/registrate/registrate.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/registrate/registrate.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/social_network/server/controllers/LoginAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/social_network/server/controllers/LoginAPI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/social_network/server/entities/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/social_network/server/entities/User.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -90,60 +62,16 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Downloaded.Files.Path.Enabled": "false",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Tomcat Server.Tomcat 10.1.19.executor": "Run",
     "Tomcat Server.TomcatLocal.executor": "Run",
-    "git-widget-placeholder": "new-home",
-    "kotlin-language-version-configured": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Artifacts",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors",
-    "vue.rearranger.settings.migration": "true"
-  }
-}</component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Downloaded.Files.Path.Enabled": "false",
-    "JPA.DatabaseSchemaImportDialog": "c0a6dd5d-23f2-40b7-a1ce-faeed089e68b",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Tomcat Server.Tomcat 10.1.19.executor": "Run",
-    "Tomcat Server.TomcatLocal.executor": "Run",
+    "Tomcat Server.konnect.executor": "Run",
     "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "SQL Resolution Scopes",
-    "vue.rearranger.settings.migration": "true"
+    "node.js.selected.package.tslint": "(autodetect)"
   }
 }]]></component>
   <component name="RecentsManager">
