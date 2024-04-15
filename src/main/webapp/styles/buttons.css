@@ -1,0 +1,84 @@
+:root {
+  --white: #F9F9F9;
+  --black: #292929;
+  --gray: #F0F0F0;
+  --dark-gray: #7a7a7a;
+  --primary: #10436A;
+  --primary-hover: #308fd7;
+  --secondary: #5AA9E6;
+  --tertiary: #7FC8F8;
+  --quaternary: #ECF7FE;
+}
+
+.btn {
+  font-size: 18px;
+  padding: 12px 24px;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+.btn:link, .btn:visited, .btn:active, .btn:hover {
+  text-decoration: none;
+}
+
+.primary-btn {
+  color: #F9F9F9;
+  background-color: var(--primary);
+  transition: 0.3s;
+  text-decoration: none;
+}
+
+.primary-btn:hover {
+  background-color: var(--primary-hover);
+}
+
+.secondary-btn {
+  color: var(--primary);
+  transition: 0.3s;
+  text-decoration: none;
+}
+
+.secondary-btn:hover {
+  background-color: var(--gray);
+}
+
+.tertiary-btn {
+  color: var(--dark-gray);
+  transition: 0.3s;
+  text-decoration: none;
+}
+
+.tertiary-btn:hover {
+  background-color: var(--gray);
+  color: var(--primary);
+}
+
+.text-btn {
+  cursor: pointer;
+  transition: 0.3s;
+  text-decoration: none;
+}
+
+.text-btn:hover {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.text-btn:link, .text-btn:visited, .text-btn:active {
+  text-decoration: none;
+}
+
+.button {
+  display: block;
+  text-decoration: none;
+}
+
+.button:link, .button:visited, .button:active, .button:hover {
+  text-decoration: none;
+}
+
+.btn-ctn {
+  position: absolute;
+  bottom: 0px;
+  gap: 6px;
+}
