@@ -3,6 +3,7 @@ package com.social_network.server.controllers;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.NoSuchElementException;
 
 import com.social_network.server.HibernateUtil;
 import com.social_network.server.entities.User;
@@ -24,7 +25,8 @@ import org.json.JSONObject;
 public class LoginAPI extends HttpServlet {
     public void init() {}
   
-    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException,
+            NoSuchElementException {
         try {
             HashMap<String, String> parameters = this.getUserLoginParameters(request);
             String username = parameters.get("username");
@@ -32,9 +34,12 @@ public class LoginAPI extends HttpServlet {
             String userId = User.login(username, password);
             String responseMessage = this.getResponseMessage(userId);
             response.setStatus(201);
-            response.getOutputStream().println(responseMessage);
             response.setContentType("application/json");
-
+            response.getOutputStream().println(responseMessage);
+        } catch (NoSuchElementException e) {
+            response.setStatus(401);
+            response.setContentType("application/json");
+            response.getOutputStream().println("Username or password are incorrect");
         } finally {
 
         }
