@@ -167,7 +167,7 @@ public class User {
         try {
             User user = getByUsername(username);
             assert user != null;
-            if (user.verifyPassword(password)) {
+            if (!user.verifyPassword    (password)) {
                 throw new InputMismatchException();
             }
             return user.id;
