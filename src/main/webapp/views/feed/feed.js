@@ -7,6 +7,7 @@ const handleContentChange = (e) => {
     content = e.target.value;
 }
 
+
 const handleSubmit = () => {
     PostModel.post(content)
         .then((res) => {
@@ -66,8 +67,8 @@ class PostAPI extends API {
 
     async list(minDepth, maxDepth, searchFilter) {
         const userId = localStorage.getItem("id")
-        const body = JSON.stringify({ userId, minDepth, maxDepth, searchFilter });
-        return this.request('GET', '', null, body, null)
+        const query = `minDepth=${minDepth}&maxDepth=${maxDepth}&searchFilter=${searchFilter}&userId=ola`;
+        return this.request('GET', '', null, null, query)
     }
 }
 
@@ -84,3 +85,7 @@ class PostModel {
         return res;
     }
 }
+
+PostModel.list(2, 5, '').then((res) => {
+    console.log('goi')
+})

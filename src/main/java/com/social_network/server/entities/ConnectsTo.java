@@ -1,11 +1,16 @@
 package com.social_network.server.entities;
 
+import com.social_network.server.HibernateUtil;
 import com.social_network.server.utils.Status;
 import jakarta.persistence.*;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 
 import java.nio.ByteBuffer;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.UUID;
 
@@ -23,6 +28,14 @@ public class ConnectsTo {
         return id;
     }
 
+    public byte[] getUserFromId() {
+        return this.getId().getUserFromId();
+    }
+
+    public byte[] getUserToId() {
+        return this.getId().getUserToId();
+    }
+
     public void setId(ConnectsToPK id) {
         this.id = id;
     }
@@ -38,6 +51,26 @@ public class ConnectsTo {
     public ConnectsTo(byte[] userFromId, byte[] userToId) throws NoSuchAlgorithmException, InvalidKeySpecException {
         this.id.setUserFromId(userFromId);
         this.id.setUserToId(userToId);
+    }
+
+    public static ArrayList<ConnectsTo> list() {
+        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.getTransaction();
+
+        try (session) {
+            transaction.begin();
+            String hql = "FROM ConnectsTo";
+            Query query = session.createQuery(hql, ConnectsTo.class);
+            ArrayList<ConnectsTo> connections = (ArrayList<ConnectsTo>) query.getResultList();
+
+            transaction.commit();
+            return connections;
+        } catch (Exception e) {
+            e.printStackTrace();
+            transaction.rollback();
+            return null;
+        }
     }
 
 

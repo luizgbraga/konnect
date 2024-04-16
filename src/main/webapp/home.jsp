@@ -20,7 +20,7 @@
     <div class="flex flex-row align-center justify-center w-900 h-650">
       <div class="relative flex align-center justify-center w-400">
         <img class="absolute top-half left-half transform-half z-2" src="${pageContext.request.contextPath}/assets/images/konnect-logo-bg.svg" alt="logo-bg" width="460">
-        <img src="${pageContext.request.contextPath}/assets/images/konnect-logo.svg" alt="logo" width="300" class="z-3">
+        <img src="${pageContext.request.contextPath}/assets/images/Konnect-logo.svg" alt="logo" width="300" class="z-3">
       </div>
 
       <div class="flex flex-column align-center justify-center w-500 gap-18">
@@ -30,7 +30,7 @@
           <img src="${pageContext.request.contextPath}/assets/images/konnect-home-line.svg" alt="line">
         </div>
         <a href="login" class="button">
-          <div id="login-button" class="btn primary-btn">Entrar</div>
+          <div id="login-button" class="btn primary-btn">Entrar</div>|
         </a>
         <div class="flex flex-row gap-12">
           <p class="dark-gray">Não tem uma conta?</p>

@@ -37,14 +37,15 @@ public class PostAPI extends HttpServlet {
             transaction.begin();
             HashMap<String, String> parameters = this.getPostParameters(request);
 
-            Post post = new Post(parameters.get("content"));
+            Post post = new Post(parameters.get("content"), parameters.get("userId"));
             session.persist(post);
             if (!transaction.getStatus().equals(TransactionStatus.ACTIVE)) {
                 transaction.rollback();
                 throw new Exception();
             }
+            System.out.println(4);
             transaction.commit();
-            String responseMessage = this.getResponseMessage("User created successfully");
+            String responseMessage = this.getResponseMessage("Post created successfully");
             response.setStatus(201);
             response.getOutputStream().println(responseMessage);
             response.setContentType("application/json");
@@ -57,8 +58,17 @@ public class PostAPI extends HttpServlet {
         }
     }
 
-    public void doGet(HttpServletRequest request, HttpServletResponse response) {
-        // list all posts
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        Integer minDepthParam = Integer.parseInt(request.getParameter("minDepth"));
+        Integer maxDepthParam = Integer.parseInt(request.getParameter("maxDepth"));
+        String searchFilterParam = request.getParameter("searchFilter");
+        String userId = request.getParameter("userId");
+        ArrayList<Post> posts = Post.list(minDepthParam, maxDepthParam, userId, searchFilterParam);
+
+        String responseMessage = this.getResponseMessage(posts.toString());
+        response.setStatus(201);
+        response.getOutputStream().println(responseMessage);
+        response.setContentType("application/json");
     }
 
     public void doPut(HttpServletRequest request, HttpServletResponse response) {
@@ -82,11 +92,11 @@ public class PostAPI extends HttpServlet {
         }
         String jsonData = jsonDataBuilder.toString();
         JSONObject jsonObject = new JSONObject(jsonData);
-        String username = jsonObject.getString("username");
-        String password = jsonObject.getString("password");
+        String content = jsonObject.getString("content");
+        String userId = jsonObject.getString("userId");
         HashMap<String, String> parameters = new HashMap<String, String>();
-        parameters.put("username", username);
-        parameters.put("password", password);
+        parameters.put("content", content);
+        parameters.put("userId", userId);
         return parameters;
     }
 }
