@@ -32,12 +32,12 @@
       <div class="credentials-ctn relative flex flex-column align-end justify-center">
         <div class="credentials flex flex-column">
           <div class="forms">
-            <label for="email">Username</label>
-            <input id="email-input" type="text" placeholder="BigoLau">
+            <label for="username-input">Username</label>
+            <input id="username-input" type="text" placeholder="BigoLau">
           </div>
 
           <div class="forms">
-            <label for="password">Senha</label>
+            <label for="password-input">Senha</label>
             <input id="password-input" type="password" placeholder="*******">
           </div>
 
@@ -52,6 +52,4 @@
   </div>
 </body>
 <script type="module" src="${pageContext.request.contextPath}/views/login/login.js"></script>
-<script type="module" src="${pageContext.request.contextPath}/utils/model.js"></script>
-<script type="module" src="${pageContext.request.contextPath}/api/login.js"></script>
 </html>

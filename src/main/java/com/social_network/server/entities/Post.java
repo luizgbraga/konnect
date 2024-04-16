@@ -2,8 +2,16 @@ package com.social_network.server.entities;
 
 import jakarta.persistence.*;
 
+import javax.crypto.SecretKeyFactory;
+import javax.crypto.spec.PBEKeySpec;
+import java.nio.ByteBuffer;
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
+import java.security.spec.InvalidKeySpecException;
+import java.security.spec.KeySpec;
 import java.sql.Timestamp;
 import java.util.Arrays;
+import java.util.UUID;
 
 @Entity
 public class Post {
@@ -84,6 +92,17 @@ public class Post {
 
     public void setKnId(byte[] knId) {
         this.knId = knId;
+    }
+
+    public Post(String content) throws NoSuchAlgorithmException, InvalidKeySpecException {
+        this.content = content;
+
+        UUID uuid = UUID.randomUUID();
+        byte[] bytes = new byte[16];
+        ByteBuffer byteBuffer = ByteBuffer.wrap(bytes);
+        byteBuffer.putLong(uuid.getMostSignificantBits());
+        byteBuffer.putLong(uuid.getLeastSignificantBits());
+        this.id = bytes;
     }
 
     @Override

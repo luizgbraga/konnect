@@ -3,7 +3,11 @@ package com.social_network.server.entities;
 import com.social_network.server.utils.Status;
 import jakarta.persistence.*;
 
+import java.nio.ByteBuffer;
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
 import java.util.Arrays;
+import java.util.UUID;
 
 @Entity
 @jakarta.persistence.Table(name = "connects_to", schema = "konnect")
@@ -30,6 +34,12 @@ public class ConnectsTo {
     public void setStatus(Status status) {
         this.status = status;
     }
+
+    public ConnectsTo(byte[] userFromId, byte[] userToId) throws NoSuchAlgorithmException, InvalidKeySpecException {
+        this.id.setUserFromId(userFromId);
+        this.id.setUserToId(userToId);
+    }
+
 
     @Override
     public boolean equals(Object o) {

@@ -1,6 +1,6 @@
 const usernameInput = document.getElementById('username-input');
 const passwordInput = document.getElementById('password-input');
-const loginButton = document.getElementById('login-button');
+const registerButton = document.getElementById('register-button');
 
 let username = '';
 let password = '';
@@ -14,12 +14,10 @@ const handlePasswordChange = (e) => {
 }
 
 const handleSubmit = () => {
-    LoginModel.login(username, password)
+    console.log('ue')
+    LoginModel.register(username, password)
         .then((res) => {
-            console.log('funcionou')
             console.log(res);
-            localStorage.setItem("id", res.message)
-            window.location.replace('http://localhost:8080/server_war_exploded/feed')
         })
         .catch((err) => {
             console.log(err);
@@ -28,7 +26,7 @@ const handleSubmit = () => {
 
 usernameInput.addEventListener('input', handleUsernameChange);
 passwordInput.addEventListener('input', handlePasswordChange);
-loginButton.addEventListener('click', handleSubmit);
+registerButton.addEventListener('click', handleSubmit);
 
 class API {
     _route;
@@ -83,12 +81,13 @@ const api = new LoginAPI();
 class LoginModel {
     static async register(username, password) {
         const res = await api.register(username, password);
-        return res;
+        if (res.type === 'ERROR') throw new Error(res.cause);
+        return res.result;
     }
 
     static async login(username, password) {
         const res = await api.login(username, password);
-        console.log(res)
-        return res;
+        if (res.type === 'ERROR') throw new Error(res.cause);
+        return res.result;
     }
 }

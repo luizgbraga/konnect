@@ -27,12 +27,12 @@
       <div class="credentials-ctn relative flex flex-column align-end justify-center">
         <div class="credentials flex flex-column">
           <div class="forms">
-            <label for="email">Username</label>
-            <input id="email-input" type="text" placeholder="BigoLau">
+            <label for="username-input">Username</label>
+            <input id="username-input" type="text" placeholder="BigoLau">
           </div>
 
           <div class="forms">
-            <label for="password">Senha</label>
+            <label for="password-input">Senha</label>
             <input id="password-input" type="password" placeholder="*******">
           </div>
         </div>
@@ -40,11 +40,12 @@
         <div class="btn-ctn flex flex-row align-end">
           <a class="btn secondary-btn" href="${pageContext.request.contextPath}/login">Voltar</a>
   
-          <div id="login-button" class="btn primary-btn register">Cadastrar</div>
+          <div id="register-button" class="btn primary-btn register">Cadastrar</div>
         </div>
       </div>
     </div>
   </div>
 </body>
-<script src="login.js"></script>
+
+<script type="module" src="${pageContext.request.contextPath}/views/register/register.js"></script>
 </html>

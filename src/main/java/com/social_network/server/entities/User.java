@@ -19,11 +19,6 @@ import java.util.*;
 
 import java.util.Date;
 
-// Assuming you're using jjwt for JWT token generation
-import io.jsonwebtoken.Algorithm;
-import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.JWTCreationException;
-
 @Entity
 public class User {
     @Id
@@ -177,26 +172,18 @@ public class User {
         }
     }
 
-    public static void login(String username, String password) {
+    public static String login(String username, String password) {
         try {
             User user = getByUsername(username);
-            boolean isEqual = User.comparePassword(password, user.getPassword());
+            return user.id.toString();
+            //User.comparePassword(password, user.getPassword());
 
-        } catch (NoSuchAlgorithmException | InvalidKeySpecException e) {
-            throw new RuntimeException(e);
-        }
+        } finally {}
     }
 
     private static boolean comparePassword(String userPassword, String storedHashedPassword) throws NoSuchAlgorithmException, InvalidKeySpecException {
         // Assuming storedHashedPassword includes both salt and hash combined (adjust if needed)
-        byte[] salt = extractSalt(storedHashedPassword); // Extract salt from stored hash if necessary
-        byte[] hash = extractHash(storedHashedPassword); // Extract hash from stored hash if necessary
-
-        KeySpec spec = new PBEKeySpec(userPassword.toCharArray(), salt, 65536, 128);
-        SecretKeyFactory factory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA512");
-        byte[] userHashedPassword = factory.generateSecret(spec).getEncoded();
-
-        return Arrays.equals(hash, userHashedPassword); // Compare byte arrays for equality
+       return true;
     }
 
     private static String generateJwtToken(User user) {
@@ -204,17 +191,6 @@ public class User {
         String secretKey = "your_secret_key";
 
         // Use a JWT library (e.g., jjwt) for token generation
-        try {
-            Algorithm algorithm = Algorithm.HMAC256(secretKey);
-            String token = JWT.create()
-                    .withIssuer("your_issuer") // Replace with your issuer claim
-                    .withSubject(user.getUsername())
-                    .withIssuedAt(new Date())
-                    .withExpiresAt(new Date(System.currentTimeMillis() + JWTConstants.EXPIRATION_TIME))
-                    .sign(algorithm);
-            return token;
-        } catch (JWTCreationException e) {
-            throw new RuntimeException("Failed to generate JWT token", e);
-        }
+        return "token";
     }
 }
