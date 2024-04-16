@@ -13,6 +13,7 @@ import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.KeySpec;
+import java.security.MessageDigest;
 import java.sql.Time;
 import java.sql.Timestamp;
 import java.util.*;
@@ -73,14 +74,7 @@ public class User {
 
     public User(String username, String password) throws NoSuchAlgorithmException, InvalidKeySpecException {
         this.username = username;
-
-        SecureRandom random = new SecureRandom();
-        byte[] salt = new byte[16];
-        random.nextBytes(salt);
-        KeySpec spec = new PBEKeySpec(password.toCharArray(), salt, 65536, 128);
-        SecretKeyFactory factory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA512");
-        byte[] hash = factory.generateSecret(spec).getEncoded();
-        this.password = hash.toString();
+        this.password = hashPassword(password);
 
         UUID uuid = UUID.randomUUID();
         byte[] bytes = new byte[16];
@@ -151,7 +145,7 @@ public class User {
         }
     }
 
-    public static User getByUsername(String username) {
+    public static User getByUsername(String username) throws NoResultException{
         SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
         Session session = sessionFactory.openSession();
         Transaction transaction = session.getTransaction();
@@ -175,15 +169,21 @@ public class User {
     public static String login(String username, String password) {
         try {
             User user = getByUsername(username);
-            return user.id.toString();
-            //User.comparePassword(password, user.getPassword());
-
-        } finally {}
+            assert user != null;
+            if (user.verifyPassword(password)) {
+                throw new InputMismatchException();
+            }
+            return Arrays.toString(user.id);
+        } catch (NoResultException e) {
+            throw new NoSuchElementException();
+        } catch (NoSuchAlgorithmException | InvalidKeySpecException e) {
+            throw new RuntimeException(e);
+        }
     }
 
-    private static boolean comparePassword(String userPassword, String storedHashedPassword) throws NoSuchAlgorithmException, InvalidKeySpecException {
-        // Assuming storedHashedPassword includes both salt and hash combined (adjust if needed)
-       return true;
+    public boolean verifyPassword(String enteredPassword) throws NoSuchAlgorithmException, InvalidKeySpecException {
+        String enteredPasswordHash = hashPassword(enteredPassword);
+        return this.password.equals(enteredPasswordHash);
     }
 
     private static String generateJwtToken(User user) {
@@ -192,5 +192,21 @@ public class User {
 
         // Use a JWT library (e.g., jjwt) for token generation
         return "token";
+    }
+
+    public static String hashPassword(String password) throws NoSuchAlgorithmException {
+        MessageDigest digest = MessageDigest.getInstance("SHA-256");
+        byte[] hashBytes = digest.digest(password.getBytes());
+
+        // Convert the byte array to a hexadecimal string
+        StringBuilder hexString = new StringBuilder();
+        for (byte hashByte : hashBytes) {
+            String hex = Integer.toHexString(0xff & hashByte);
+            if (hex.length() == 1) {
+                hexString.append('0');
+            }
+            hexString.append(hex);
+        }
+        return hexString.toString();
     }
 }
