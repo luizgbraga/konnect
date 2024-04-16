@@ -39,7 +39,7 @@ class API {
             'Content-Type': 'application/json',
             ...(token && { Authorization: token }),
         };
-        const res = await fetch(`${this._route}/${path}${qp}`, {
+        const res = await fetch(`${this._route}${path}${qp}`, {
             method,
             headers,
             body,
@@ -63,6 +63,12 @@ class PostAPI extends API {
         const body = JSON.stringify({ userId, content });
         return this.request('POST', '', null, body, null);
     }
+
+    async list(minDepth, maxDepth, searchFilter) {
+        const userId = localStorage.getItem("id")
+        const body = JSON.stringify({ userId, minDepth, maxDepth, searchFilter });
+        return this.request('GET', '', null, body, null)
+    }
 }
 
 const api = new PostAPI();
@@ -70,6 +76,11 @@ const api = new PostAPI();
 class PostModel {
     static async post(content) {
         const res = await api.post(content);
+        return res;
+    }
+
+    static async list(minDepth, maxDepth, searchFilter) {
+        const res = await api.list(minDepth, maxDepth, searchFilter)
         return res;
     }
 }

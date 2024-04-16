@@ -9,29 +9,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="80ca8c64-5ce5-4eb4-94e5-3b7e53d8253a" name="Changes" comment="kindof working">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/social_network/server/controllers/ConnectionAPI.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/social_network/server/controllers/GroupAPI.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/social_network/server/controllers/PostAPI.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/social_network/server/views/Feed.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/register/register.js" afterDir="false" />
+    <list default="true" id="80ca8c64-5ce5-4eb4-94e5-3b7e53d8253a" name="Changes" comment="wip">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/social_network/server/HibernateUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/social_network/server/HibernateUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/social_network/server/controllers/LoginAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/social_network/server/controllers/LoginAPI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/social_network/server/entities/ConnectsTo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/social_network/server/entities/ConnectsTo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/social_network/server/entities/Post.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/social_network/server/entities/Post.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/social_network/server/entities/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/social_network/server/entities/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/api/login.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/utils/api.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/utils/model.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/utils/storage.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/views/feed/feed.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/feed/feed.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/feed/feed.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/feed/feed.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/views/login/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/login/login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/login/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/login/login.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/register/register.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/register/register.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/register/register.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/register/register.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,7 +67,7 @@
   "keyToString": {
     "Tomcat Server.Tomcat 10.1.19.executor": "Run",
     "Tomcat Server.TomcatLocal.executor": "Run",
-    "git-widget-placeholder": "backend",
+    "git-widget-placeholder": "posts",
     "node.js.selected.package.tslint": "(autodetect)"
   }
 }]]></component>
@@ -225,7 +207,8 @@
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
     <MESSAGE value="odeio java" />
-    <option name="LAST_COMMIT_MESSAGE" value="odeio java" />
+    <MESSAGE value="wip" />
+    <option name="LAST_COMMIT_MESSAGE" value="wip" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
