@@ -18,7 +18,7 @@
   <div class="background-ctn">
     <div class="login-box box-shadow">
       <div class="greetings-ctn relative flex flex-column align-start justify-center">
-        <a href="home.jsp">
+        <a href="${pageContext.request.contextPath}/home">
           <img class="absolute top-12 title" src="${pageContext.request.contextPath}/assets/images/konnect-logo.svg" alt="logo" width="48">
         </a>
         <p class="big-title">Seja bem-vindo ao Konnect</p>
@@ -30,23 +30,25 @@
       </div>
   
       <div class="credentials-ctn relative flex flex-column align-end justify-center">
-        <div class="credentials flex flex-column">
-          <div class="forms flex-column align-start justify-center">
-            <label for="username-input">Username</label>
-            <input id="username-input" type="text" placeholder="BigoLau">
+        <form id="login-form" method="post" action="${pageContext.request.contextPath}/login">
+          <div class="credentials flex flex-column">
+            <div class="forms flex-column align-start justify-center">
+              <label for="username-input">Username</label>
+              <input id="username-input" name="username" type="text" placeholder="BigoLau">
+            </div>
+  
+            <div class="forms flex-column align-start justify-center">
+              <label for="password-input">Senha</label>
+              <input id="password-input" name="password" type="password" placeholder="*******">
+            </div>
+  
+            <div class="reset-password">
+              <p class="text-btn small-title dark-gray">Esqueceu a senha?</p>
+            </div>
           </div>
-
-          <div class="forms flex-column align-start justify-center">
-            <label for="password-input">Senha</label>
-            <input id="password-input" type="password" placeholder="*******">
-          </div>
-
-          <div class="reset-password">
-            <p class="text-btn small-title dark-gray">Esqueceu a senha?</p>
-          </div>
-        </div>
-
-        <div id="login-button" class="btn primary-btn login">Entrar</div>
+  
+          <button id="login-button" type="submit" class="btn primary-btn login">Entrar</button>
+        </form>
       </div>
     </div>
   </div>

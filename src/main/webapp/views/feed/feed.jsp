@@ -23,15 +23,35 @@
     <!-- Header -->
     <div class="flex w-full max-w-660 pt-12 pb-12 " id="header">
       <div class="flex flex-row align-center justify-between w-full">
-        <a href="home.jsp">
+        <a href="${pageContext.request.contextPath}/home">
           <img class="dark-gray" src="${pageContext.request.contextPath}/assets/images/konnect-logo.svg" alt="logo" width="36">
         </a>
         <div class="flex flex-row align-center justify-center gap-12">
           Diogo Laurindo
-          <img class="dark-gray pointer" src="${pageContext.request.contextPath}/assets/images/konnect-options.svg" alt="logo" width="24">
+          <img class="dark-gray pointer" src="${pageContext.request.contextPath}/assets/images/konnect-options.svg" alt="options" width="24">
         </div>
       </div>
     </div>
+
+    <!-- Degree selector -->
+    <div class="flex w-full max-w-660 flex-row align-center justify-between gap-12">
+      <div class="flex flex-row align-center gap-24">
+        <div class="body dark-gray">Grau mínimo</div>
+        <div class="flex flex-row align-center gap-6">
+          <img id="min-minus-btn" class="pointer" src="${pageContext.request.contextPath}/assets/images/konnect-minus.svg" alt="min-minus" width="24">
+          <div id="min-degree" class="dark-gray"><p>1</p></div>
+          <img id="min-plus-btn" class="pointer" src="${pageContext.request.contextPath}/assets/images/konnect-plus.svg" alt="min-plus" width="24">
+        </div>
+      </div>
+
+      <div class="flex flex-row align-center gap-24">
+        <div class="flex flex-row align-center gap-6">
+          <img id="max-minus-btn" class="pointer" src="${pageContext.request.contextPath}/assets/images/konnect-minus.svg" alt="max-minus" width="24">
+          <div id="max-degree" class="dark-gray"><p>1</p></div>
+          <img id="max-plus-btn" class="pointer" src="${pageContext.request.contextPath}/assets/images/konnect-plus.svg" alt="max-plus" width="24">
+        </div>
+        <div class="body dark-gray">Grau máximo</div>
+      </div>    </div>
 
     <!-- Search bar -->
     <div class="flex w-full max-w-660 flex-column align-center" id="left-sidebar">
