@@ -67,25 +67,15 @@ class LoginAPI extends API {
         super(`${API_URL}/user`);
     }
 
-    async register(username, password) {
-        const body = JSON.stringify({ username, password });
-        return this.request('POST', 'register', null, body, null);
-    }
-
     async login(username, password) {
         const body = JSON.stringify({ username, password });
-        return this.request('POST', 'login', null, body, null);
+        return this.request('POST', '/login', null, body, null);
     }
 }
 
 const api = new LoginAPI();
 
 class LoginModel {
-    static async register(username, password) {
-        const res = await api.register(username, password);
-        return res;
-    }
-
     static async login(username, password) {
         const res = await api.login(username, password);
         console.log(res)

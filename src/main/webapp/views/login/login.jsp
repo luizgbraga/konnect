@@ -31,12 +31,12 @@
   
       <div class="credentials-ctn relative flex flex-column align-end justify-center">
         <div class="credentials flex flex-column">
-          <div class="forms">
+          <div class="forms flex-column align-start justify-center">
             <label for="username-input">Username</label>
             <input id="username-input" type="text" placeholder="BigoLau">
           </div>
 
-          <div class="forms">
+          <div class="forms flex-column align-start justify-center">
             <label for="password-input">Senha</label>
             <input id="password-input" type="password" placeholder="*******">
           </div>

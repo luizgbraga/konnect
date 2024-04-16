@@ -1,6 +1,11 @@
 package com.social_network.server.entities;
 
+import com.social_network.server.HibernateUtil;
+import com.social_network.server.utils.Graph;
 import jakarta.persistence.*;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.PBEKeySpec;
@@ -10,7 +15,9 @@ import java.security.SecureRandom;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.KeySpec;
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -94,8 +101,9 @@ public class Post {
         this.knId = knId;
     }
 
-    public Post(String content) throws NoSuchAlgorithmException, InvalidKeySpecException {
+    public Post(String content, String userId) throws NoSuchAlgorithmException, InvalidKeySpecException {
         this.content = content;
+        this.userId = userId.getBytes();
 
         UUID uuid = UUID.randomUUID();
         byte[] bytes = new byte[16];
@@ -104,6 +112,37 @@ public class Post {
         byteBuffer.putLong(uuid.getLeastSignificantBits());
         this.id = bytes;
     }
+
+    public static ArrayList<Post> list(Integer minDepth, Integer maxDepth, String userId, String searchFilter) {
+        ArrayList<ConnectsTo> connections = ConnectsTo.list();
+        Graph graph = new Graph(connections);
+        List<Graph.NodeDepthPair> users = graph.findNodesWithinDepthRange(userId.getBytes(), minDepth, maxDepth);
+        List<String> userIds = new ArrayList<>();
+
+        for (Graph.NodeDepthPair user : users) {
+            userIds.add(new String(user.getNodeId()));
+        }
+        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.getTransaction();
+
+        try (session) {
+            System.out.println(userIds);
+            transaction.begin();
+            String hql = "FROM Post WHERE userId IN (:userIds)";
+            Query query = session.createQuery(hql, Post.class);
+            query.setParameter("userIds", userIds);
+            ArrayList<Post> posts = (ArrayList<Post>) query.getResultList();
+
+            transaction.commit();
+            return posts;
+        } catch (Exception e) {
+            e.printStackTrace();
+            transaction.rollback();
+            return null;
+        }
+    }
+
 
     @Override
     public boolean equals(Object o) {
