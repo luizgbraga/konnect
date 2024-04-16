@@ -17,6 +17,13 @@
   cursor: pointer;
 }
 
+.post-btn {
+  font-size: 18px;
+  padding: 8px 12px;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
 .btn:link, .btn:visited, .btn:active, .btn:hover {
   text-decoration: none;
 }
@@ -81,4 +88,44 @@
   position: absolute;
   bottom: 0px;
   gap: 6px;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.border-gray {
+  border: 1px solid var(--gray);
+}
+
+.border-primary {
+  border: 1px solid var(--primary);
+}
+
+.border-secondary {
+  border: 1px solid var(--secondary);
+}
+
+.border-tertiary {
+  border: 1px solid var(--tertiary);
+}
+
+.border-quaternary {
+  border: 1px solid var(--quaternary);
+}
+
+.border-black {
+  border: 1px solid var(--black);
+}
+
+.border-white {
+  border: 1px solid var(--white);
+}
+
+.border-dark-gray {
+  border: 1px solid var(--dark-gray);
+}
+
+.box-shadow {
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }

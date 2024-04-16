@@ -50,6 +50,10 @@
   align-items: space-around;
 }
 
+.justify-evenly {
+  align-items: space-evenly;
+}
+
 .gap-0 {
   gap: 0;
 }
@@ -90,6 +94,10 @@
   width: 900px;
 }
 
+.w-third {
+  width: 33.33%;
+}
+
 .w-quarter {
   width: 25%;
 }
@@ -114,8 +122,16 @@
   width: calc(100% - 288px);
 }
 
+.max-w-660 {
+  max-width: 660px;
+}
+
 .min-h-100vh {
   min-height: 100vh;
+}
+
+.min-h-100 {
+  min-height: 100px;
 }
 
 .h-650 {
@@ -136,4 +152,8 @@
 
 .h-vh {
   height: 100vh;
+}
+
+.h-fit-content {
+  height: fit-content;
 }
