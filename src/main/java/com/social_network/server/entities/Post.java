@@ -18,7 +18,7 @@ public class Post {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "id")
-    private byte[] id;
+    private String id;
     @Basic
     @Column(name = "upvotes")
     private Integer upvotes;
@@ -30,19 +30,23 @@ public class Post {
     private Timestamp createdAt;
     @Basic
     @Column(name = "user_id")
-    private byte[] userId;
+    private String userId;
     @Basic
     @Column(name = "content")
     private String content;
     @Basic
     @Column(name = "kn_id")
-    private byte[] knId;
+    private String knId;
 
-    public byte[] getId() {
+    public Post() {
+
+    }
+
+    public String getId() {
         return id;
     }
 
-    public void setId(byte[] id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -70,11 +74,11 @@ public class Post {
         this.createdAt = createdAt;
     }
 
-    public byte[] getUserId() {
+    public String getUserId() {
         return userId;
     }
 
-    public void setUserId(byte[] userId) {
+    public void setUserId(String userId) {
         this.userId = userId;
     }
 
@@ -86,11 +90,11 @@ public class Post {
         this.content = content;
     }
 
-    public byte[] getKnId() {
+    public String getKnId() {
         return knId;
     }
 
-    public void setKnId(byte[] knId) {
+    public void setKnId(String knId) {
         this.knId = knId;
     }
 
@@ -98,11 +102,7 @@ public class Post {
         this.content = content;
 
         UUID uuid = UUID.randomUUID();
-        byte[] bytes = new byte[16];
-        ByteBuffer byteBuffer = ByteBuffer.wrap(bytes);
-        byteBuffer.putLong(uuid.getMostSignificantBits());
-        byteBuffer.putLong(uuid.getLeastSignificantBits());
-        this.id = bytes;
+        this.id = uuid.toString();
     }
 
     @Override
@@ -112,26 +112,26 @@ public class Post {
 
         Post post = (Post) o;
 
-        if (!Arrays.equals(id, post.id)) return false;
+        if (!id.equals(post.id)) return false;
         if (upvotes != null ? !upvotes.equals(post.upvotes) : post.upvotes != null) return false;
         if (downvotes != null ? !downvotes.equals(post.downvotes) : post.downvotes != null) return false;
         if (createdAt != null ? !createdAt.equals(post.createdAt) : post.createdAt != null) return false;
-        if (!Arrays.equals(userId, post.userId)) return false;
+        if (!userId.equals(post.userId)) return false;
         if (content != null ? !content.equals(post.content) : post.content != null) return false;
-        if (!Arrays.equals(knId, post.knId)) return false;
+        if (!knId.equals(post.knId)) return false;
 
         return true;
     }
 
     @Override
     public int hashCode() {
-        int result = Arrays.hashCode(id);
+        int result = id.hashCode();
         result = 31 * result + (upvotes != null ? upvotes.hashCode() : 0);
         result = 31 * result + (downvotes != null ? downvotes.hashCode() : 0);
         result = 31 * result + (createdAt != null ? createdAt.hashCode() : 0);
-        result = 31 * result + Arrays.hashCode(userId);
+        result = 31 * result + userId.hashCode();
         result = 31 * result + (content != null ? content.hashCode() : 0);
-        result = 31 * result + Arrays.hashCode(knId);
+        result = 31 * result + knId.hashCode();
         return result;
     }
 }

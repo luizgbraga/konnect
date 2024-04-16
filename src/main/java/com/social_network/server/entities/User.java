@@ -24,7 +24,7 @@ import java.util.Date;
 public class User {
     @Id
     @Column(name = "id")
-    private byte[] id;
+    private String id;
     @Basic
     @Column(name = "username")
     private String username;
@@ -37,11 +37,11 @@ public class User {
     @OneToMany(mappedBy = "userId")
     private Collection<Post> userPosts;
 
-    public byte[] getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(byte[] id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -77,11 +77,7 @@ public class User {
         this.password = hashPassword(password);
 
         UUID uuid = UUID.randomUUID();
-        byte[] bytes = new byte[16];
-        ByteBuffer byteBuffer = ByteBuffer.wrap(bytes);
-        byteBuffer.putLong(uuid.getMostSignificantBits());
-        byteBuffer.putLong(uuid.getLeastSignificantBits());
-        this.id = bytes;
+        this.id = uuid.toString();
     }
 
     @PrePersist
@@ -96,7 +92,7 @@ public class User {
 
         User user = (User) o;
 
-        if (!Arrays.equals(id, user.id)) return false;
+        if (!id.equals(user.id)) return false;
         if (username != null ? !username.equals(user.username) : user.username != null) return false;
         if (password != null ? !password.equals(user.password) : user.password != null) return false;
         if (createdAt != null ? !createdAt.equals(user.createdAt) : user.createdAt != null) return false;
@@ -106,7 +102,7 @@ public class User {
 
     @Override
     public int hashCode() {
-        int result = Arrays.hashCode(id);
+        int result = id.hashCode();
         result = 31 * result + (username != null ? username.hashCode() : 0);
         result = 31 * result + (password != null ? password.hashCode() : 0);
         result = 31 * result + (createdAt != null ? createdAt.hashCode() : 0);
@@ -173,7 +169,7 @@ public class User {
             if (user.verifyPassword(password)) {
                 throw new InputMismatchException();
             }
-            return Arrays.toString(user.id);
+            return user.id;
         } catch (NoResultException e) {
             throw new NoSuchElementException();
         } catch (NoSuchAlgorithmException | InvalidKeySpecException e) {

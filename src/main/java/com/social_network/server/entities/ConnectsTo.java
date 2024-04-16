@@ -35,7 +35,7 @@ public class ConnectsTo {
         this.status = status;
     }
 
-    public ConnectsTo(byte[] userFromId, byte[] userToId) throws NoSuchAlgorithmException, InvalidKeySpecException {
+    public ConnectsTo(String userFromId, String userToId) throws NoSuchAlgorithmException, InvalidKeySpecException {
         this.id.setUserFromId(userFromId);
         this.id.setUserToId(userToId);
     }
@@ -48,8 +48,8 @@ public class ConnectsTo {
 
         ConnectsTo that = (ConnectsTo) o;
 
-        if (!Arrays.equals(id.getUserFromId(), that.id.getUserFromId())) return false;
-        if (!Arrays.equals(id.getUserToId(), that.id.getUserToId())) return false;
+        if (!id.getUserFromId().equals(that.id.getUserFromId())) return false;
+        if (!id.getUserToId().equals(that.id.getUserToId())) return false;
         if (status != null ? !status.equals(that.status) : that.status != null) return false;
 
         return true;
@@ -57,8 +57,8 @@ public class ConnectsTo {
 
     @Override
     public int hashCode() {
-        int result = Arrays.hashCode(id.getUserFromId());
-        result = 31 * result + Arrays.hashCode(id.getUserToId());
+        int result = id.getUserFromId().hashCode();
+        result = 31 * result + id.getUserToId().hashCode();
         result = 31 * result + (status != null ? status.hashCode() : 0);
         return result;
     }
