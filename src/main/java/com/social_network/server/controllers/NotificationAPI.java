@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import com.social_network.server.HibernateUtil;
+import com.social_network.server.entities.ConnectsTo;
 import com.social_network.server.entities.Post;
 import com.social_network.server.entities.User;
 import jakarta.persistence.EntityManager;
@@ -24,48 +25,15 @@ import org.hibernate.Transaction;
 import org.hibernate.resource.transaction.spi.TransactionStatus;
 import org.json.JSONObject;
 
-@WebServlet(name = "post-api", value = "/api/post")
-public class PostAPI extends HttpServlet {
+@WebServlet(name = "notification-api", value = "/api/notification")
+public class NotificationAPI extends HttpServlet {
     public void init() {}
 
-    public void doPost(HttpServletRequest request, HttpServletResponse response) {
-        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
-        Session session = sessionFactory.openSession();
-        Transaction transaction = session.getTransaction();
-
-        try (session) {
-            transaction.begin();
-            HashMap<String, String> parameters = this.getPostParameters(request);
-
-            Post post = new Post(parameters.get("content"), parameters.get("userId"));
-            session.persist(post);
-            if (!transaction.getStatus().equals(TransactionStatus.ACTIVE)) {
-                transaction.rollback();
-                throw new Exception();
-            }
-            System.out.println(4);
-            transaction.commit();
-            String responseMessage = this.getResponseMessage("Post created successfully");
-            response.setStatus(201);
-            response.getOutputStream().println(responseMessage);
-            response.setContentType("application/json");
-        } catch (NoSuchAlgorithmException | InvalidKeySpecException e) {
-            transaction.rollback();
-            throw new RuntimeException(e);
-        } catch (Exception e) {
-            transaction.rollback();
-            e.printStackTrace();
-        }
-    }
-
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        Integer minDepthParam = Integer.parseInt(request.getParameter("minDepth"));
-        Integer maxDepthParam = Integer.parseInt(request.getParameter("maxDepth"));
-        String searchFilterParam = request.getParameter("searchFilter");
         String userId = request.getParameter("userId");
-        ArrayList<Post> posts = Post.list(minDepthParam, maxDepthParam, userId, searchFilterParam);
+        ArrayList<ConnectsTo> connections = ConnectsTo.notifications(userId);
 
-        String responseMessage = this.getResponseMessage(posts.toString());
+        String responseMessage = this.getResponseMessage(connections.toString());
         response.setStatus(201);
         response.getOutputStream().println(responseMessage);
         response.setContentType("application/json");

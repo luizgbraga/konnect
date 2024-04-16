@@ -5,11 +5,13 @@ import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import com.social_network.server.HibernateUtil;
 import com.social_network.server.entities.ConnectsTo;
 import com.social_network.server.entities.Post;
 import com.social_network.server.entities.User;
+import com.social_network.server.utils.Status;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.Persistence;
@@ -38,14 +40,14 @@ public class ConnectionAPI extends HttpServlet {
             transaction.begin();
             HashMap<String, String> parameters = this.getCreateConnectionParameters(request);
 
-//            ConnectsTo connection = new ConnectsTo(parameters.get("userFromId"), parameters.get("userToId"));
-//            session.persist(connection);
+            ConnectsTo connection = new ConnectsTo(parameters.get("userFromId"), parameters.get("userToId"));
+            session.persist(connection);
             if (!transaction.getStatus().equals(TransactionStatus.ACTIVE)) {
                 transaction.rollback();
                 throw new Exception();
             }
             transaction.commit();
-            String responseMessage = this.getResponseMessage("User created successfully");
+            String responseMessage = this.getResponseMessage("Connection created successfully");
             response.setStatus(201);
             response.getOutputStream().println(responseMessage);
             response.setContentType("application/json");
@@ -59,7 +61,47 @@ public class ConnectionAPI extends HttpServlet {
     }
 
     public void doPut(HttpServletRequest request, HttpServletResponse response) {
-        // accept connection
+        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.getTransaction();
+
+        try (session) {
+            transaction.begin();
+            HashMap<String, String> parameters = this.getCreateConnectionParameters(request);
+
+            String userFromId = parameters.get("userFromId");
+            String userToId = parameters.get("userToId");
+
+            ConnectsTo connection = ConnectsTo.get(userFromId, userToId);
+            connection.setStatus(Status.valueOf("active"));
+            session.merge(connection); // Use merge to update detached entity
+            if (!transaction.getStatus().equals(TransactionStatus.ACTIVE)) {
+                transaction.rollback();
+                throw new Exception();
+            }
+            transaction.commit();
+            String responseMessage = this.getResponseMessage("Connection updated successfully");
+            response.setStatus(200);
+            response.getOutputStream().println(responseMessage);
+            response.setContentType("application/json");
+        } catch (NoSuchAlgorithmException | InvalidKeySpecException e) {
+            transaction.rollback();
+            throw new RuntimeException(e);
+        } catch (Exception e) {
+            transaction.rollback();
+            e.printStackTrace();
+        }
+    }
+
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        String userId = request.getParameter("userId");
+        String searchFilter = request.getParameter("searchFilter");
+        List<Object[]> users = ConnectsTo.getUsers(userId, searchFilter);
+
+        String responseMessage = this.getResponseMessage(users.toString());
+        response.setStatus(201);
+        response.getOutputStream().println(responseMessage);
+        response.setContentType("application/json");
     }
 
     public void destroy() {
@@ -79,11 +121,27 @@ public class ConnectionAPI extends HttpServlet {
         }
         String jsonData = jsonDataBuilder.toString();
         JSONObject jsonObject = new JSONObject(jsonData);
-        String username = jsonObject.getString("username");
-        String password = jsonObject.getString("password");
+        String userFromId = jsonObject.getString("userFromId");
+        String userToId = jsonObject.getString("userToId");
         HashMap<String, String> parameters = new HashMap<String, String>();
-        parameters.put("username", username);
-        parameters.put("password", password);
+        parameters.put("userFromId", userFromId);
+        parameters.put("userToId", userToId);
+        return parameters;
+    }
+
+    private HashMap<String, String> getAcceptConnectionParameters(HttpServletRequest request) throws IOException {
+        StringBuilder jsonDataBuilder = new StringBuilder();
+        String line;
+        while ((line = request.getReader().readLine()) != null) {
+            jsonDataBuilder.append(line);
+        }
+        String jsonData = jsonDataBuilder.toString();
+        JSONObject jsonObject = new JSONObject(jsonData);
+        String userFromId = jsonObject.getString("userFromId");
+        String userToId = jsonObject.getString("userToId");
+        HashMap<String, String> parameters = new HashMap<String, String>();
+        parameters.put("userFromId", userFromId);
+        parameters.put("userToId", userToId);
         return parameters;
     }
 }
