@@ -1,3 +1,4 @@
+/* Colors variables */
 :root {
   --white: #F9F9F9;
   --black: #292929;
@@ -10,9 +11,9 @@
   --quaternary: #ECF7FE;
 }
 
-.btn {
-  font-size: 18px;
-  padding: 12px 24px;
+.sm-btn {
+  font-size: 14px;
+  padding: 6px 12px;
   border-radius: 30px;
   cursor: pointer;
 }
@@ -20,6 +21,13 @@
 .post-btn {
   font-size: 18px;
   padding: 8px 12px;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+.btn {
+  font-size: 18px;
+  padding: 12px 24px;
   border-radius: 30px;
   cursor: pointer;
 }

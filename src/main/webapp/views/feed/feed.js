@@ -1,7 +1,19 @@
 const contentInput = document.getElementById('content-input');
 const postButton = document.getElementById('post-button');
 
+// Get the elements for minimum degree counter
+const minMinusBtn = document.getElementById("min-minus-btn");
+const minPlusBtn = document.getElementById("min-plus-btn");
+const minDegreeDisplay = document.getElementById("min-degree");
+
+// Get the elements for maximum degree counter
+const maxMinusBtn = document.getElementById("max-minus-btn");
+const maxPlusBtn = document.getElementById("max-plus-btn");
+const maxDegreeDisplay = document.getElementById("max-degree");
+
 let content = '';
+let minDegree = 1;
+let maxDegree = 1;
 
 const handleContentChange = (e) => {
     content = e.target.value;
@@ -19,8 +31,60 @@ const handleSubmit = () => {
         });
 }
 
+const updateMinDegree = () => {
+    minDegreeDisplay.textContent = minDegree;
+}
+
+const updateMaxDegree = () => {
+    maxDegreeDisplay.textContent = maxDegree;
+}
+
+const handleMinMinusClick = () => {
+    if (minDegree > 1) {
+        minDegree--;
+        updateMinDegree();
+        if (maxDegree < minDegree) {
+            maxDegree = minDegree;
+            updateMaxDegree();
+        }
+    }
+}
+
+const handleMinPlusClick = () => {
+    minDegree++;
+    updateMinDegree();
+}
+
+const handleMaxMinusClick = () => {
+    if (maxDegree > 1) {
+        maxDegree--;
+        updateMaxDegree();
+    }
+}
+
+const handleMaxPlusClick = () => {
+    maxDegree++;
+    updateMaxDegree();
+}
+
 contentInput.addEventListener('input', handleContentChange);
 postButton.addEventListener('click', handleSubmit);
+minMinusBtn.addEventListener('click', () => {
+    handleMinMinusClick();
+    updateMinDegree();
+});
+minPlusBtn.addEventListener('click', () => {
+    handleMinPlusClick();
+    updateMinDegree();
+});
+maxMinusBtn.addEventListener('click', () => {
+    handleMaxMinusClick();
+    updateMaxDegree();
+});
+maxPlusBtn.addEventListener('click', () => {
+    handleMaxPlusClick();
+    updateMaxDegree();
+});
 
 class API {
     _route;

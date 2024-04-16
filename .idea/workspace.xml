@@ -9,19 +9,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="80ca8c64-5ce5-4eb4-94e5-3b7e53d8253a" name="Changes" comment="kindof working">
+    <list default="true" id="cb60a3d3-73c1-4260-86af-63ef93732f59" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/c0a6dd5d-23f2-40b7-a1ce-faeed089e68b.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/c0a6dd5d-23f2-40b7-a1ce-faeed089e68b.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/social_network/server/controllers/LoginAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/social_network/server/controllers/LoginAPI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/social_network/server/entities/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/social_network/server/entities/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" afterDir="false" />
-    <list default="true" id="80ca8c64-5ce5-4eb4-94e5-3b7e53d8253a" name="Changes" comment="post de post n funciona">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/social_network/server/controllers/NotificationAPI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/social_network/server/controllers/ConnectionAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/social_network/server/controllers/ConnectionAPI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/social_network/server/entities/ConnectsTo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/social_network/server/entities/ConnectsTo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/home.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/home.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/home.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/styles/buttons.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/styles/buttons.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/feed/feed.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/feed/feed.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/feed/feed.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/feed/feed.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/login/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/login/login.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/register/register.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/register/register.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,17 +75,16 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
     "Tomcat Server.Tomcat 10.1.19.executor": "Run",
-    "Tomcat Server.TomcatLocal.executor": "Run",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "move-home",
     "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "vue.rearranger.settings.migration": "true"
-    "git-widget-placeholder": "posts",
-    "node.js.selected.package.tslint": "(autodetect)"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -103,6 +101,7 @@
   </component>
   <component name="RunManager">
     <configuration name="Tomcat 10.1.19" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 10.1.19" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
+      <option name="BROWSER_ID" value="e5120d43-2c3f-47ef-9f26-65e539e05186" />
       <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
         <artifact name="server:war exploded">
@@ -189,13 +188,6 @@
         </option>
       </method>
     </configuration>
-  </component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="jdk-21.0.2-openjdk-21.0.2-4caba194b151-4f524021" />
-      </set>
-    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
