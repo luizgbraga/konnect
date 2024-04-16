@@ -9,29 +9,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="80ca8c64-5ce5-4eb4-94e5-3b7e53d8253a" name="Changes" comment="kindof working">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/social_network/server/controllers/ConnectionAPI.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/social_network/server/controllers/GroupAPI.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/social_network/server/controllers/PostAPI.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/social_network/server/views/Feed.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/register/register.js" afterDir="false" />
+    <list default="true" id="80ca8c64-5ce5-4eb4-94e5-3b7e53d8253a" name="Changes" comment="post de post n funciona">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/social_network/server/controllers/NotificationAPI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/social_network/server/HibernateUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/social_network/server/HibernateUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/social_network/server/controllers/LoginAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/social_network/server/controllers/LoginAPI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/social_network/server/controllers/ConnectionAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/social_network/server/controllers/ConnectionAPI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/social_network/server/entities/ConnectsTo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/social_network/server/entities/ConnectsTo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/social_network/server/entities/Post.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/social_network/server/entities/Post.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/social_network/server/entities/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/social_network/server/entities/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/api/login.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/utils/api.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/utils/model.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/utils/storage.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/feed/feed.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/feed/feed.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/feed/feed.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/feed/feed.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/login/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/login/login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/login/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/login/login.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/register/register.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/register/register.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,7 +67,7 @@
   "keyToString": {
     "Tomcat Server.Tomcat 10.1.19.executor": "Run",
     "Tomcat Server.TomcatLocal.executor": "Run",
-    "git-widget-placeholder": "backend",
+    "git-widget-placeholder": "posts",
     "node.js.selected.package.tslint": "(autodetect)"
   }
 }]]></component>
@@ -214,7 +196,23 @@
       <workItem from="1711453207873" duration="3083000" />
       <workItem from="1713110580244" duration="23827000" />
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="first modifications">
+      <option name="closed" value="true" />
+      <created>1713268514312</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1713268514312</updated>
+    </task>
+    <task id="LOCAL-00003" summary="post de post n funciona">
+      <option name="closed" value="true" />
+      <created>1713281469055</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1713281469055</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -225,7 +223,10 @@
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
     <MESSAGE value="odeio java" />
-    <option name="LAST_COMMIT_MESSAGE" value="odeio java" />
+    <MESSAGE value="wip" />
+    <MESSAGE value="first modifications" />
+    <MESSAGE value="post de post n funciona" />
+    <option name="LAST_COMMIT_MESSAGE" value="post de post n funciona" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
