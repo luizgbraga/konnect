@@ -1,6 +1,8 @@
 const contentInput = document.getElementById('content-input');
 const postButton = document.getElementById('post-button');
 
+const feedContainer = document.getElementById(('feed-container'))
+
 let content = '';
 
 const handleContentChange = (e) => {
@@ -86,6 +88,6 @@ class PostModel {
     }
 }
 
-PostModel.list(2, 5, '').then((res) => {
-    console.log('goi')
+PostModel.list(0, 5, '').then((res) => {
+    feedContainer.innerHTML += "<p>qualfoi</p>"
 })

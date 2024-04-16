@@ -14,10 +14,10 @@ const handlePasswordChange = (e) => {
 }
 
 const handleSubmit = () => {
+    document.body.style.filter = "brightness(50%)";
     LoginModel.login(username, password)
         .then((res) => {
-            console.log('funcionou')
-            console.log(res);
+            document.body.style.filter = "brightness(100%)";
             localStorage.setItem("id", res.message)
             window.location.replace('http://localhost:8080/server_war_exploded/feed')
         })

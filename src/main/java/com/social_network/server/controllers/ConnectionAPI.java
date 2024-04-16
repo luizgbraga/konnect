@@ -27,7 +27,7 @@ import org.hibernate.Transaction;
 import org.hibernate.resource.transaction.spi.TransactionStatus;
 import org.json.JSONObject;
 
-@WebServlet(name = "connection-api", value = "/api/user/connection")
+@WebServlet(name = "connection-api", value = "/api/connection")
 public class ConnectionAPI extends HttpServlet {
     public void init() {}
 
@@ -40,20 +40,21 @@ public class ConnectionAPI extends HttpServlet {
             transaction.begin();
             HashMap<String, String> parameters = this.getCreateConnectionParameters(request);
 
-            ConnectsTo connection = new ConnectsTo(parameters.get("userFromId"), parameters.get("userToId"));
+            String userFromId = parameters.get("userFromId");
+            String userToId = parameters.get("userToId");
+            System.out.println(userFromId);
+            System.out.println(userToId);
+            ConnectsTo connection = new ConnectsTo(userFromId, userToId);
+            System.out.println(connection.getStatus());
+            System.out.println(connection.getId());
             session.persist(connection);
-            if (!transaction.getStatus().equals(TransactionStatus.ACTIVE)) {
-                transaction.rollback();
-                throw new Exception();
-            }
+
             transaction.commit();
             String responseMessage = this.getResponseMessage("Connection created successfully");
             response.setStatus(201);
             response.getOutputStream().println(responseMessage);
             response.setContentType("application/json");
-        } catch (NoSuchAlgorithmException | InvalidKeySpecException e) {
-            transaction.rollback();
-            throw new RuntimeException(e);
+
         } catch (Exception e) {
             transaction.rollback();
             e.printStackTrace();
@@ -96,9 +97,22 @@ public class ConnectionAPI extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String userId = request.getParameter("userId");
         String searchFilter = request.getParameter("searchFilter");
-        List<Object[]> users = ConnectsTo.getUsers(userId, searchFilter);
+        ArrayList<User> users = User.list(searchFilter);
+        StringBuilder responseBuilder = new StringBuilder();
+        responseBuilder.append("[");
+        for (User user : users) {
+            // Constructing JSON-like representation for each user
+            responseBuilder.append("{")
+                    .append("\"id\": \"").append(user.getId()).append("\", ")
+                    .append("\"username\": \"").append(user.getUsername()).append("\"")
+                    .append("}, ");
+        }
+        if (!users.isEmpty()) {
+            responseBuilder.delete(responseBuilder.length() - 2, responseBuilder.length());
+        }
 
-        String responseMessage = this.getResponseMessage(users.toString());
+        responseBuilder.append("]"); // End of JSON array
+        String responseMessage = this.getResponseMessage(responseBuilder.toString());
         response.setStatus(201);
         response.getOutputStream().println(responseMessage);
         response.setContentType("application/json");

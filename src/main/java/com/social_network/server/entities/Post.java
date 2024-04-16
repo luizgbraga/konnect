@@ -22,7 +22,6 @@ import java.util.UUID;
 
 @Entity
 public class Post {
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "id")
     private String id;
@@ -44,10 +43,6 @@ public class Post {
     @Basic
     @Column(name = "kn_id")
     private String knId;
-
-    public Post() {
-
-    }
 
     public String getId() {
         return id;

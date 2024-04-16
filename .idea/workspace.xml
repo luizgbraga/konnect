@@ -9,21 +9,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="80ca8c64-5ce5-4eb4-94e5-3b7e53d8253a" name="Changes" comment="kindof working">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c0a6dd5d-23f2-40b7-a1ce-faeed089e68b.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/c0a6dd5d-23f2-40b7-a1ce-faeed089e68b.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/social_network/server/entities/Post.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/social_network/server/entities/Post.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/social_network/server/entities/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/social_network/server/entities/User.java" afterDir="false" />
-<<<<<<< HEAD
-=======
-      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" afterDir="false" />
-    <list default="true" id="80ca8c64-5ce5-4eb4-94e5-3b7e53d8253a" name="Changes" comment="post de post n funciona">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/social_network/server/controllers/NotificationAPI.java" afterDir="false" />
+    <list default="true" id="5d537cde-9ab9-4317-83fa-c5918c7f2eb0" name="Changes" comment="connects to sem kn">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/social_network/server/controllers/ConnectionAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/social_network/server/controllers/ConnectionAPI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/social_network/server/controllers/PostAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/social_network/server/controllers/PostAPI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/social_network/server/controllers/RegisterAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/social_network/server/controllers/RegisterAPI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/social_network/server/entities/ConnectsTo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/social_network/server/entities/ConnectsTo.java" afterDir="false" />
->>>>>>> 74f04ae85a54fb74594fdf1a852466fab68d2dfa
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/social_network/server/entities/Post.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/social_network/server/entities/Post.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/social_network/server/entities/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/social_network/server/entities/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/feed/feed.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/feed/feed.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/feed/feed.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/feed/feed.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/login/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/login/login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/register/register.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/register/register.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,17 +76,8 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
     "Tomcat Server.Tomcat 10.1.19.executor": "Run",
-    "Tomcat Server.TomcatLocal.executor": "Run",
     "git-widget-placeholder": "login-api",
-    "kotlin-language-version-configured": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
-    "git-widget-placeholder": "posts",
     "node.js.selected.package.tslint": "(autodetect)"
   }
 }]]></component>
@@ -192,13 +182,6 @@
       </method>
     </configuration>
   </component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="jdk-21.0.2-openjdk-21.0.2-4caba194b151-4f524021" />
-      </set>
-    </attachedChunks>
-  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -263,11 +246,6 @@
           <properties class="java.lang.IllegalStateException" package="java.lang" />
           <option name="timeStamp" value="4" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/social_network/server/entities/User.java</url>
-          <line>206</line>
-          <option name="timeStamp" value="12" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

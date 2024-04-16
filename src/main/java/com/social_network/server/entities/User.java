@@ -117,7 +117,7 @@ public class User {
         this.userPosts.add(newPost);
     }
 
-    public static ArrayList<User> list() {
+    public static ArrayList<User> list(String searchFilter) {
         SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
         Session session = sessionFactory.openSession();
         Transaction transaction = session.getTransaction();
@@ -128,6 +128,7 @@ public class User {
             // Create HQL query to retrieve all users
             String hql = "FROM User";
             Query query = session.createQuery(hql, User.class);
+      //      query.setParameter("searchFilter", searchFilter);
 
             // Execute the query and cast the results to a List of User objects
             ArrayList<User> users = (ArrayList<User>) query.getResultList();

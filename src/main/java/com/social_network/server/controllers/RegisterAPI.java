@@ -37,7 +37,7 @@ public class RegisterAPI extends HttpServlet {
                 throw new Exception();
             }
             transaction.commit();
-            String responseMessage = this.getResponseMessage("User created successfully");
+            String responseMessage = this.getResponseMessage(user.getId());
             response.setStatus(201);
             response.getOutputStream().println(responseMessage);
             response.setContentType("application/json");

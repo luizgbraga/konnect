@@ -36,7 +36,7 @@
     <!-- Search bar -->
     <div class="flex w-full max-w-660 flex-column align-center" id="left-sidebar">
       <div class="forms flex-row align-center w-half relative">
-        <input id="username-search" type="text" placeholder="BragaLindo">
+        <input id="search-input" type="text" placeholder="BragaLindo">
         <img class="absolute pointer gray right-12" src="${pageContext.request.contextPath}/assets/images/konnect-search-gray.svg" alt="search" width="24">
       </div>
     </div>
@@ -46,18 +46,18 @@
       <div class="forms">
         <input class="flex w-full min-h-100 h-fit-content box-shadow" id="content-input" type="text" placeholder="Escreva sua mensagem aqui">
       </div>
-      <a href="home.jsp" class="btn primary-btn">Postar</a>
+      <a id="post-button" class="btn primary-btn">Postar</a>
     </div>
 
     <!-- Feed -->
     <div class="flex w-full max-w-660" id="feed-container">
-      <div class="">
-        
-      </div>
     </div>
+      <div class="flex w-full max-w-660" id="users-container">
+      </div>
 
   </div>
 
 </body>
 <script type="module" src="${pageContext.request.contextPath}/views/feed/feed.js"></script>
+<script type="module" src="${pageContext.request.contextPath}/views/feed/connection.js"></script>
 </html>

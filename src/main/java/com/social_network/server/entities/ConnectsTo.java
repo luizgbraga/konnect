@@ -50,9 +50,9 @@ public class ConnectsTo {
     }
 
     public ConnectsTo(String userFromId, String userToId) throws NoSuchAlgorithmException, InvalidKeySpecException {
-        this.id.setUserFromId(userFromId);
-        this.id.setUserToId(userToId);
+        this.id = new ConnectsToPK(userFromId, userToId);
         this.status = Status.valueOf("pending");
+        System.out.println(this.id);
     }
 
     public static ConnectsTo get(String userFromId, String userToId) {
@@ -106,10 +106,9 @@ public class ConnectsTo {
         try (session) {
             transaction.begin();
             String hql = "SELECT u, c.status FROM ConnectsTo c " +
-                    "INNER JOIN User u ON c.id.userToId = u.id " +
-                    "WHERE c.id.userFromId = :userId AND u.username = :searchFilter";
+                    "LEFT JOIN User u ON c.id.userToId = u.id " +
+                    "WHERE u.username ilike :searchFilter";
             Query query = session.createQuery(hql);
-            query.setParameter("userId", userId);
             query.setParameter("searchFilter", searchFilter);
             List<Object[]> results = query.getResultList();
 
