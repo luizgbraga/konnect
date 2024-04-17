@@ -45,7 +45,7 @@ class NotificationAPI extends API {
 
     async accept(userFromId) {
         const userToId = localStorage.getItem("id")
-        const query = `userFromId=${userFromId}&userToId=${userToId};`
+        const query = `userFromId=${userFromId}&userToId=${userToId}`
         return this.request('PUT', '', null, null, query);
     }
 }

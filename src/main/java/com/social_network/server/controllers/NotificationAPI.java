@@ -58,10 +58,8 @@ public class NotificationAPI extends HttpServlet {
 
         try (session) {
             transaction.begin();
-            HashMap<String, String> parameters = this.getUpdateConnectionParameters(request);
-            System.out.println(parameters);
-            String userFromId = parameters.get("userFromId");
-            String userToId = parameters.get("userToId");
+            String userFromId = request.getParameter("userFromId");
+            String userToId = request.getParameter("userToId");
             System.out.println(userFromId);
             System.out.println(userToId);
 

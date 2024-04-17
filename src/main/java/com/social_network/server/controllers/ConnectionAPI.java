@@ -44,7 +44,7 @@ public class ConnectionAPI extends HttpServlet {
             String userToId = parameters.get("userToId");
             ConnectsTo connection = new ConnectsTo(userFromId, userToId);
             ConnectsTo.checkGroups();
-
+            session.persist(connection);
             transaction.commit();
             String responseMessage = this.getResponseMessage("Connection created successfully");
             response.setStatus(201);
