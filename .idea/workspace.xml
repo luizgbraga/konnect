@@ -9,21 +9,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5d537cde-9ab9-4317-83fa-c5918c7f2eb0" name="Changes" comment="fdp">
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/styles/global.css" afterDir="false" />
+    <list default="true" id="5d537cde-9ab9-4317-83fa-c5918c7f2eb0" name="Changes" comment="merge">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/social_network/server/controllers/LoginAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/social_network/server/controllers/LoginAPI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/social_network/server/controllers/RegisterAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/social_network/server/controllers/RegisterAPI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/social_network/server/entities/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/social_network/server/entities/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/images/Konnect-logo.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/assets/images/konnect-logo.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/home.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/styles/spacings.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/styles/spacings.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/feed/feed.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/feed/feed.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/social_network/server/views/Home.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/social_network/server/views/Home.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/views/feed/feed.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/feed/feed.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/login/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/login/login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/login/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/login/login.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/register/register.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/register/register.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/register/register.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/register/register.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,14 +65,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Tomcat Server.Tomcat 10.1.19.executor": "Run",
-    "git-widget-placeholder": "login-api",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.selected.package.tslint": "(autodetect)"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Tomcat Server.Tomcat 10.1.19.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;login-api&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/webapp/assets/images" />
@@ -249,7 +238,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713311635556</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="merge">
+      <option name="closed" value="true" />
+      <created>1713316220110</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1713316220110</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -265,7 +262,9 @@
     <MESSAGE value="post de post n funciona" />
     <MESSAGE value="wip" />
     <MESSAGE value="fdp" />
-    <option name="LAST_COMMIT_MESSAGE" value="fdp" />
+    <MESSAGE value="tabomvai" />
+    <MESSAGE value="merge" />
+    <option name="LAST_COMMIT_MESSAGE" value="merge" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

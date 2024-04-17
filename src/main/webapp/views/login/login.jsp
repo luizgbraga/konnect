@@ -19,7 +19,7 @@
   <div class="background-ctn">
     <div class="login-box box-shadow">
       <div class="greetings-ctn relative flex flex-column align-start justify-center">
-        <a href="home.jsp">
+        <a href="${pageContext.request.contextPath}/home">
           <img class="absolute top-12 title" src="${pageContext.request.contextPath}/assets/images/konnect-logo.svg" alt="logo" width="48">
         </a>
         <p class="big-title bolder">Seja bem-vindo ao Konnect</p>
