@@ -100,6 +100,8 @@ public class Post {
         this.knId = knId;
     }
 
+    public Post() {}
+
     public Post(String content, String userId) throws NoSuchAlgorithmException, InvalidKeySpecException {
         this.content = content;
         this.userId = userId;
@@ -169,7 +171,7 @@ public class Post {
         result = 31 * result + (createdAt != null ? createdAt.hashCode() : 0);
         result = 31 * result + userId.hashCode();
         result = 31 * result + (content != null ? content.hashCode() : 0);
-        result = 31 * result + knId.hashCode();
+        result = 31 * result + (knId != null ? knId.hashCode() : 0);
         return result;
     }
 }

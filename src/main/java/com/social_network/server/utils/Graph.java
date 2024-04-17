@@ -12,6 +12,32 @@ public class Graph {
         buildAdjacencyList(connections);
     }
 
+    public List<List<String>> findKn(int n) {
+        List<List<String>> result = new ArrayList<>();
+        List<String> current = new ArrayList<>();
+        for (String nodeId : adjacencyList.keySet()) {
+            current.add(nodeId);
+            findCompleteSubgraphs(nodeId, n, 1, current, result);
+            current.clear();
+        }
+        return result;
+    }
+
+    private void findCompleteSubgraphs(String currentNode, int n, int depth, List<String> current, List<List<String>> result) {
+        if (depth == n) {
+            result.add(new ArrayList<>(current));
+            return;
+        }
+
+        for (String neighbor : adjacencyList.getOrDefault(currentNode, new ArrayList<>())) {
+            if (!current.contains(neighbor)) {
+                current.add(neighbor);
+                findCompleteSubgraphs(neighbor, n, depth + 1, current, result);
+                current.remove(current.size() - 1);
+            }
+        }
+    }
+
     private void buildAdjacencyList(List<ConnectsTo> connections) {
         for (ConnectsTo connection : connections) {
             String userFromId = connection.getUserFromId();

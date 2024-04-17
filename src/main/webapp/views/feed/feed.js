@@ -168,9 +168,16 @@ class PostModel {
 }
 
 PostModel.list(0, 5).then((res) => {
-    feedContainer.innerHTML += `
-    <div className="box-shadow w-full p-12 flex justify-between align-center">
-        <p>ppppika</p>
-    </div>
-   `
+    const posts = JSON.parse(res.message)
+    console.log(posts);
+    for (const post of posts) {
+            const postElement = document.createElement("div");
+            postElement.classList.add("box-shadow", "w-full", "p-12", "flex", "justify-between", "align-center");
+            postElement.innerHTML = `
+                <p>${post.content}</p>
+            `;
+
+
+            feedContainer.appendChild(postElement);
+    }
 })

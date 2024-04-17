@@ -2,6 +2,8 @@ package com.social_network.server.entities;
 
 import jakarta.persistence.*;
 
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
 import java.util.Arrays;
 
 @Entity
@@ -21,6 +23,12 @@ public class KnUser {
 
         return true;
     }
+
+    public KnUser(String userId, String knId) throws NoSuchAlgorithmException, InvalidKeySpecException {
+        this.id = new KnUserPK(userId, knId);
+    }
+
+    public KnUser() {}
 
     @Override
     public int hashCode() {
