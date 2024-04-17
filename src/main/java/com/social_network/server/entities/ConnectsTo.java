@@ -198,11 +198,12 @@ public class ConnectsTo {
 
         try (session) {
             transaction.begin();
-            String hql = "FROM ConnectsTo WHERE id.userFromId = :userFromId AND id.userToId = :userToId";
+            ConnectsToPK id = new ConnectsToPK(userFromId,userToId);
+            String hql = "FROM ConnectsTo WHERE id.userFromId = :userFromId and id.userToId = :userToId";
             Query query = session.createQuery(hql, ConnectsTo.class);
-            query.setParameter("userFromId", userFromId);
-            query.setParameter("userToId", userToId);
-            ConnectsTo connection = (ConnectsTo) query.getSingleResult();
+            query.setParameter("userFromId", id.getUserFromId());
+            query.setParameter("userToId", id.getUserToId());
+            ConnectsTo connection = (ConnectsTo) query.getResultList().get(0);
 
             transaction.commit();
             return connection;

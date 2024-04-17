@@ -10,7 +10,6 @@ import java.util.UUID;
 
 @Entity
 public class Kn {
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @jakarta.persistence.Column(name = "id")
     private String id;
