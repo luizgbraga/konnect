@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Konnect</title>
   <link rel="stylesheet" href="home.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/global.css">
   <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/accounts.css">
   <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/background.css">
   <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/buttons.css">
@@ -20,7 +21,7 @@
     <div class="flex flex-row align-center justify-center w-900 h-650">
       <div class="relative flex align-center justify-center w-400">
         <img class="absolute top-half left-half transform-half z-2" src="${pageContext.request.contextPath}/assets/images/konnect-logo-bg.svg" alt="logo-bg" width="460">
-        <img src="${pageContext.request.contextPath}/assets/images/Konnect-logo.svg" alt="logo" width="300" class="z-3">
+        <img src="${pageContext.request.contextPath}/assets/images/konnect-logo.svg" alt="logo" width="300" class="z-3">
       </div>
 
       <div class="flex flex-column align-center justify-center w-500 gap-18">

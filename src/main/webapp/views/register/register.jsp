@@ -7,6 +7,7 @@
   <title>Konnect - register</title>
   <link rel="stylesheet" href="register.css">
   <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/accounts.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/global.css">
   <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/input.css">
   <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/fonts.css">
   <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/spacings.css">
@@ -21,19 +22,25 @@
         <a href="home.jsp">
           <img class="absolute top-12 title" src="${pageContext.request.contextPath}/assets/images/konnect-logo.svg" alt="logo" width="48">
         </a>
-        <p class="big-title">Crie sua conta</p>
+        <p class="big-title bolder">Crie sua conta</p>
+        <p class="body mt-12 primary">Acompanhe os posts somente de quem interessa. Sem mais.</p>
+
+        <div class="create-account absolute flex flex-row">
+          <p>Ficou interessado?</p>
+          <a class="text-btn primary" href="${pageContext.request.contextPath}/register">Saiba mais sobre nós</a>
+        </div>
       </div>
   
       <div class="credentials-ctn relative flex flex-column align-end justify-center">
         <div class="credentials flex flex-column">
-          <div class="forms">
+          <div class="forms flex-column align-start justify-center">
             <label for="username-input">Username</label>
-            <input id="username-input" type="text" placeholder="BigoLau">
+            <input id="username-input" type="text" placeholder="Escolha um nome">
           </div>
 
-          <div class="forms">
+          <div class="forms flex-column align-start justify-center">
             <label for="password-input">Senha</label>
-            <input id="password-input" type="password" placeholder="*******">
+            <input id="password-input" type="password" placeholder="Insira pelo menos 6 caracteres">
           </div>
         </div>
 

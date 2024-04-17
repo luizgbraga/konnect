@@ -18,7 +18,9 @@ const handleSubmit = () => {
     LoginModel.login(username, password)
         .then((res) => {
             document.body.style.filter = "brightness(100%)";
-            localStorage.setItem("id", res.message)
+            const user = JSON.parse(res.message)
+            localStorage.setItem("id", user.id)
+            localStorage.setItem("username", user.username)
             window.location.replace('http://localhost:8080/server_war_exploded/feed')
         })
         .catch((err) => {

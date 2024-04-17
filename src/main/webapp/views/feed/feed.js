@@ -3,6 +3,8 @@ const postButton = document.getElementById('post-button');
 
 const feedContainer = document.getElementById(('feed-container'))
 
+document.getElementById("username").innerHTML += localStorage.getItem("username")
+
 let content = '';
 
 const handleContentChange = (e) => {

@@ -163,14 +163,14 @@ public class User {
         }
     }
 
-    public static String login(String username, String password) {
+    public static User login(String username, String password) {
         try {
             User user = getByUsername(username);
             assert user != null;
             if (!user.verifyPassword    (password)) {
                 throw new InputMismatchException();
             }
-            return user.id;
+            return user;
         } catch (NoResultException e) {
             throw new NoSuchElementException();
         } catch (NoSuchAlgorithmException | InvalidKeySpecException e) {
