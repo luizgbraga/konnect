@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import com.social_network.server.HibernateUtil;
+import com.social_network.server.entities.ConnectsTo;
 import com.social_network.server.entities.Post;
 import com.social_network.server.entities.User;
 import jakarta.persistence.*;
@@ -58,8 +59,24 @@ public class PostAPI extends HttpServlet {
         Integer maxDepthParam = Integer.parseInt(request.getParameter("maxDepth"));
         String userId = request.getParameter("userId");
         ArrayList<Post> posts = Post.list(minDepthParam, maxDepthParam, userId);
+        StringBuilder responseBuilder = new StringBuilder();
+        responseBuilder.append("[");
+        for (Post post : posts) {
+            // Constructing JSON-like representation for each user
+            responseBuilder.append("{")
+                    .append("\"id\": \"").append(post.getId()).append("\", ")
+                    .append("\"content\": \"").append(post.getContent()).append("\", ")
+                    .append("\"userId\": \"").append(post.getUserId()).append("\", ")
+                    .append("\"upvotes\": \"").append(post.getUpvotes()).append("\", ")
+                    .append("\"downvotes\": \"").append(post.getDownvotes()).append("\" ")
+                    .append("}, ");
+        }
+        if (!posts.isEmpty()) {
+            responseBuilder.delete(responseBuilder.length() - 2, responseBuilder.length());
+        }
 
-        String responseMessage = this.getResponseMessage(posts.toString());
+        responseBuilder.append("]"); // End of JSON array
+        String responseMessage = this.getResponseMessage(responseBuilder.toString());
         response.setStatus(201);
         response.getOutputStream().println(responseMessage);
         response.setContentType("application/json");

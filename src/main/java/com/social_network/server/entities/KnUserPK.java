@@ -29,6 +29,13 @@ public class KnUserPK implements Serializable {
         this.knId = knId;
     }
 
+    public KnUserPK() {}
+
+    public KnUserPK(String userId, String knId) {
+        this.userId = userId;
+        this.knId = knId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
