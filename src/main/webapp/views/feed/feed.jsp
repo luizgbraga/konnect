@@ -62,15 +62,15 @@
     <!-- Post new message -->
     <div class="flex w-full max-w-660 flex-column align-end gap-18" id="new-message-container">
       <div class="forms">
-        <input class="flex w-full min-h-100 h-fit-content box-shadow" id="content-input" type="text" placeholder="O que você está pensando?">
+        <input class="flex w-full min-h-60 h-fit-content box-shadow" id="content-input" type="text" placeholder="O que você está pensando?">
       </div>
       <a id="post-button" class="btn primary-btn">Postar</a>
     </div>
 
     <!-- Feed -->
-    <div class="flex flex-column gap-6 w-full max-w-660" id="feed-container">
+    <div class="flex flex-column gap-18 w-full max-w-660" id="feed-container">
     </div>
-      <div class="flex flex-column gap-6 w-full max-w-660" id="users-container">
+      <div class="flex flex-column gap-18 w-full max-w-660" id="users-container">
       </div>
 
   </div>

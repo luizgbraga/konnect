@@ -172,12 +172,38 @@ PostModel.list(0, 5).then((res) => {
     console.log(posts);
     for (const post of posts) {
             const postElement = document.createElement("div");
-            postElement.classList.add("box-shadow", "w-full", "p-12", "flex", "justify-between", "align-center");
-            postElement.innerHTML = `
-                <p>${post.content}</p>
-            `;
+            postElement.classList.add("flex", "box-shadow", "w-full", "border-default", "bg-white");
+
+            const postElementContainer = document.createElement("div");
+            postElementContainer.classList.add("flex", "flex-column", "w-full", "gap-12", "pl-18", "pr-18", "pt-18", "pb-18");
+
+            const usernameElement = document.createElement("div");
+            usernameElement.classList.add("flex", "w-full", "sm-body", "dark-gray");
+            usernameElement.innerHTML = post.id;
+
+            const postContent = document.createElement("div");
+            postContent.classList.add("flex", "w-full", "body", "black", "pt-6", "pb-6");
+            postContent.innerHTML = post.content;
+
+            const interactionsContainer = document.createElement("div");
+            interactionsContainer.classList.add("flex", "w-full", "gap-12", "flex-row", "justify-start", "align-center");
+
+            const likeButton = document.createElement("div");
+            likeButton.classList.add("flex", "sm-body", "nunito",  "button", "small-btn", "primary-btn");
+            likeButton.innerHTML = "Gostei";
+
+            const dislikeButton = document.createElement("div");
+            dislikeButton.classList.add("flex", "sm-body", "nunito",  "button", "small-btn", "secondary-btn");
+            dislikeButton.innerHTML = "Não gostei";
 
 
+            interactionsContainer.appendChild(likeButton);
+            interactionsContainer.appendChild(dislikeButton);
+            postElementContainer.appendChild(usernameElement);
+            postElementContainer.appendChild(postContent);
+            postElementContainer.appendChild(interactionsContainer);
+            postElement.appendChild(postElementContainer);
+            
             feedContainer.appendChild(postElement);
     }
 })

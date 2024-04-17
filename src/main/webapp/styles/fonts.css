@@ -25,6 +25,10 @@
   font-family: "Golos Text", sans-serif;
 }
 
+.sm-body {
+  font-size: 14px;
+}
+
 .body {
   font-size: 18px;
 }
