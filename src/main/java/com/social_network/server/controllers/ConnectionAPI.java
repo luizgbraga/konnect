@@ -42,13 +42,8 @@ public class ConnectionAPI extends HttpServlet {
 
             String userFromId = parameters.get("userFromId");
             String userToId = parameters.get("userToId");
-            System.out.println(userFromId);
-            System.out.println(userToId);
             ConnectsTo connection = new ConnectsTo(userFromId, userToId);
             ConnectsTo.checkGroups();
-            System.out.println(connection.getStatus());
-            System.out.println(connection.getId());
-            session.persist(connection);
 
             transaction.commit();
             String responseMessage = this.getResponseMessage("Connection created successfully");
@@ -56,39 +51,6 @@ public class ConnectionAPI extends HttpServlet {
             response.getOutputStream().println(responseMessage);
             response.setContentType("application/json");
 
-        } catch (Exception e) {
-            transaction.rollback();
-            e.printStackTrace();
-        }
-    }
-
-    public void doPut(HttpServletRequest request, HttpServletResponse response) {
-        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
-        Session session = sessionFactory.openSession();
-        Transaction transaction = session.getTransaction();
-
-        try (session) {
-            transaction.begin();
-            HashMap<String, String> parameters = this.getCreateConnectionParameters(request);
-
-            String userFromId = parameters.get("userFromId");
-            String userToId = parameters.get("userToId");
-
-            ConnectsTo connection = ConnectsTo.get(userFromId, userToId);
-            connection.setStatus("active");
-            session.merge(connection); // Use merge to update detached entity
-            if (!transaction.getStatus().equals(TransactionStatus.ACTIVE)) {
-                transaction.rollback();
-                throw new Exception();
-            }
-            transaction.commit();
-            String responseMessage = this.getResponseMessage("Connection updated successfully");
-            response.setStatus(200);
-            response.getOutputStream().println(responseMessage);
-            response.setContentType("application/json");
-        } catch (NoSuchAlgorithmException | InvalidKeySpecException e) {
-            transaction.rollback();
-            throw new RuntimeException(e);
         } catch (Exception e) {
             transaction.rollback();
             e.printStackTrace();

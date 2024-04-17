@@ -114,9 +114,7 @@ public class Post {
 
     public static ArrayList<Post> list(Integer minDepth, Integer maxDepth, String userId) {
         ArrayList<ConnectsTo> connections = ConnectsTo.list();
-        System.out.println(connections);
         Graph graph = new Graph(connections);
-        System.out.println(graph);
         List<Graph.NodeDepthPair> users = graph.findNodesWithinDepthRange(userId, minDepth, maxDepth);
         List<String> userIds = new ArrayList<>();
 

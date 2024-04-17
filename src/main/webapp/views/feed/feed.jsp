@@ -20,6 +20,9 @@
 <!-- <label for="content-input">Content</label>
 <input id="content-input" type="text" placeholder="content">
 <div id="post-button" class="btn primary-btn login">Post</div> -->
+    <div id="notifications-container" class="absolute right-12 top-36 w-400">
+
+    </div>
   <div class="flex flex-column align-center w-vw h-vh bg-white pl-24 pr-24 gap-24">
     <!-- Header -->
     <div class="flex w-full max-w-660 pt-12 pb-12 " id="header">
@@ -29,7 +32,6 @@
         </a>
         <div class="flex flex-row align-center justify-center gap-12">
             <p id="username"></p>
-          <img class="dark-gray pointer" src="${pageContext.request.contextPath}/assets/images/konnect-options.svg" alt="logo" width="20">
         </div>
       </div>
     </div>

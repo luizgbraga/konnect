@@ -37,7 +37,7 @@ public class NotificationAPI extends HttpServlet {
         for (ConnectsTo connection : connections) {
             // Constructing JSON-like representation for each user
             responseBuilder.append("{")
-                    .append("\"id\": \"").append(connection.getUserFromId()).append("\", ")
+                    .append("\"id\": \"").append(connection.getUserFromId()).append("\"")
                     .append("}, ");
         }
         if (!connections.isEmpty()) {
@@ -52,7 +52,39 @@ public class NotificationAPI extends HttpServlet {
     }
 
     public void doPut(HttpServletRequest request, HttpServletResponse response) {
-        // upvote downvote
+        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.getTransaction();
+
+        try (session) {
+            transaction.begin();
+            HashMap<String, String> parameters = this.getUpdateConnectionParameters(request);
+            System.out.println(parameters);
+            String userFromId = parameters.get("userFromId");
+            String userToId = parameters.get("userToId");
+            System.out.println(userFromId);
+            System.out.println(userToId);
+
+            ConnectsTo connection = ConnectsTo.get(userFromId, userToId);
+            System.out.println(connection);
+            connection.setStatus("active");
+            session.merge(connection); // Use merge to update detached entity
+            if (!transaction.getStatus().equals(TransactionStatus.ACTIVE)) {
+                transaction.rollback();
+                throw new Exception();
+            }
+            transaction.commit();
+            String responseMessage = this.getResponseMessage("Connection updated successfully");
+            response.setStatus(200);
+            response.getOutputStream().println(responseMessage);
+            response.setContentType("application/json");
+        } catch (NoSuchAlgorithmException | InvalidKeySpecException e) {
+            transaction.rollback();
+            throw new RuntimeException(e);
+        } catch (Exception e) {
+            transaction.rollback();
+            e.printStackTrace();
+        }
     }
 
     public void destroy() {
@@ -62,6 +94,22 @@ public class NotificationAPI extends HttpServlet {
         JSONObject responseObject = new JSONObject();
         responseObject.put("message", message);
         return responseObject.toString();
+    }
+
+    private HashMap<String, String> getUpdateConnectionParameters(HttpServletRequest request) throws IOException {
+        StringBuilder jsonDataBuilder = new StringBuilder();
+        String line;
+        while ((line = request.getReader().readLine()) != null) {
+            jsonDataBuilder.append(line);
+        }
+        String jsonData = jsonDataBuilder.toString();
+        JSONObject jsonObject = new JSONObject(jsonData);
+        String userFromId = jsonObject.getString("userFromId");
+        String userToId = jsonObject.getString("userToId");
+        HashMap<String, String> parameters = new HashMap<String, String>();
+        parameters.put("userFromId", userFromId);
+        parameters.put("userToId", userToId);
+        return parameters;
     }
 
     private HashMap<String, String> getPostParameters(HttpServletRequest request) throws IOException {
