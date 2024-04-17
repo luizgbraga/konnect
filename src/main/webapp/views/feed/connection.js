@@ -67,7 +67,7 @@ class ConnectionModel {
 }
 
 async function create(e) {
-    const userId = e.currentTarget.userId;
+    const userId = e.target.id;
     await ConnectionModel.create(userId);
 }
 
@@ -76,15 +76,17 @@ ConnectionModel.list('').then((res) => {
     console.log(users);
     for (const user of users) {
         if (user.id !== localStorage.getItem("id")) {
-            usersContainer.innerHTML += `
-                <div class="box-shadow w-full p-12 flex justify-between align-center">
-                 <p>${user.username}</p>
-                 <a class="small-btn primary-btn" id="${user.id}">Seguir</a>
-                </div>
-            `
-            let thisInput = document.getElementById(user.id)
-            thisInput.addEventListener("click", create)
-            thisInput.userId = user.id;
+            const userElement = document.createElement("div");
+            userElement.classList.add("box-shadow", "w-full", "p-12", "flex", "justify-between", "align-center");
+            userElement.innerHTML = `
+                <p>${user.username}</p>
+                <a class="small-btn primary-btn" id="${user.id}">Seguir</a>
+            `;
+
+            const followButton = userElement.querySelector("a");
+            followButton.addEventListener("click", create);
+
+            usersContainer.appendChild(userElement);
         }
     }
 
