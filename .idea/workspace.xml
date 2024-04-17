@@ -69,10 +69,15 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
     "Tomcat Server.Tomcat 10.1.19.executor": "Run",
     "git-widget-placeholder": "main",
     "list.type.of.created.stylesheet": "CSS",
-    "node.js.selected.package.tslint": "(autodetect)"
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -89,6 +94,7 @@
   </component>
   <component name="RunManager">
     <configuration name="Tomcat 10.1.19" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 10.1.19" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
+      <option name="BROWSER_ID" value="e5120d43-2c3f-47ef-9f26-65e539e05186" />
       <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
         <artifact name="server:war exploded">
@@ -179,7 +185,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="80ca8c64-5ce5-4eb4-94e5-3b7e53d8253a" name="Changes" comment="kindof working" />
+      <changelist id="5d537cde-9ab9-4317-83fa-c5918c7f2eb0" name="Changes" comment="commit na master pt2" />
       <created>1710879525778</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -199,6 +205,7 @@
       <workItem from="1711453207873" duration="3083000" />
       <workItem from="1713110580244" duration="23827000" />
       <workItem from="1713268516754" duration="5331000" />
+      <workItem from="1713357278989" duration="522000" />
     </task>
     <task id="LOCAL-00002" summary="first modifications">
       <option name="closed" value="true" />

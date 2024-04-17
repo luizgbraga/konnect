@@ -11,23 +11,9 @@
   --quaternary: #ECF7FE;
 }
 
-.sm-btn {
-  font-size: 14px;
-  padding: 6px 12px;
-  border-radius: 30px;
-  cursor: pointer;
-}
-
 .post-btn {
   font-size: 18px;
   padding: 8px 12px;
-  border-radius: 30px;
-  cursor: pointer;
-}
-
-.btn {
-  font-size: 18px;
-  padding: 12px 24px;
   border-radius: 30px;
   cursor: pointer;
 }
@@ -36,6 +22,20 @@
   font-size: 14px;
   padding: 4px 10px;
   border-radius: 12px;
+  cursor: pointer;
+}
+
+.md-btn {
+  font-size: 14px;
+  padding: 8px 12px;
+  border-radius: 16px;
+  cursor: pointer;
+}
+
+.btn {
+  font-size: 18px;
+  padding: 12px 24px;
+  border-radius: 30px;
   cursor: pointer;
 }
 
@@ -143,4 +143,8 @@
 
 .box-shadow {
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.bg-none {
+  background: none;
 }

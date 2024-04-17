@@ -69,3 +69,8 @@ textarea {
   border: 1px solid #ccc;
   border-radius: 6px;
 }
+
+.border-default {
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
