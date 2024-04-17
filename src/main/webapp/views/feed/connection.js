@@ -2,20 +2,6 @@ const searchInput = document.getElementById('search-input');
 
 const usersContainer = document.getElementById(('users-container'))
 
-let search = '';
-
-const handleSearchChange = (e) => {
-    search = e.target.value;
-    ConnectionModel.list(search).then((res) => {
-        console.log(res);
-    }).catch((err) => {
-        console.log(err)
-    })
-}
-
-
-searchInput.addEventListener('input', handleSearchChange);
-
 class API {
     _route;
     constructor(route) {
@@ -91,7 +77,10 @@ ConnectionModel.list('').then((res) => {
     for (const user of users) {
         if (user.id !== localStorage.getItem("id")) {
             usersContainer.innerHTML += `
-            <p id="${user.id}"">${user.username}</p>
+                <div class="box-shadow w-full p-12 flex justify-between align-center">
+                 <p>${user.username}</p>
+                 <a class="small-btn primary-btn" id="${user.id}">Seguir</a>
+                </div>
             `
             let thisInput = document.getElementById(user.id)
             thisInput.addEventListener("click", create)

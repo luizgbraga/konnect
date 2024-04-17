@@ -106,11 +106,15 @@ public class Post {
 
         UUID uuid = UUID.randomUUID();
         this.id = uuid.toString();
+        this.downvotes = 0;
+        this.upvotes = 0;
     }
 
-    public static ArrayList<Post> list(Integer minDepth, Integer maxDepth, String userId, String searchFilter) {
+    public static ArrayList<Post> list(Integer minDepth, Integer maxDepth, String userId) {
         ArrayList<ConnectsTo> connections = ConnectsTo.list();
+        System.out.println(connections);
         Graph graph = new Graph(connections);
+        System.out.println(graph);
         List<Graph.NodeDepthPair> users = graph.findNodesWithinDepthRange(userId, minDepth, maxDepth);
         List<String> userIds = new ArrayList<>();
 

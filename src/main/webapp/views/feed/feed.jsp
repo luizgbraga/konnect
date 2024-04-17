@@ -63,7 +63,7 @@
     </div>
 
     <!-- Post new message -->
-    <div class="flex w-full max-w-660 flex-column align-end gap-18">
+    <div class="flex w-full max-w-660 flex-column align-end gap-18" id="new-message-container">
       <div class="forms">
         <input class="flex w-full min-h-100 h-fit-content box-shadow" id="content-input" type="text" placeholder="O que você está pensando?">
       </div>
@@ -71,9 +71,9 @@
     </div>
 
     <!-- Feed -->
-    <div class="flex w-full max-w-660" id="feed-container">
+    <div class="flex flex-column gap-6 w-full max-w-660" id="feed-container">
     </div>
-      <div class="flex w-full max-w-660" id="users-container">
+      <div class="flex flex-column gap-6 w-full max-w-660" id="users-container">
       </div>
 
   </div>

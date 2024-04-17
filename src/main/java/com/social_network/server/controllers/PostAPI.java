@@ -56,9 +56,8 @@ public class PostAPI extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         Integer minDepthParam = Integer.parseInt(request.getParameter("minDepth"));
         Integer maxDepthParam = Integer.parseInt(request.getParameter("maxDepth"));
-        String searchFilterParam = request.getParameter("searchFilter");
         String userId = request.getParameter("userId");
-        ArrayList<Post> posts = Post.list(minDepthParam, maxDepthParam, userId, searchFilterParam);
+        ArrayList<Post> posts = Post.list(minDepthParam, maxDepthParam, userId);
 
         String responseMessage = this.getResponseMessage(posts.toString());
         response.setStatus(201);

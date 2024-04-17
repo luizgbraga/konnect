@@ -32,6 +32,13 @@
   cursor: pointer;
 }
 
+.small-btn {
+  font-size: 14px;
+  padding: 4px 10px;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
 .btn:link, .btn:visited, .btn:active, .btn:hover {
   text-decoration: none;
 }
