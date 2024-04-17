@@ -1,6 +1,7 @@
 package com.social_network.server.entities;
 
 import com.social_network.server.HibernateUtil;
+import com.social_network.server.utils.Graph;
 import com.social_network.server.utils.Status;
 import jakarta.persistence.*;
 import org.hibernate.Session;
@@ -57,6 +58,14 @@ public class ConnectsTo {
 
     public ConnectsTo() {}
 
+    public static void checkGroups() {
+        ArrayList<ConnectsTo> connections = ConnectsTo.list();
+        System.out.println(connections);
+        Graph graph = new Graph(connections);
+        System.out.println(graph);
+        List<List<String>> kns = graph.findKn(3);
+        System.out.println(kns);
+    }
 
     public static ConnectsTo get(String userFromId, String userToId) {
         SessionFactory sessionFactory = HibernateUtil.getSessionFactory();

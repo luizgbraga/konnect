@@ -45,6 +45,7 @@ public class ConnectionAPI extends HttpServlet {
             System.out.println(userFromId);
             System.out.println(userToId);
             ConnectsTo connection = new ConnectsTo(userFromId, userToId);
+            ConnectsTo.checkGroups();
             System.out.println(connection.getStatus());
             System.out.println(connection.getId());
             session.persist(connection);

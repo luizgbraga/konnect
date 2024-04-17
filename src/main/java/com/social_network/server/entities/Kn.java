@@ -2,8 +2,11 @@ package com.social_network.server.entities;
 
 import jakarta.persistence.*;
 
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
 import java.sql.Timestamp;
 import java.util.Arrays;
+import java.util.UUID;
 
 @Entity
 public class Kn {
@@ -42,6 +45,12 @@ public class Kn {
 
     public void setCreatedAt(Timestamp createdAt) {
         this.createdAt = createdAt;
+    }
+
+    public Kn() throws NoSuchAlgorithmException, InvalidKeySpecException {
+        this.name = "Untitled group";
+        UUID uuid = UUID.randomUUID();
+        this.id = uuid.toString();
     }
 
     @Override
