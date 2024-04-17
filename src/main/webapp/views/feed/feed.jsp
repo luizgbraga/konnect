@@ -17,9 +17,6 @@
 </head>
 
 <body>
-<!-- <label for="content-input">Content</label>
-<input id="content-input" type="text" placeholder="content">
-<div id="post-button" class="btn primary-btn login">Post</div> -->
   <div class="flex flex-column align-center w-vw h-vh bg-white pl-24 pr-24 gap-24">
     <!-- Header -->
     <div class="flex w-full max-w-660 pt-12 pb-12 " id="header">

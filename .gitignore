@@ -4,6 +4,7 @@ target/
 !**/src/test/**/target/
 
 ### IntelliJ IDEA ###
+.idea/workspace.xml
 .idea/modules.xml
 .idea/jarRepositories.xml
 .idea/compiler.xml
@@ -17,7 +18,7 @@ target/
 .classpath
 .factorypath
 .project
-.settings
+.settings/
 .springBeans
 .sts4-cache
 
@@ -36,3 +37,6 @@ build/
 
 ### Mac OS ###
 .DS_Store
+
+src/main/resources/hibernate.cfg.xml
+src/main/resources/META-INF/persistence.xml
