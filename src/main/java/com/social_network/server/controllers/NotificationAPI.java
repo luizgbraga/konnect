@@ -32,12 +32,20 @@ public class NotificationAPI extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String userId = request.getParameter("userId");
         ArrayList<ConnectsTo> connections = ConnectsTo.notifications(userId);
+        ArrayList<User> users = User.list("");
         StringBuilder responseBuilder = new StringBuilder();
         responseBuilder.append("[");
         for (ConnectsTo connection : connections) {
-            // Constructing JSON-like representation for each user
+            String username = "Not found";
+            for (User user : users) {
+                if (connection.getUserFromId().equals(user.getId())) {
+                    username = user.getUsername();
+                    break; // Found the user, no need to continue iterating
+                }
+            }
             responseBuilder.append("{")
-                    .append("\"id\": \"").append(connection.getUserFromId()).append("\"")
+                    .append("\"id\": \"").append(connection.getUserFromId()).append("\", ")
+                    .append("\"username\": \"").append(username).append("\"")
                     .append("}, ");
         }
         if (!connections.isEmpty()) {

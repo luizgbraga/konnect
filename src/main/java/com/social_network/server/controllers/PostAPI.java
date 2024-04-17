@@ -59,12 +59,20 @@ public class PostAPI extends HttpServlet {
         Integer maxDepthParam = Integer.parseInt(request.getParameter("maxDepth"));
         String userId = request.getParameter("userId");
         ArrayList<Post> posts = Post.list(minDepthParam, maxDepthParam, userId);
+        ArrayList<User> users = User.list("");
         StringBuilder responseBuilder = new StringBuilder();
         responseBuilder.append("[");
         for (Post post : posts) {
-            // Constructing JSON-like representation for each user
+            String username = "Not found";
+            for (User user : users) {
+                if (post.getUserId().equals(user.getId())) {
+                    username = user.getUsername();
+                    break; // Found the user, no need to continue iterating
+                }
+            }
             responseBuilder.append("{")
                     .append("\"id\": \"").append(post.getId()).append("\", ")
+                    .append("\"username\": \"").append(username).append("\", ")
                     .append("\"content\": \"").append(post.getContent()).append("\", ")
                     .append("\"userId\": \"").append(post.getUserId()).append("\", ")
                     .append("\"upvotes\": \"").append(post.getUpvotes()).append("\", ")
@@ -83,8 +91,44 @@ public class PostAPI extends HttpServlet {
     }
 
     public void doPut(HttpServletRequest request, HttpServletResponse response) {
-        // upvote downvote
+        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.getTransaction();
+
+        try (session) {
+            transaction.begin();
+            String postId = request.getParameter("postId");
+            String vote = request.getParameter("vote");
+            System.out.println(postId);
+            System.out.println(vote);
+
+            Post post = Post.get(postId);
+            System.out.println(post);
+            if (vote.equals("upvote")) {
+                post.setUpvotes(post.getUpvotes() + 1);
+            }
+            if (vote.equals("downvote")) {
+                post.setDownvotes(post.getDownvotes() + 1);
+            }
+            session.merge(post); // Use merge to update detached entity
+            if (!transaction.getStatus().equals(TransactionStatus.ACTIVE)) {
+                transaction.rollback();
+                throw new Exception();
+            }
+            transaction.commit();
+            String responseMessage = this.getResponseMessage("Connection updated successfully");
+            response.setStatus(200);
+            response.getOutputStream().println(responseMessage);
+            response.setContentType("application/json");
+        } catch (NoSuchAlgorithmException | InvalidKeySpecException e) {
+            transaction.rollback();
+            throw new RuntimeException(e);
+        } catch (Exception e) {
+            transaction.rollback();
+            e.printStackTrace();
+        }
     }
+
 
     public void destroy() {
     }

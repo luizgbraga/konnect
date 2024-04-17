@@ -20,9 +20,18 @@
 <!-- <label for="content-input">Content</label>
 <input id="content-input" type="text" placeholder="content">
 <div id="post-button" class="btn primary-btn login">Post</div> -->
-    <div id="notifications-container" class="absolute right-12 top-36 w-400">
+<div class="absolute right-12 top-36 w-250">
+    <p class="mb-20">Notificações</p>
+    <div id="notifications-container" class="flex flex-column gap-6 w-250">
 
     </div>
+</div>
+<div class="absolute left-12 top-36 w-250">
+    <p class="mb-20">Grupos</p>
+    <div id="groups-container" class="flex flex-column gap-6 w-250">
+
+    </div>
+</div>
   <div class="flex flex-column align-center w-vw h-vh bg-white pl-24 pr-24 gap-24">
     <!-- Header -->
     <div class="flex w-full max-w-660 pt-12 pb-12 " id="header">
@@ -84,4 +93,5 @@
 <script type="module" src="${pageContext.request.contextPath}/views/feed/feed.js"></script>
 <script type="module" src="${pageContext.request.contextPath}/views/feed/connection.js"></script>
 <script type="module" src="${pageContext.request.contextPath}/views/feed/notification.js"></script>
+<script type="module" src="${pageContext.request.contextPath}/views/feed/kn.js"></script>
 </html>

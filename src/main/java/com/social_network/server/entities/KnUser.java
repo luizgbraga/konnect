@@ -64,6 +64,30 @@ public class KnUser {
         }
     }
 
+    public static ArrayList<KnUser> getFromUser(String userId) {
+        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.getTransaction();
+
+        try (session) {
+            transaction.begin();
+
+            // Create HQL query to retrieve all users
+            String hql = "FROM KnUser WHERE id.userId = :userId";
+            Query query = session.createQuery(hql, KnUser.class);
+            query.setParameter("userId", userId);
+            // Execute the query and cast the results to a List of User objects
+            ArrayList<KnUser> knUsers = (ArrayList<KnUser>) query.getResultList();
+            transaction.commit();
+            return knUsers;
+        } catch (Exception e) {
+            e.printStackTrace();
+            transaction.rollback();
+            return null;
+        }
+    }
+
+
     @Override
     public int hashCode() {
         int result = id.getUserId().hashCode();

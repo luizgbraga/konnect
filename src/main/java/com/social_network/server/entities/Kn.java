@@ -1,10 +1,15 @@
 package com.social_network.server.entities;
 
+import com.social_network.server.HibernateUtil;
 import jakarta.persistence.*;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.UUID;
 
@@ -50,6 +55,28 @@ public class Kn {
         this.name = "Untitled group";
         UUID uuid = UUID.randomUUID();
         this.id = uuid.toString();
+    }
+
+    public static ArrayList<Kn> list() {
+        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.getTransaction();
+
+        try (session) {
+            transaction.begin();
+
+            // Create HQL query to retrieve all users
+            String hql = "FROM Kn";
+            Query query = session.createQuery(hql, Kn.class);
+            // Execute the query and cast the results to a List of User objects
+            ArrayList<Kn> kn = (ArrayList<Kn>) query.getResultList();
+            transaction.commit();
+            return kn;
+        } catch (Exception e) {
+            e.printStackTrace();
+            transaction.rollback();
+            return null;
+        }
     }
 
     @Override

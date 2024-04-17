@@ -112,6 +112,26 @@ public class Post {
         this.upvotes = 0;
     }
 
+    public static Post get(String postId) {
+        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.getTransaction();
+
+        try (session) {
+            transaction.begin();
+            String hql = "FROM Post WHERE id = :id";
+            Query query = session.createQuery(hql, Post.class);
+            query.setParameter("id", postId);
+            Post post = (Post) query.getResultList().get(0);
+
+            transaction.commit();
+            return post;
+        } catch (Exception e) {
+            e.printStackTrace();
+            transaction.rollback();
+            return null;
+        }
+    }
     public static ArrayList<Post> list(Integer minDepth, Integer maxDepth, String userId) {
         ArrayList<ConnectsTo> connections = ConnectsTo.list();
         Graph graph = new Graph(connections);
