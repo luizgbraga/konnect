@@ -29,11 +29,11 @@ public class ConnectsTo {
         return id;
     }
 
-    public byte[] getUserFromId() {
+    public String getUserFromId() {
         return this.getId().getUserFromId();
     }
 
-    public byte[] getUserToId() {
+    public String getUserToId() {
         return this.getId().getUserToId();
     }
 
@@ -50,9 +50,9 @@ public class ConnectsTo {
     }
 
     public ConnectsTo(String userFromId, String userToId) throws NoSuchAlgorithmException, InvalidKeySpecException {
-        this.id.setUserFromId(userFromId.getBytes());
-        this.id.setUserToId(userToId.getBytes());
-        this.status = Status.valueOf("pending");
+        this.id = new ConnectsToPK(userFromId, userToId);
+        this.status = Status.pending;
+        System.out.println(this.id);
     }
 
     public static ConnectsTo get(String userFromId, String userToId) {
@@ -106,10 +106,9 @@ public class ConnectsTo {
         try (session) {
             transaction.begin();
             String hql = "SELECT u, c.status FROM ConnectsTo c " +
-                    "INNER JOIN User u ON c.id.userToId = u.id " +
-                    "WHERE c.id.userFromId = :userId AND u.username = :searchFilter";
+                    "LEFT JOIN User u ON c.id.userToId = u.id " +
+                    "WHERE u.username ilike :searchFilter";
             Query query = session.createQuery(hql);
-            query.setParameter("userId", userId);
             query.setParameter("searchFilter", searchFilter);
             List<Object[]> results = query.getResultList();
 
@@ -152,8 +151,8 @@ public class ConnectsTo {
 
         ConnectsTo that = (ConnectsTo) o;
 
-        if (!Arrays.equals(id.getUserFromId(), that.id.getUserFromId())) return false;
-        if (!Arrays.equals(id.getUserToId(), that.id.getUserToId())) return false;
+        if (!id.getUserFromId().equals(that.id.getUserFromId())) return false;
+        if (!id.getUserToId().equals(that.id.getUserToId())) return false;
         if (status != null ? !status.equals(that.status) : that.status != null) return false;
 
         return true;
@@ -161,8 +160,8 @@ public class ConnectsTo {
 
     @Override
     public int hashCode() {
-        int result = Arrays.hashCode(id.getUserFromId());
-        result = 31 * result + Arrays.hashCode(id.getUserToId());
+        int result = id.getUserFromId().hashCode();
+        result = 31 * result + id.getUserToId().hashCode();
         result = 31 * result + (status != null ? status.hashCode() : 0);
         return result;
     }

@@ -10,13 +10,13 @@ public class Kn {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @jakarta.persistence.Column(name = "id")
-    private byte[] id;
+    private String id;
 
-    public byte[] getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(byte[] id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -51,7 +51,7 @@ public class Kn {
 
         Kn kn = (Kn) o;
 
-        if (!Arrays.equals(id, kn.id)) return false;
+        if (!id.equals(kn.id)) return false;
         if (name != null ? !name.equals(kn.name) : kn.name != null) return false;
         if (createdAt != null ? !createdAt.equals(kn.createdAt) : kn.createdAt != null) return false;
 
@@ -60,7 +60,7 @@ public class Kn {
 
     @Override
     public int hashCode() {
-        int result = Arrays.hashCode(id);
+        int result = id.hashCode();
         result = 31 * result + (name != null ? name.hashCode() : 0);
         result = 31 * result + (createdAt != null ? createdAt.hashCode() : 0);
         return result;

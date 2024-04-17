@@ -31,8 +31,14 @@ public class LoginAPI extends HttpServlet {
             HashMap<String, String> parameters = this.getUserLoginParameters(request);
             String username = parameters.get("username");
             String password = parameters.get("password");
-            String userId = User.login(username, password);
-            String responseMessage = this.getResponseMessage(userId);
+            User user = User.login(username, password);
+            StringBuilder responseBuilder = new StringBuilder();
+            responseBuilder.append("{")
+                    .append("\"id\": \"").append(user.getId()).append("\", ")
+                    .append("\"username\": \"").append(user.getUsername()).append("\"")
+                    .append("}");
+
+            String responseMessage = this.getResponseMessage(responseBuilder.toString());
             response.setStatus(201);
             response.setContentType("application/json");
             response.getOutputStream().println(responseMessage);

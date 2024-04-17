@@ -5,7 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Konnect</title>
-  <link rel="stylesheet" href="${pageContext.request.contextPath}/views/home/home.css">
+  <link rel="stylesheet" href="home.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/global.css">
   <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/accounts.css">
   <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/background.css">
   <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/buttons.css">
@@ -30,7 +31,7 @@
           <img src="${pageContext.request.contextPath}/assets/images/konnect-home-line.svg" alt="line">
         </div>
         <a href="login" class="button">
-          <div id="login-button" class="btn primary-btn">Entrar</div>
+          <div id="login-button" class="btn primary-btn">Entrar</div>|
         </a>
         <div class="flex flex-row gap-12">
           <p class="dark-gray">Não tem uma conta?</p>
@@ -40,7 +41,7 @@
     </div>
 
     <div class="absolute w-full bottom-0 flex flex-row align-center justify-center gap-12 pb-12">
-      <a href="feed" class="button">
+      <a href="register" class="button">
         <div id="register-button" class="btn tertiary-btn">Sobre</div>
       </a>
       <a href="login" class="button">
@@ -49,4 +50,4 @@
     </div>
   </div>
 </body>
-<script src="${pageContext.request.contextPath}/views/home/home.js"></script>
+<script src="home.js"></script>

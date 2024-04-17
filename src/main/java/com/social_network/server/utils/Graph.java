@@ -5,7 +5,7 @@ import com.social_network.server.entities.ConnectsTo;
 import java.util.*;
 
 public class Graph {
-    private Map<byte[], List<byte[]>> adjacencyList;
+    private Map<String, List<String>> adjacencyList;
 
     public Graph(List<ConnectsTo> connections) {
         adjacencyList = new HashMap<>();
@@ -14,8 +14,8 @@ public class Graph {
 
     private void buildAdjacencyList(List<ConnectsTo> connections) {
         for (ConnectsTo connection : connections) {
-            byte[] userFromId = connection.getUserFromId();
-            byte[] userToId = connection.getUserToId();
+            String userFromId = connection.getUserFromId();
+            String userToId = connection.getUserToId();
 
             // Add userToId to the adjacency list of userFromId
             if (!adjacencyList.containsKey(userFromId)) {
@@ -33,20 +33,20 @@ public class Graph {
         }
     }
 
-    public List<NodeDepthPair> findNodesWithinDepthRange(byte[] startNodeId, int minDepth, int maxDepth) {
+    public List<NodeDepthPair> findNodesWithinDepthRange(String startNodeId, int minDepth, int maxDepth) {
         List<NodeDepthPair> result = new ArrayList<>();
-        Set<byte[]> visited = new HashSet<>();
+        Set<String> visited = new HashSet<>();
         dfs(startNodeId, 0, minDepth, maxDepth, visited, result);
         return result;
     }
 
-    private void dfs(byte[] nodeId, int depth, int minDepth, int maxDepth, Set<byte[]> visited, List<NodeDepthPair> result) {
+    private void dfs(String nodeId, int depth, int minDepth, int maxDepth, Set<String> visited, List<NodeDepthPair> result) {
         if (depth >= minDepth && depth <= maxDepth) {
             result.add(new NodeDepthPair(nodeId, depth));
         }
         visited.add(nodeId);
         if (depth < maxDepth) {
-            for (byte[] neighbor : adjacencyList.getOrDefault(nodeId, Collections.emptyList())) {
+            for (String neighbor : adjacencyList.getOrDefault(nodeId, Collections.emptyList())) {
                 if (!visited.contains(neighbor)) {
                     dfs(neighbor, depth + 1, minDepth, maxDepth, visited, result);
                 }
@@ -55,15 +55,15 @@ public class Graph {
     }
 
     public static class NodeDepthPair {
-        private byte[] nodeId;
+        private String nodeId;
         private int depth;
 
-        public NodeDepthPair(byte[] nodeId, int depth) {
+        public NodeDepthPair(String nodeId, int depth) {
             this.nodeId = nodeId;
             this.depth = depth;
         }
 
-        public byte[] getNodeId() {
+        public String getNodeId() {
             return nodeId;
         }
 

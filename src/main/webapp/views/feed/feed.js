@@ -11,10 +11,14 @@ const maxMinusBtn = document.getElementById("max-minus-btn");
 const maxPlusBtn = document.getElementById("max-plus-btn");
 const maxDegreeDisplay = document.getElementById("max-degree");
 
+const feedContainer = document.getElementById(('feed-container'))
+
+document.getElementById("username").innerHTML += localStorage.getItem("username")
+
 let content = '';
+
 let minDegree = 1;
 let maxDegree = 1;
-
 const handleContentChange = (e) => {
     content = e.target.value;
 }
@@ -150,6 +154,6 @@ class PostModel {
     }
 }
 
-PostModel.list(2, 5, '').then((res) => {
-    console.log('goi')
+PostModel.list(0, 5, '').then((res) => {
+    feedContainer.innerHTML += "<p>qualfoi</p>"
 })

@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Konnect - Login</title>
   <link rel="stylesheet" href="${pageContext.request.contextPath}/views/login/login.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/global.css">
   <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/accounts.css">
   <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/input.css">
   <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/fonts.css">
@@ -21,7 +22,8 @@
         <a href="${pageContext.request.contextPath}/home">
           <img class="absolute top-12 title" src="${pageContext.request.contextPath}/assets/images/konnect-logo.svg" alt="logo" width="48">
         </a>
-        <p class="big-title">Seja bem-vindo ao Konnect</p>
+        <p class="big-title bolder">Seja bem-vindo ao Konnect</p>
+        <p class="body mt-12 primary">Crie conexões reais</p>
 
         <div class="create-account absolute flex flex-row">
           <p>Não tem uma conta?</p>
@@ -30,25 +32,23 @@
       </div>
   
       <div class="credentials-ctn relative flex flex-column align-end justify-center">
-        <form id="login-form" method="post" action="${pageContext.request.contextPath}/login">
-          <div class="credentials flex flex-column">
-            <div class="forms flex-column align-start justify-center">
-              <label for="username-input">Username</label>
-              <input id="username-input" name="username" type="text" placeholder="BigoLau">
-            </div>
-  
-            <div class="forms flex-column align-start justify-center">
-              <label for="password-input">Senha</label>
-              <input id="password-input" name="password" type="password" placeholder="*******">
-            </div>
-  
-            <div class="reset-password">
-              <p class="text-btn small-title dark-gray">Esqueceu a senha?</p>
-            </div>
+        <div class="credentials flex flex-column">
+          <div class="forms flex-column align-start justify-center">
+            <label for="username-input">Username</label>
+            <input id="username-input" type="text" placeholder="kool_username">
           </div>
-  
-          <button id="login-button" type="submit" class="btn primary-btn login">Entrar</button>
-        </form>
+
+          <div class="forms flex-column align-start justify-center">
+            <label for="password-input">Senha</label>
+            <input id="password-input" type="password" placeholder="******">
+          </div>
+
+          <div class="reset-password">
+            <p class="text-btn small-title dark-gray">Esqueceu a senha?</p>
+          </div>
+        </div>
+
+        <div id="login-button" class="btn primary-btn login">Entrar</div>
       </div>
     </div>
   </div>

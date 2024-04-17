@@ -14,9 +14,14 @@ const handlePasswordChange = (e) => {
 }
 
 const handleSubmit = () => {
+    document.body.style.filter = "brightness(50%)";
     RegisterModel.register(username, password)
         .then((res) => {
-            console.log(res);
+            document.body.style.filter = "brightness(100%)";
+            const user = JSON.parse(res.message)
+            localStorage.setItem("id", user.id)
+            localStorage.setItem("username", user.username)
+            window.location.replace('http://localhost:8080/server_war_exploded/feed')
         })
         .catch((err) => {
             console.log(err);

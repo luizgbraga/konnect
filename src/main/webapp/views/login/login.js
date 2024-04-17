@@ -14,11 +14,13 @@ const handlePasswordChange = (e) => {
 }
 
 const handleSubmit = () => {
+    document.body.style.filter = "brightness(50%)";
     LoginModel.login(username, password)
         .then((res) => {
-            console.log('funcionou')
-            console.log(res);
-            localStorage.setItem("id", res.message)
+            document.body.style.filter = "brightness(100%)";
+            const user = JSON.parse(res.message)
+            localStorage.setItem("id", user.id)
+            localStorage.setItem("username", user.username)
             window.location.replace('http://localhost:8080/server_war_exploded/feed')
         })
         .catch((err) => {

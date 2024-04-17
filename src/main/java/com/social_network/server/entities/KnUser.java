@@ -16,16 +16,16 @@ public class KnUser {
 
         KnUser knUser = (KnUser) o;
 
-        if (!Arrays.equals(id.getUserId(), knUser.id.getUserId())) return false;
-        if (!Arrays.equals(id.getKnId(), knUser.id.getKnId())) return false;
+        if (!id.getUserId().equals(knUser.id.getUserId())) return false;
+        if (!id.getKnId().equals(knUser.id.getKnId())) return false;
 
         return true;
     }
 
     @Override
     public int hashCode() {
-        int result = Arrays.hashCode(id.getUserId());
-        result = 31 * result + Arrays.hashCode(id.getKnId());
+        int result = id.getUserId().hashCode();
+        result = 31 * result + id.getKnId().hashCode();
         return result;
     }
 }

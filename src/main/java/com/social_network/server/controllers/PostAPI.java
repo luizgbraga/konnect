@@ -9,10 +9,7 @@ import java.util.HashMap;
 import com.social_network.server.HibernateUtil;
 import com.social_network.server.entities.Post;
 import com.social_network.server.entities.User;
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.EntityTransaction;
-import jakarta.persistence.Persistence;
-import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.*;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletResponse;
@@ -38,12 +35,10 @@ public class PostAPI extends HttpServlet {
             HashMap<String, String> parameters = this.getPostParameters(request);
 
             Post post = new Post(parameters.get("content"), parameters.get("userId"));
+            System.out.println(post.getId());
+            System.out.println(post.getContent());
+            System.out.println(post.getUserId());
             session.persist(post);
-            if (!transaction.getStatus().equals(TransactionStatus.ACTIVE)) {
-                transaction.rollback();
-                throw new Exception();
-            }
-            System.out.println(4);
             transaction.commit();
             String responseMessage = this.getResponseMessage("Post created successfully");
             response.setStatus(201);

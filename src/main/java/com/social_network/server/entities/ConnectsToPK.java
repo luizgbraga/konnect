@@ -12,13 +12,13 @@ import java.util.Objects;
 @Embeddable
 public class ConnectsToPK implements Serializable {
     @Column(name = "user_from_id")
-    private byte[] userFromId;
+    private String userFromId;
     @Column(name = "user_to_id")
-    private byte[] userToId;
+    private String userToId;
 
     public ConnectsToPK(){}
 
-    public ConnectsToPK(byte[] userFromId, byte[] userToId) {
+    public ConnectsToPK(String userFromId, String userToId) {
         this.userFromId = userFromId;
         this.userToId = userToId;
     }
@@ -27,26 +27,26 @@ public class ConnectsToPK implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         ConnectsToPK that = (ConnectsToPK) o;
-        return Arrays.equals(userFromId, that.userFromId) && Arrays.equals(userToId, that.userToId);
+        return userFromId.equals(that.userFromId) && userToId.equals(that.userToId);
     }
     @Override
     public int hashCode() {
-        return Objects.hash(Arrays.hashCode(userFromId), Arrays.hashCode(userToId));
+        return Objects.hash(userFromId.hashCode(), userToId.hashCode());
     }
 
-    public byte[] getUserFromId() {
+    public String getUserFromId() {
         return userFromId;
     }
 
-    public void setUserFromId(byte[] userFromId) {
+    public void setUserFromId(String userFromId) {
         this.userFromId = userFromId;
     }
 
-    public byte[] getUserToId() {
+    public String getUserToId() {
         return userToId;
     }
 
-    public void setUserToId(byte[] userToId) {
+    public void setUserToId(String userToId) {
         this.userToId = userToId;
     }
 }

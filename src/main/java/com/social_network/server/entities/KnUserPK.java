@@ -10,22 +10,22 @@ import java.util.Objects;
 @Embeddable
 public class KnUserPK implements Serializable {
     @Column(name = "user_id")
-    private byte[] userId;
+    private String userId;
     @Column(name = "kn_id")
-    private byte[] knId;
-    public byte[] getUserId() {
+    private String knId;
+    public String getUserId() {
         return userId;
     }
 
-    public void setUserId(byte[] userId) {
+    public void setUserId(String userId) {
         this.userId = userId;
     }
 
-    public byte[] getKnId() {
+    public String getKnId() {
         return knId;
     }
 
-    public void setKnId(byte[] knId) {
+    public void setKnId(String knId) {
         this.knId = knId;
     }
 
@@ -34,10 +34,10 @@ public class KnUserPK implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         KnUserPK that = (KnUserPK) o;
-        return Arrays.equals(knId, that.knId) && Arrays.equals(userId, that.userId);
+        return knId.equals(that.knId) && userId.equals(that.userId);
     }
     @Override
     public int hashCode() {
-        return Objects.hash(Arrays.hashCode(userId), Arrays.hashCode(knId));
+        return Objects.hash(userId.equals(knId), knId.equals(knId));
     }
 }
