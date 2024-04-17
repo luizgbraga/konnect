@@ -74,7 +74,7 @@ public class ConnectionAPI extends HttpServlet {
             String userToId = parameters.get("userToId");
 
             ConnectsTo connection = ConnectsTo.get(userFromId, userToId);
-            connection.setStatus(Status.valueOf("active"));
+            connection.setStatus("active");
             session.merge(connection); // Use merge to update detached entity
             if (!transaction.getStatus().equals(TransactionStatus.ACTIVE)) {
                 transaction.rollback();

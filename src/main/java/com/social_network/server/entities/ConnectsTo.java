@@ -23,7 +23,7 @@ public class ConnectsTo {
 
     @Basic
     @Column(name = "status")
-    private Status status;
+    private String status;
 
     public ConnectsToPK getId() {
         return id;
@@ -45,15 +45,18 @@ public class ConnectsTo {
         return status;
     }
 
-    public void setStatus(Status status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 
     public ConnectsTo(String userFromId, String userToId) throws NoSuchAlgorithmException, InvalidKeySpecException {
         this.id = new ConnectsToPK(userFromId, userToId);
-        this.status = Status.pending;
+        this.status = "pending";
         System.out.println(this.id);
     }
+
+    public ConnectsTo() {}
+
 
     public static ConnectsTo get(String userFromId, String userToId) {
         SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
@@ -81,13 +84,13 @@ public class ConnectsTo {
         SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
         Session session = sessionFactory.openSession();
         Transaction transaction = session.getTransaction();
-
+        System.out.println(userId);
         try (session) {
             transaction.begin();
-            String hql = "FROM ConnectsTo WHERE id.userToId = :userId AND status = :pending";
+            String hql = "FROM ConnectsTo WHERE id.userToId = :userId AND status = :status";
             Query query = session.createQuery(hql, ConnectsTo.class);
             query.setParameter("userId", userId);
-            query.setParameter("pending", "pending");
+            query.setParameter("status", "pending");
             ArrayList<ConnectsTo> connection = (ArrayList<ConnectsTo>) query.getResultList();
 
             transaction.commit();

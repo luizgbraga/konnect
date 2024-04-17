@@ -32,8 +32,20 @@ public class NotificationAPI extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String userId = request.getParameter("userId");
         ArrayList<ConnectsTo> connections = ConnectsTo.notifications(userId);
+        StringBuilder responseBuilder = new StringBuilder();
+        responseBuilder.append("[");
+        for (ConnectsTo connection : connections) {
+            // Constructing JSON-like representation for each user
+            responseBuilder.append("{")
+                    .append("\"id\": \"").append(connection.getUserFromId()).append("\", ")
+                    .append("}, ");
+        }
+        if (!connections.isEmpty()) {
+            responseBuilder.delete(responseBuilder.length() - 2, responseBuilder.length());
+        }
 
-        String responseMessage = this.getResponseMessage(connections.toString());
+        responseBuilder.append("]"); // End of JSON array
+        String responseMessage = this.getResponseMessage(responseBuilder.toString());
         response.setStatus(201);
         response.getOutputStream().println(responseMessage);
         response.setContentType("application/json");

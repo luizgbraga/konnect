@@ -81,4 +81,5 @@
 </body>
 <script type="module" src="${pageContext.request.contextPath}/views/feed/feed.js"></script>
 <script type="module" src="${pageContext.request.contextPath}/views/feed/connection.js"></script>
+<script type="module" src="${pageContext.request.contextPath}/views/feed/notification.js"></script>
 </html>

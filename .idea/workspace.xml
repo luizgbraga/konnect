@@ -9,9 +9,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5d537cde-9ab9-4317-83fa-c5918c7f2eb0" name="Changes" comment="commit na master quebrando tudo check">
+    <list default="true" id="5d537cde-9ab9-4317-83fa-c5918c7f2eb0" name="Changes" comment="commit na master pt2">
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/feed/notification.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/feed/connection.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/feed/connection.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/social_network/server/controllers/ConnectionAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/social_network/server/controllers/ConnectionAPI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/social_network/server/entities/ConnectsTo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/social_network/server/entities/ConnectsTo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/feed/feed.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/feed/feed.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,10 +24,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaScript File" />
         <option value="Enum" />
         <option value="Class" />
         <option value="CSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -253,7 +256,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713321655641</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="commit na master pt2">
+      <option name="closed" value="true" />
+      <created>1713353887512</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1713353887513</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -273,7 +284,8 @@
     <MESSAGE value="merge" />
     <MESSAGE value="wtf" />
     <MESSAGE value="commit na master quebrando tudo check" />
-    <option name="LAST_COMMIT_MESSAGE" value="commit na master quebrando tudo check" />
+    <MESSAGE value="commit na master pt2" />
+    <option name="LAST_COMMIT_MESSAGE" value="commit na master pt2" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
