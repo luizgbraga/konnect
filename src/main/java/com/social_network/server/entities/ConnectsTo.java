@@ -51,7 +51,7 @@ public class ConnectsTo {
 
     public ConnectsTo(String userFromId, String userToId) throws NoSuchAlgorithmException, InvalidKeySpecException {
         this.id = new ConnectsToPK(userFromId, userToId);
-        this.status = Status.valueOf("pending");
+        this.status = Status.pending;
         System.out.println(this.id);
     }
 
