@@ -18,8 +18,8 @@
 
 <body>
   <div class="bg-white w-vw h-vh relative flex align-center justify-center">
-    <div class="flex flex-row align-center justify-center w-900 h-650">
-      <div class="relative flex align-center justify-center w-400">
+    <div class="flex flex-row big-flex-column align-center justify-center w-900 big-w-full h-650 big-h-900">
+      <div class="relative flex align-center justify-center w-400 big-w-full">
         <img class="absolute top-half left-half transform-half z-2" src="${pageContext.request.contextPath}/assets/images/konnect-logo-bg.svg" alt="logo-bg" width="460">
         <img src="${pageContext.request.contextPath}/assets/images/konnect-logo.svg" alt="logo" width="300" class="z-3">
       </div>

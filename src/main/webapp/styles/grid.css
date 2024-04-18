@@ -1,7 +1,9 @@
+/* Flex Grid */
 .flex {
   display: flex;
 }
 
+/* Flex direction */
 .flex-column {
   flex-direction: column;
 }
@@ -18,6 +20,7 @@
   flex-direction: row-reverse;
 }
 
+/* Justify content */
 .justify-center {
   justify-content: center;
 }
@@ -38,6 +41,7 @@
   justify-content: space-around;
 }
 
+/* Align items */
 .align-center {
   align-items: center;
 }
@@ -62,6 +66,7 @@
   align-items: space-evenly;
 }
 
+/* Gap */
 .gap-0 {
   gap: 0;
 }
@@ -90,6 +95,7 @@
   gap: 30px;
 }
 
+/* Width */
 .w-400 {
   width: 400px;
 }
@@ -126,14 +132,11 @@
   width: 100vw;
 }
 
-.w-header {
-  width: calc(100% - 288px);
-}
-
 .max-w-660 {
   max-width: 660px;
 }
 
+/* Height */
 .min-h-100vh {
   min-height: 100vh;
 }
@@ -169,3 +172,239 @@
 .h-fit-content {
   height: fit-content;
 }
+
+/* Mobile */
+/* Flex direction */
+.big-flex-column {
+  @media(max-width: 768px){
+    flex-direction: column;
+  }
+}
+
+.big-flex-column-rev {
+  @media(max-width: 768px){
+    flex-direction: column-reverse;
+  }
+}
+
+.big-flex-row {
+  @media(max-width: 768px){
+    flex-direction: row;
+  }
+}
+
+.big-flex-row-rev {
+  @media(max-width: 768px){
+    flex-direction: row-reverse;
+  }
+}
+
+/* Justify content */
+.big-justify-center {
+    @media(max-width: 768px){
+      justify-content: center;
+  }
+}
+
+.big-justify-start {
+    @media(max-width: 768px){
+      justify-content: flex-start;
+  }
+}
+
+.big-justify-end {
+    @media(max-width: 768px){
+      justify-content: flex-end;
+  }
+}
+
+.big-justify-between {
+    @media(max-width: 768px){
+      justify-content: space-between;
+  }
+}
+
+.big-justify-around {
+    @media(max-width: 768px){
+      justify-content: space-around;
+  }
+}
+
+/* Align items */
+.big-align-center {
+    @media(max-width: 768px){
+      align-items: center;
+  }
+}
+
+.big-align-start {
+    @media(max-width: 768px){
+      align-items: flex-start;
+  }
+}
+
+.big-align-end {
+    @media(max-width: 768px){
+      align-items: flex-end;
+  }
+}
+
+.big-align-between {
+    @media(max-width: 768px){
+      align-items: space-between;
+  }
+}
+
+.big-align-around {
+    @media(max-width: 768px){
+      align-items: space-around;
+  }
+}
+
+.big-justify-evenly {
+    @media(max-width: 768px){
+      align-items: space-evenly;
+  }
+}
+
+/* Gap */
+.big-gap-0 {
+    @media(max-width: 768px){
+      gap: 0;
+  }
+}
+
+.big-gap-3 {
+    @media(max-width: 768px){
+      gap: 3px;
+  }
+}
+
+.big-gap-6 {
+    @media(max-width: 768px){
+      gap: 6px;
+  }
+}
+
+.big-gap-12 {
+    @media(max-width: 768px){
+      gap: 12px;
+  }
+}
+
+.big-gap-18 {
+    @media(max-width: 768px){
+      gap: 18px;
+  }
+}
+
+.big-gap-24 {
+    @media(max-width: 768px){
+      gap: 24px;
+  }
+}
+
+.big-gap-30 {
+    @media(max-width: 768px){
+      gap: 30px;
+  }
+}
+
+
+.big-w-third {
+    @media(max-width: 768px){
+      width: 33.33%;
+  }
+}
+
+.big-w-quarter {
+    @media(max-width: 768px){
+      width: 25%;
+  }
+}
+
+.big-w-half {
+    @media(max-width: 768px){
+      width: 50%;
+  }
+}
+
+.big-w-three-quarters {
+    @media(max-width: 768px){
+      width: 75%;
+  }
+}
+
+.big-w-full {
+    @media(max-width: 768px){
+      width: 100%;
+  }
+}
+
+.big-w-vw {
+    @media(max-width: 768px){
+      width: 100vw;
+  }
+}
+
+.big-max-w-660 {
+    @media(max-width: 768px){
+      max-width: 660px;
+  }
+}
+
+/* Height */
+.big-min-h-100vh {
+    @media(max-width: 768px){
+      min-height: 100vh;
+  }
+}
+
+.big-min-h-60 {
+    @media(max-width: 768px){
+      min-height: 60px;
+  }
+}
+
+.big-min-h-100 {
+    @media(max-width: 768px){
+      min-height: 100px;
+  }
+}
+
+.big-h-900 {
+    @media(max-width: 768px){
+      height: 650px;
+  }
+}
+
+.big-h-full {
+    @media(max-width: 768px){
+      height: 100%;
+  }
+}
+
+.big-h-half {
+    @media(max-width: 768px){
+      height: 50%;
+  }
+}
+
+.big-h-three-quarters {
+    @media(max-width: 768px){
+      height: 75%;
+  }
+}
+
+.big-h-vh {
+    @media(max-width: 768px){
+      height: 100vh;
+  }
+}
+
+.big-h-fit-content {
+    @media(max-width: 768px){
+      height: fit-content;
+  }
+}
+

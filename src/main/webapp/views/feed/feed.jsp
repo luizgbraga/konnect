@@ -17,9 +17,6 @@
 </head>
 
 <body>
-<!-- <label for="content-input">Content</label>
-<input id="content-input" type="text" placeholder="content">
-<div id="post-button" class="btn primary-btn login">Post</div> -->
     <div id="notifications-container" class="absolute right-12 top-36 w-400">
 
     </div>
