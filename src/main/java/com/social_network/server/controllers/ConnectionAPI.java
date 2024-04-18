@@ -61,14 +61,27 @@ public class ConnectionAPI extends HttpServlet {
         String userId = request.getParameter("userId");
         String searchFilter = request.getParameter("searchFilter");
         ArrayList<User> users = User.list(searchFilter);
+        HashMap<String, String> connections = ConnectsTo.listRelatedConnectionsStatus(userId);
         StringBuilder responseBuilder = new StringBuilder();
         responseBuilder.append("[");
         for (User user : users) {
             // Constructing JSON-like representation for each user
-            responseBuilder.append("{")
-                    .append("\"id\": \"").append(user.getId()).append("\", ")
-                    .append("\"username\": \"").append(user.getUsername()).append("\"")
-                    .append("}, ");
+            if (!user.getId().equals(userId)) {
+                assert connections != null;
+                if (connections.containsKey(user.getId())) {
+                    responseBuilder.append("{")
+                            .append("\"id\": \"").append(user.getId()).append("\", ")
+                            .append("\"username\": \"").append(user.getUsername()).append("\"")
+                            .append("\"status\": \"").append(connections.get(user.getId())).append("\"")
+                            .append("}, ");
+                } else {
+                    responseBuilder.append("{")
+                            .append("\"id\": \"").append(user.getId()).append("\", ")
+                            .append("\"username\": \"").append(user.getUsername()).append("\"")
+                            .append("\"status\": \"").append("none").append("\"")
+                            .append("}, ");
+                }
+            }
         }
         if (!users.isEmpty()) {
             responseBuilder.delete(responseBuilder.length() - 2, responseBuilder.length());
