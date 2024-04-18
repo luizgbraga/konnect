@@ -10,7 +10,7 @@
         <property name="connection.url">jdbc:mysql://localhost:3306/konnect</property>
         <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
         <property name="connection.username">root</property>
-        <property name="connection.password">lz070102</property>
+        <property name="connection.password">Ap@GuyDev0</property>
         <property name="connection.pool_size">3</property>
         <!--property name="dialect">org.hibernate.dialect.MySQLDialect</property-->
         <property name="current_session_context_class">thread</property>
