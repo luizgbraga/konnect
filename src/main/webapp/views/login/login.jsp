@@ -34,24 +34,25 @@
         </div>
       </div>
   
-      <div class="credentials-ctn relative flex flex-column align-end justify-center">
-        <div class="credentials flex flex-column">
+      <div class="credentials-ctn relative flex flex-column align-end justify-start">
+        <div class="credentials flex flex-column w-full align-star pt-36">
           <div class="forms flex-column align-start justify-center">
             <label for="username-input">Username</label>
             <input id="username-input" type="text" placeholder="kool_username">
           </div>
-
+          
           <div class="forms flex-column align-start justify-center">
             <label for="password-input">Senha</label>
             <input id="password-input" type="password" placeholder="******">
           </div>
-
+          
           <div class="reset-password">
-            <p class="text-btn small-title dark-gray">Esqueceu a senha?</p>
+            <div class="red sm-body p-0 m-0 w-full" id="error-message"></div>
+            <p class="text-btn small-title dark-gray mt-6">Esqueceu a senha?</p>
           </div>
         </div>
 
-        <div id="login-button" class="btn primary-btn login">Entrar</div>
+        <div id="login-button" class="btn primary-btn login ">Entrar</div>
       </div>
     </div>
   </div>

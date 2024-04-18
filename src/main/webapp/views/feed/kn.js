@@ -71,9 +71,9 @@ KnModel.list().then((res) => {
         const groupId = url.searchParams.get('group');
 
         const groupElement = document.createElement("div");
-        groupElement.classList.add("box-shadow", "w-full", "p-12", "flex", "justify-between", "align-center", "pointer");
+        groupElement.classList.add("box-shadow", "border-default", "w-full", "p-12", "flex", "justify-between", "align-center", "pointer");
         if (kn.id == groupId) {
-            groupElement.classList.add("bordered")
+            groupElement.classList.add("group-selected")
         }
         groupElement.innerHTML += `
                 <p id="${kn.id}">${kn.name}</p>

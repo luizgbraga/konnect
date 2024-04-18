@@ -11,11 +11,19 @@
   <component name="ChangeListManager">
     <list default="true" id="5d537cde-9ab9-4317-83fa-c5918c7f2eb0" name="Changes" comment="commit na master liberado 2">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/styles/global.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/styles/global.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/styles/accounts.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/styles/accounts.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/styles/background.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/styles/background.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/styles/grid.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/styles/grid.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/styles/input.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/styles/input.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/styles/spacings.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/styles/spacings.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/feed/feed.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/feed/feed.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/feed/feed.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/feed/feed.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/feed/kn.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/feed/kn.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/feed/notification.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/feed/notification.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/home/home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/home/home.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/views/login/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/login/login.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/views/login/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/login/login.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/register/register.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/register/register.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/register/register.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/register/register.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,7 +80,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "Tomcat Server.Tomcat 10.1.19.executor": "Run",
-    "git-widget-placeholder": "fix-front-again",
+    "git-widget-placeholder": "error-msg",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",

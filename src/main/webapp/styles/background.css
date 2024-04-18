@@ -74,8 +74,8 @@
   color: var(--quaternary);
 }
 
-.bordered {
-  border-width: 1px;
-  border-color: #10436A;
-  border-style: solid;
+.group-selected {
+  border: 1px solid var(--primary);
+  color: var(--primary);
+  font-weight: bold;
 }
