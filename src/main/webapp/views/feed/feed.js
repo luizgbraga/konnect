@@ -28,19 +28,46 @@ const handleContentChange = (e) => {
     content = e.target.value;
 }
 
-const handleSearchChange = (e) => {
-    search = e.target.value;
+const handleSearchChange = async (e) => {
+    search = e.target.value.trim();
     console.log(search);
     if (search.length > 0) {
         feedContainer.style.display = 'none';
         newMessageContainer.style.display = 'none';
-        usersContainer.style.display = 'flex'
+        usersContainer.style.display = 'flex';
+
+        try {
+            const searchResults = await ConnectionModel.list(search);
+            usersContainer.innerHTML = '';
+
+            const users = JSON.parse(searchResults.message);
+            for (const user of users) {
+                if (user.id !== localStorage.getItem("id")) {
+                    if (user.username.toLowerCase().includes(search.toLowerCase())) {
+                        const userElement = document.createElement("div");
+                        userElement.classList.add("box-shadow", "w-full", "p-12", "flex", "justify-between", "align-center");
+                        userElement.innerHTML = `
+                            <p>${user.username}</p>
+                            <a class="small-btn primary-btn" id="${user.id}">Seguir</a>
+                        `;
+
+                        const followButton = userElement.querySelector("a");
+                        followButton.addEventListener("click", create);
+
+                        usersContainer.appendChild(userElement);
+                    }
+                }
+            }
+        } catch (error) {
+            console.error("Error fetching search results:", error);
+        }
     } else {
         feedContainer.style.display = 'flex';
-        newMessageContainer.style.display = 'flex'
-        usersContainer.style.display = 'none'
+        newMessageContainer.style.display = 'flex';
+        usersContainer.style.display = 'none';
     }
 }
+
 
 const handleSubmit = () => {
     PostModel.post(content).then((res) => {})
@@ -260,4 +287,61 @@ PostModel.list(0, 5).then((res) => {
             
             feedContainer.appendChild(postElement);
     }
+})
+class ConnectionAPI extends API {
+    constructor() {
+        super(`${API_URL}/connection`);
+    }
+
+    async create(userToId) {
+        const userFromId = localStorage.getItem("id")
+        const body = JSON.stringify({ userFromId, userToId })
+        return this.request('POST', '', null, body, null);
+    }
+
+    async list(searchFilter) {
+        const userId = localStorage.getItem("id")
+        const query = `userId=${userId}&searchFilter=${searchFilter}`;
+        return this.request('GET', '', null, null, query)
+    }
+}
+
+const connectionApi = new ConnectionAPI();
+
+class ConnectionModel {
+    static async list(searchFilter) {
+        const res = await connectionApi.list(searchFilter);
+        return res;
+    }
+
+    static async create(userToId) {
+        const res = await connectionApi.create(userToId);
+        return res;
+    }
+}
+
+async function create(e) {
+    const userId = e.target.id;
+    await ConnectionModel.create(userId);
+}
+
+ConnectionModel.list('').then((res) => {
+    const users = JSON.parse(res.message)
+    console.log(users);
+    for (const user of users) {
+        if (user.id !== localStorage.getItem("id")) {
+            const userElement = document.createElement("div");
+            userElement.classList.add("box-shadow", "w-full", "p-12", "flex", "justify-between", "align-center");
+            userElement.innerHTML = `
+                <p>${user.username}</p>
+                <a class="small-btn primary-btn" id="${user.id}">Seguir</a>
+            `;
+
+            const followButton = userElement.querySelector("a");
+            followButton.addEventListener("click", create);
+
+            usersContainer.appendChild(userElement);
+        }
+    }
+
 })
