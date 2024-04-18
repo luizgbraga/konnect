@@ -9,7 +9,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5d537cde-9ab9-4317-83fa-c5918c7f2eb0" name="Changes" comment="notifications">
+    <list default="true" id="5d537cde-9ab9-4317-83fa-c5918c7f2eb0" name="Changes" comment="TUDO FUNCIONA">
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/feed/kn.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/styles/grid.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/styles/grid.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/views/feed/feed.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/feed/feed.jsp" afterDir="false" />
@@ -33,7 +34,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="notifications" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -278,7 +279,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713355273586</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="TUDO FUNCIONA">
+      <option name="closed" value="true" />
+      <created>1713383634927</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1713383634928</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -300,7 +309,8 @@
     <MESSAGE value="commit na master quebrando tudo check" />
     <MESSAGE value="commit na master pt2" />
     <MESSAGE value="notifications" />
-    <option name="LAST_COMMIT_MESSAGE" value="notifications" />
+    <MESSAGE value="TUDO FUNCIONA" />
+    <option name="LAST_COMMIT_MESSAGE" value="TUDO FUNCIONA" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

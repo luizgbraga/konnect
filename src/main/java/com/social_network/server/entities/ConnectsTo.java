@@ -11,10 +11,7 @@ import org.hibernate.Transaction;
 import java.nio.ByteBuffer;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
 @Entity
 @jakarta.persistence.Table(name = "connects_to", schema = "konnect")
@@ -58,13 +55,140 @@ public class ConnectsTo {
 
     public ConnectsTo() {}
 
-    public static void checkGroups() {
+    public static Map<String, List<List<String>>> checkGroups() {
         ArrayList<ConnectsTo> connections = ConnectsTo.list();
-        System.out.println(connections);
         Graph graph = new Graph(connections);
-        System.out.println(graph);
-        List<List<String>> kns = graph.findKn(3);
-        System.out.println(kns);
+        List<List<List<String>>> listOfKns = new ArrayList<>();
+
+        for (int n = 0; n <= 7; n++) {
+            List<List<String>> allKns = graph.findKn(n);
+            for (int m = n - 1; m >= 0; m--) {
+                List<List<String>> pastKns = listOfKns.get(m);
+                Iterator<List<String>> pastKnIterator = pastKns.iterator();
+                while (pastKnIterator.hasNext()) {
+                    List<String> pastKn = pastKnIterator.next();
+                    for (List<String> currKn : allKns) {
+                        if (isKnContained(currKn, pastKn)) {
+                            // If Kn in current Kn contains past Kn, remove past Kn
+                            pastKnIterator.remove();
+                            break;
+                        }
+                    }
+                }
+            }
+            if (n == 0 || n == 1 || n == 2) {
+                listOfKns.add(new ArrayList<>());
+            } else {
+                listOfKns.add(removeDuplicates(allKns));
+            }
+        }
+        for (int i = 0; i < listOfKns.size(); i++) {
+            System.out.println("K" + i + ": " + listOfKns.get(i));
+        }
+        ArrayList<KnUser> allGroupUsers = KnUser.list();
+        Map<String, List<String>> knParticipantsMap = new HashMap<>();
+
+        // Iterate over all KnUser objects
+        for (KnUser user : allGroupUsers) {
+            String knId = user.getKnId();
+            String userId = user.getUserId();
+
+            // Get the list of participants for the current knId
+            List<String> participants = knParticipantsMap.getOrDefault(knId, new ArrayList<>());
+
+            // Add the userId to the list of participants
+            participants.add(userId);
+
+            // Update the map with the updated list of participants for the current knId
+            knParticipantsMap.put(knId, participants);
+        }
+
+        List<List<String>> mustCreate = new ArrayList<>();
+        List<String> toDelete = new ArrayList<>();
+
+        // Iterate over each Kn in listOfKns
+        for (List<List<String>> kns : listOfKns) {
+            // Iterate over each Kn in the current list of Kns
+            for (List<String> kn : kns) {
+                boolean knFound = false;
+
+                // Check if this Kn is already a list of participants in some group
+                for (Map.Entry<String, List<String>> entry : knParticipantsMap.entrySet()) {
+                    List<String> participants = entry.getValue();
+
+                    // Check if the Kn is already a list of participants (order doesn't matter)
+                    if (isSameListIgnoringOrder(kn, participants)) {
+                        knFound = true;
+                        break;
+                    }
+                }
+
+                // If the Kn is not already a list of participants in any group, create a new group
+                if (!knFound) {
+                    mustCreate.add(kn);
+                }
+            }
+        }
+
+        for (Map.Entry<String, List<String>> entry : knParticipantsMap.entrySet()) {
+            String knId = entry.getKey();
+            List<String> participants = entry.getValue();
+            int n = participants.size();
+
+            // Iterate over Kn lists in listOfKns starting from index n+1 to 7
+            for (int i = n + 1; i <= 7; i++) {
+                List<List<String>> kns = listOfKns.get(i);
+                // Iterate over each Kn in the current list of Kns
+                for (List<String> kn : kns) {
+                    // Check if the Kn contains the participants list
+                    if (kn.containsAll(participants)) {
+                        // If yes, remove the Kn list
+                        toDelete.add(knId);
+                        // As we've removed an element, we need to decrement the loop variable and iterator to avoid skipping elements
+                        i--;
+                        break; // No need to continue checking the current Kn list
+                    }
+                }
+            }
+        }
+
+        List<List<String>> mustDelete = new ArrayList<>();
+        mustDelete.add(toDelete);
+        Map<String, List<List<String>>> result = new HashMap<>();
+        result.put("mustCreate", mustCreate);
+        result.put("mustDelete", mustDelete);
+        return result;
+    }
+
+    private static boolean isKnContained(List<String> kn, List<String> pastKn) {
+        for (String id : pastKn) {
+            if (!kn.contains(id)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private static boolean isSameListIgnoringOrder(List<String> list1, List<String> list2) {
+        if (list1.size() != list2.size()) {
+            return false;
+        }
+        List<String> tempList = new ArrayList<>(list2);
+        for (String element : list1) {
+            if (!tempList.remove(element)) {
+                return false;
+            }
+        }
+        return tempList.isEmpty();
+    }
+
+    private static List<List<String>> removeDuplicates(List<List<String>> list) {
+        Set<List<String>> set = new HashSet<>();
+        for (List<String> sublist : list) {
+            sublist.sort(null);
+            set.add(sublist);
+        }
+        return new ArrayList<>(set);
     }
 
     public static ConnectsTo get(String userFromId, String userToId) {
@@ -74,11 +198,12 @@ public class ConnectsTo {
 
         try (session) {
             transaction.begin();
-            String hql = "FROM ConnectsTo WHERE id.userFromId = :userFromId AND id.userToId = :userToId";
+            ConnectsToPK id = new ConnectsToPK(userFromId,userToId);
+            String hql = "FROM ConnectsTo WHERE id.userFromId = :userFromId and id.userToId = :userToId";
             Query query = session.createQuery(hql, ConnectsTo.class);
-            query.setParameter("userFromId", userFromId);
-            query.setParameter("userToId", userToId);
-            ConnectsTo connection = (ConnectsTo) query.getSingleResult();
+            query.setParameter("userFromId", id.getUserFromId());
+            query.setParameter("userToId", id.getUserToId());
+            ConnectsTo connection = (ConnectsTo) query.getResultList().get(0);
 
             transaction.commit();
             return connection;

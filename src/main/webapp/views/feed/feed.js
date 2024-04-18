@@ -151,6 +151,16 @@ class PostAPI extends API {
         const query = `minDepth=${minDepth}&maxDepth=${maxDepth}&userId=${userId}`;
         return this.request('GET', '', null, null, query)
     }
+
+    async upvote(postId) {
+        const query = `postId=${postId}&vote=upvote`;
+        return this.request('PUT', '', null, null, query)
+    }
+
+    async downvote(postId) {
+        const query = `postId=${postId}&vote=downvote`;
+        return this.request('PUT', '', null, null, query)
+    }
 }
 
 const api = new PostAPI();
@@ -165,7 +175,29 @@ class PostModel {
         const res = await api.list(minDepth, maxDepth)
         return res;
     }
+
+    static async upvote(postId) {
+        const res = await api.upvote(postId);
+        return res;
+    }
+
+    static async downvote(postId) {
+        const res = await api.downvote(postId);
+        return res;
+    }
 }
+
+async function upvote(e)  {
+    const postId = e.target.id;
+    await PostModel.upvote(postId);
+}
+
+async function downvote(e)  {
+    const postId = e.target.id;
+    await PostModel.downvote(postId);
+}
+
+
 
 PostModel.list(0, 5).then((res) => {
     const posts = JSON.parse(res.message)
@@ -179,26 +211,48 @@ PostModel.list(0, 5).then((res) => {
 
             const usernameElement = document.createElement("div");
             usernameElement.classList.add("flex", "w-full", "sm-body", "dark-gray");
-            usernameElement.innerHTML = post.id;
+            usernameElement.innerHTML = post.username;
 
             const postContent = document.createElement("div");
             postContent.classList.add("flex", "w-full", "body", "black", "pt-6", "pb-6");
             postContent.innerHTML = post.content;
 
             const interactionsContainer = document.createElement("div");
-            interactionsContainer.classList.add("flex", "w-full", "gap-12", "flex-row", "justify-start", "align-center");
+            interactionsContainer.classList.add("flex", "w-full", "gap-12", "flex-row", "justify-between", "align-center");
+
+            const interactionsActionsContainer = document.createElement("div");
+            interactionsActionsContainer.classList.add("flex", "w-full", "gap-12", "flex-row", "justify-start", "align-center");
+
+            const interactionsInfoContainer = document.createElement("div");
+            interactionsInfoContainer.classList.add("flex", "gap-12", "flex-row", "justify-start", "align-center");
+
+            const upvotes = document.createElement("p")
+            upvotes.classList.add("green")
+            upvotes.innerHTML = post.upvotes;
+
+            const downvotes = document.createElement("p")
+            downvotes.classList.add("red")
+            downvotes.innerHTML = post.downvotes
 
             const likeButton = document.createElement("div");
             likeButton.classList.add("flex", "sm-body", "nunito",  "button", "small-btn", "primary-btn");
             likeButton.innerHTML = "Gostei";
+            likeButton.id = post.id;
 
             const dislikeButton = document.createElement("div");
             dislikeButton.classList.add("flex", "sm-body", "nunito",  "button", "small-btn", "secondary-btn");
             dislikeButton.innerHTML = "Não gostei";
+            dislikeButton.id = post.id;
 
+            likeButton.addEventListener("click", upvote);
+            dislikeButton.addEventListener("click", downvote);
 
-            interactionsContainer.appendChild(likeButton);
-            interactionsContainer.appendChild(dislikeButton);
+            interactionsActionsContainer.appendChild(likeButton);
+            interactionsActionsContainer.appendChild(dislikeButton);
+            interactionsInfoContainer.appendChild(upvotes);
+            interactionsInfoContainer.appendChild(downvotes);
+            interactionsContainer.appendChild(interactionsActionsContainer);
+            interactionsContainer.appendChild(interactionsInfoContainer);
             postElementContainer.appendChild(usernameElement);
             postElementContainer.appendChild(postContent);
             postElementContainer.appendChild(interactionsContainer);
