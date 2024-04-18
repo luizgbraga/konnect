@@ -87,6 +87,10 @@
   bottom: 36px;
 }
 
+.bottom-60 {
+  bottom: 60px;
+}
+
 .left-half {
   left: 50%;
 }
@@ -309,6 +313,10 @@
 
 .m-36 {
   margin: 36px;
+}
+
+.mt-6 {
+  margin-top: 6px;
 }
 
 .mt-12 {

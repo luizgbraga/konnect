@@ -62,7 +62,7 @@ async function getConnections() {
         if (user.id !== localStorage.getItem("id")) {
             if (user.username.toLowerCase().includes(search.toLowerCase())) {
                 const userElement = document.createElement("div");
-                userElement.classList.add("box-shadow", "w-full", "p-12", "flex", "justify-between", "align-center");
+                userElement.classList.add("box-shadow", "border-default", "w-full", "p-12", "flex", "justify-between", "align-center");
                 if (user.status === 'pending') {
                     userElement.innerHTML = `
                             <p>${user.username}</p>

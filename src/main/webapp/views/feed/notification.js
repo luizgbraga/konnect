@@ -79,7 +79,7 @@ async function listNotifications() {
         for (const notification of notifications) {
 
             const notificationElement = document.createElement("div");
-            notificationElement.classList.add("box-shadow", "w-full", "p-12", "flex", "justify-between", "align-center");
+            notificationElement.classList.add("box-shadow", "border-default", "w-full", "p-12", "flex", "justify-between", "align-center");
             notificationElement.innerHTML = `
                 <p>${notification.username}</p>
                 <a class="small-btn primary-btn" id="${notification.id}">Aceitar</a>

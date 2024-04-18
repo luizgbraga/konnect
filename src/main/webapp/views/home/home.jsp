@@ -41,10 +41,10 @@
     </div>
 
     <div class="absolute w-full bottom-0 flex flex-row align-center justify-center gap-12 pb-12">
-      <a href="feed" class="button">
+      <a href="about" class="button">
         <div id="register-button" class="btn tertiary-btn">Sobre</div>
       </a>
-      <a href="login" class="button">
+      <a href="https://github.com/luizgbraga/labprog3" class="button">
         <div id="login-button" class="btn tertiary-btn">Repositório</div>
       </a>
     </div>

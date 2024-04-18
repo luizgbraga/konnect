@@ -39,10 +39,10 @@
             <p>Grupos</p>
             <img class="dark-gray" src="${pageContext.request.contextPath}/assets/images/group.png" alt="logo" width="26" height="26">
           </div>
-          <div class="flex flex-column w-full align-center">
-            <div class="flex flex-row align-start">
-              <a id="back-button" class="btn secondary-btn">Voltar para o feed</a>
-            </div>
+          <div class="flex flex-row align-start">
+            <a id="back-button" class="btn secondary-btn">Voltar para o feed</a>
+          </div>
+          <div class="flex flex-column w-full align-star">
             <div id="groups-container" class="flex flex-column gap-6 w-250 mt-20"></div>
           </div>
         </div>
