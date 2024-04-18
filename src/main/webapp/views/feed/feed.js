@@ -38,12 +38,11 @@ const handleSearchChange = async (e) => {
 
         try {
             const searchResults = await ConnectionModel.list(search);
-            usersContainer.innerHTML = ''; // Clear previous search results
+            usersContainer.innerHTML = '';
 
             const users = JSON.parse(searchResults.message);
             for (const user of users) {
                 if (user.id !== localStorage.getItem("id")) {
-                    // Check if the username contains the search substring (case-insensitive)
                     if (user.username.toLowerCase().includes(search.toLowerCase())) {
                         const userElement = document.createElement("div");
                         userElement.classList.add("box-shadow", "w-full", "p-12", "flex", "justify-between", "align-center");
