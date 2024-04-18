@@ -54,16 +54,27 @@ class KnModel {
 
 }
 
+async function goToGroup(e) {
+    const groupId = e.target.id;
+    const url = new URL(window.location.href);
+
+    url.searchParams.set('group', groupId);
+    window.location.href = url.href;
+}
+
 KnModel.list().then((res) => {
     const kns = JSON.parse(res.message)
     console.log(kns);
     for (const kn of kns) {
 
         const groupElement = document.createElement("div");
-        groupElement.classList.add("box-shadow", "w-full", "p-12", "flex", "justify-between", "align-center");
+        groupElement.classList.add("box-shadow", "w-full", "p-12", "flex", "justify-between", "align-center", "pointer");
         groupElement.innerHTML += `
-                <p>${kn.name}</p>
+                <p id="${kn.id}">${kn.name}</p>
             `;
+
+        const groupButton = groupElement.querySelector("p");
+        groupButton.addEventListener("click", goToGroup);
 
         groupsContainer.appendChild(groupElement);
     }

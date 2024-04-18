@@ -76,10 +76,12 @@ const handleSubmit = () => {
 
 const updateMinDegree = () => {
     minDegreeDisplay.textContent = minDegree;
+    listAll(minDegree, maxDegree)
 }
 
 const updateMaxDegree = () => {
     maxDegreeDisplay.textContent = maxDegree;
+    listAll(minDegree, maxDegree)
 }
 
 const handleMinMinusClick = () => {
@@ -169,13 +171,19 @@ class PostAPI extends API {
 
     async post(content) {
         const userId = localStorage.getItem("id")
-        const body = JSON.stringify({ userId, content });
+        let params = new URL(document.location).searchParams;
+        let groupId = params.get("group");
+        if (!groupId) groupId = 'null'
+        const body = JSON.stringify({ userId, content, groupId });
         return this.request('POST', '', null, body, null);
     }
 
     async list(minDepth, maxDepth) {
         const userId = localStorage.getItem("id")
-        const query = `minDepth=${minDepth}&maxDepth=${maxDepth}&userId=${userId}`;
+        let params = new URL(document.location).searchParams;
+        let groupId = params.get("group");
+        if (!groupId) groupId = 'null'
+        const query = `minDepth=${minDepth}&maxDepth=${maxDepth}&userId=${userId}&groupId=${groupId}`;
         return this.request('GET', '', null, null, query)
     }
 
@@ -225,11 +233,13 @@ async function downvote(e)  {
 }
 
 
+async function listAll(min, max) {
 
-PostModel.list(0, 5).then((res) => {
-    const posts = JSON.parse(res.message)
-    console.log(posts);
-    for (const post of posts) {
+    PostModel.list(minDegree, maxDegree).then((res) => {
+        const posts = JSON.parse(res.message)
+        feedContainer.innerHTML = "";
+        console.log(posts);
+        for (const post of posts) {
             const postElement = document.createElement("div");
             postElement.classList.add("flex", "box-shadow", "w-full", "border-default", "bg-white");
 
@@ -284,10 +294,14 @@ PostModel.list(0, 5).then((res) => {
             postElementContainer.appendChild(postContent);
             postElementContainer.appendChild(interactionsContainer);
             postElement.appendChild(postElementContainer);
-            
+
             feedContainer.appendChild(postElement);
-    }
-})
+        }
+    })
+}
+
+listAll(minDegree, maxDegree)
+
 class ConnectionAPI extends API {
     constructor() {
         super(`${API_URL}/connection`);

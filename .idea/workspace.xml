@@ -11,9 +11,10 @@
   <component name="ChangeListManager">
     <list default="true" id="5d537cde-9ab9-4317-83fa-c5918c7f2eb0" name="Changes" comment="TUDO FUNCIONA">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/feed/connection.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/feed/connection.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/social_network/server/controllers/PostAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/social_network/server/controllers/PostAPI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/social_network/server/entities/Post.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/social_network/server/entities/Post.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/views/feed/feed.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/feed/feed.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/feed/kn.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/feed/kn.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,7 +34,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="notifications" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -70,7 +71,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "Tomcat Server.Tomcat 10.1.19.executor": "Run",
-    "git-widget-placeholder": "search-of-users",
+    "git-widget-placeholder": "braga",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
