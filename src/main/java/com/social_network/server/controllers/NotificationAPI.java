@@ -1,15 +1,16 @@
 package com.social_network.server.controllers;
 
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import com.social_network.server.HibernateUtil;
-import com.social_network.server.entities.ConnectsTo;
-import com.social_network.server.entities.Post;
-import com.social_network.server.entities.User;
+import com.social_network.server.entities.*;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.Persistence;
@@ -83,6 +84,30 @@ public class NotificationAPI extends HttpServlet {
             System.out.println(connection);
             connection.setStatus("active");
             session.merge(connection); // Use merge to update detached entity
+            ArrayList<ConnectsTo> connections = ConnectsTo.listActives();
+            System.out.println(connections);
+            Map<String, List<List<String>>> result = ConnectsTo.checkGroups(connections);
+            List<List<String>> mustCreate = result.get("mustCreate");
+            List<String> mustDelete = result.get("mustDelete").get(0);
+            System.out.println(mustCreate);
+            System.out.println(mustDelete);
+            if (!mustDelete.isEmpty()) {
+                session.createQuery("DELETE FROM KnUser WHERE id.userId IN :ids")
+                        .setParameterList("ids", mustDelete)
+                        .executeUpdate();
+            }
+            if (!mustCreate.isEmpty()) {
+                for (List<String> kn : mustCreate) {
+                    Kn group = new Kn();
+                    System.out.println(group);
+                    session.persist(group);
+                    for (String userId : kn) {
+                        KnUser belongs = new KnUser(userId, group.getId());
+                        System.out.println(belongs);
+                        session.persist(belongs);
+                    }
+                }
+            }
             if (!transaction.getStatus().equals(TransactionStatus.ACTIVE)) {
                 transaction.rollback();
                 throw new Exception();

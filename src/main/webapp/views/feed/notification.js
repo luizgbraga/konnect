@@ -67,7 +67,8 @@ class NotificationModel {
 async function acceptConnection(e)  {
     const userFromId = e.target.id;
     await NotificationModel.accept(userFromId);
-    listNotifications()
+    // listNotifications()
+    window.location.reload()
 }
 
 async function listNotifications() {
