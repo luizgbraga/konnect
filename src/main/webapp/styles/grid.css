@@ -38,6 +38,10 @@
   justify-content: space-around;
 }
 
+.justify-evenly {
+  justify-content: space-evenly;
+}
+
 .align-center {
   align-items: center;
 }
@@ -110,8 +114,16 @@
   width: 33.33%;
 }
 
+.w-twenty {
+  width: 20%;
+}
+
 .w-quarter {
   width: 25%;
+}
+
+.w-fourty {
+  width: 40%;
 }
 
 .w-half {
