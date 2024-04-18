@@ -128,12 +128,14 @@ public class User {
             // Create HQL query to retrieve all users
             String hql = "FROM User";
             Query query = session.createQuery(hql, User.class);
-      //      query.setParameter("searchFilter", searchFilter);
-
             // Execute the query and cast the results to a List of User objects
             ArrayList<User> users = (ArrayList<User>) query.getResultList();
-
             transaction.commit();
+            for (int i = 0; i < users.size(); i++) {
+                if (!users.get(i).getUsername().contains(searchFilter)) {
+                    users.remove(i--);
+                }
+            }
             return users;
         } catch (Exception e) {
             e.printStackTrace();

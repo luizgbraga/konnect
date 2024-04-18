@@ -39,7 +39,7 @@ public class ConnectsTo {
         this.id = id;
     }
 
-    public Object getStatus() {
+    public String getStatus() {
         return status;
     }
 
@@ -280,6 +280,33 @@ public class ConnectsTo {
         }
     }
 
+    public static HashMap<String, String> listRelatedConnectionsStatus(String userId) {
+        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.getTransaction();
+
+        try (session) {
+            transaction.begin();
+            String hql = "FROM ConnectsTo WHERE (id.userToId = :userId OR id.userFromId = :userId)";
+            Query query = session.createQuery(hql, ConnectsTo.class);
+            query.setParameter("userId", userId);
+            ArrayList<ConnectsTo> relatedConnections = (ArrayList<ConnectsTo>) query.getResultList();
+            transaction.commit();
+            HashMap<String, String> idToStatus = new HashMap<String, String>();
+            for (ConnectsTo connection : relatedConnections) {
+                if (connection.getUserFromId().equals(userId)) {
+                    idToStatus.put(connection.getUserToId(), connection.getStatus());
+                } else {
+                    idToStatus.put(connection.getUserFromId(), connection.getStatus());
+                }
+            }
+            return idToStatus;
+        } catch (Exception e) {
+            e.printStackTrace();
+            transaction.rollback();
+            return null;
+        }
+    }
 
     @Override
     public boolean equals(Object o) {
