@@ -2,12 +2,17 @@ const contentInput = document.getElementById('content-input');
 const searchInput = document.getElementById('search-input');
 const postButton = document.getElementById('post-button');
 const backButton = document.getElementById('back-button');
+const logout = document.getElementById('logout');
 
 backButton.addEventListener('click', () => {
     const url = new URL(window.location.href);
 
     url.searchParams.delete('group')
     window.location.href = url.href;
+})
+
+logout.addEventListener('click', () => {
+    window.location.href = 'http://localhost:8080/server_war_exploded/home'
 })
 
 
@@ -31,11 +36,50 @@ let search = '';
 usersContainer.style.display = 'none';
 let content = '';
 
-let minDegree = 1;
+let minDegree = 0;
 let maxDegree = 1;
 const handleContentChange = (e) => {
     content = e.target.value;
 }
+
+async function getConnections() {
+    const searchResults = await ConnectionModel.list(search);
+    usersContainer.innerHTML = '';
+
+    const users = JSON.parse(searchResults.message);
+    for (const user of users) {
+        if (user.id !== localStorage.getItem("id")) {
+            if (user.username.toLowerCase().includes(search.toLowerCase())) {
+                const userElement = document.createElement("div");
+                userElement.classList.add("box-shadow", "w-full", "p-12", "flex", "justify-between", "align-center");
+                if (user.status === 'pending') {
+                    userElement.innerHTML = `
+                            <p>${user.username}</p>
+                            <a class="small-disabled-btn disabled-btn" id="${user.id}">Aguardando</a>
+                        `;
+                }
+                else if (user.status === 'active') {
+                    userElement.innerHTML = `
+                            <p>${user.username}</p>
+                            <a class="small-disabled-btn disabled-btn" id="${user.id}">Conectado</a>
+                        `;
+                }
+                else {
+                    userElement.innerHTML = `
+                            <p>${user.username}</p>
+                            <a class="small-btn primary-btn" id="${user.id}">Seguir</a>
+                        `;
+                }
+
+                const followButton = userElement.querySelector("a");
+                followButton.addEventListener("click", create);
+
+                usersContainer.appendChild(userElement);
+            }
+        }
+    }
+}
+
 
 const handleSearchChange = async (e) => {
     search = e.target.value.trim();
@@ -46,27 +90,7 @@ const handleSearchChange = async (e) => {
         usersContainer.style.display = 'flex';
 
         try {
-            const searchResults = await ConnectionModel.list(search);
-            usersContainer.innerHTML = '';
-
-            const users = JSON.parse(searchResults.message);
-            for (const user of users) {
-                if (user.id !== localStorage.getItem("id")) {
-                    if (user.username.toLowerCase().includes(search.toLowerCase())) {
-                        const userElement = document.createElement("div");
-                        userElement.classList.add("box-shadow", "w-full", "p-12", "flex", "justify-between", "align-center");
-                        userElement.innerHTML = `
-                            <p>${user.username}</p>
-                            <a class="small-btn primary-btn" id="${user.id}">Seguir</a>
-                        `;
-
-                        const followButton = userElement.querySelector("a");
-                        followButton.addEventListener("click", create);
-
-                        usersContainer.appendChild(userElement);
-                    }
-                }
-            }
+            await getConnections();
         } catch (error) {
             console.error("Error fetching search results:", error);
         }
@@ -79,8 +103,10 @@ const handleSearchChange = async (e) => {
 
 
 const handleSubmit = () => {
-    PostModel.post(content).then((res) => {})
-    console.log(res);
+    PostModel.post(content).then((res) => {
+        search = ''
+    })
+    listAll(minDegree, maxDegree)
 }
 
 const updateMinDegree = () => {
@@ -94,7 +120,7 @@ const updateMaxDegree = () => {
 }
 
 const handleMinMinusClick = () => {
-    if (minDegree > 1) {
+    if (minDegree > 0) {
         minDegree--;
         updateMinDegree();
         if (maxDegree < minDegree) {
@@ -348,25 +374,5 @@ class ConnectionModel {
 async function create(e) {
     const userId = e.target.id;
     await ConnectionModel.create(userId);
+    getConnections()
 }
-
-ConnectionModel.list('').then((res) => {
-    const users = JSON.parse(res.message)
-    console.log(users);
-    for (const user of users) {
-        if (user.id !== localStorage.getItem("id")) {
-            const userElement = document.createElement("div");
-            userElement.classList.add("box-shadow", "w-full", "p-12", "flex", "justify-between", "align-center");
-            userElement.innerHTML = `
-                <p>${user.username}</p>
-                <a class="small-btn primary-btn" id="${user.id}">Seguir</a>
-            `;
-
-            const followButton = userElement.querySelector("a");
-            followButton.addEventListener("click", create);
-
-            usersContainer.appendChild(userElement);
-        }
-    }
-
-})

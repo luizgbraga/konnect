@@ -25,6 +25,13 @@
   cursor: pointer;
 }
 
+.small-disabled-btn {
+  font-size: 14px;
+  padding: 4px 10px;
+  border-radius: 12px;
+}
+
+
 .md-btn {
   font-size: 14px;
   padding: 8px 12px;
@@ -52,6 +59,14 @@
 
 .primary-btn:hover {
   background-color: var(--primary-hover);
+}
+
+.disabled-btn {
+  background-color: #A9A9A9;
+  color: #F0F0F0;
+  text-decoration: none;
+  cursor: default;
+  pointer-events: none;
 }
 
 .secondary-btn {
