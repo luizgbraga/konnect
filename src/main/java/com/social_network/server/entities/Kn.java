@@ -11,6 +11,7 @@ import java.security.spec.InvalidKeySpecException;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Random;
 import java.util.UUID;
 
 @Entity
@@ -52,7 +53,17 @@ public class Kn {
     }
 
     public Kn() throws NoSuchAlgorithmException, InvalidKeySpecException {
-        this.name = "Untitled group";
+        String[] nouns = {"Eagle", "Heart", "Rock", "Forest", "Sea", "Light", "Sky", "Mountain", "River", "Star", "Path", "Wind", "Ocean", "Temple", "Shadow", "Valley", "Thunder", "Moon", "Fire", "Snow"};
+        String[] adjectives = {"Bright", "Silent", "Fierce", "Sacred", "Mysterious", "Majestic", "Wild", "Serene", "Radiant", "Lost", "Icy", "Harmonious", "Epic", "Legendary", "Divine", "Glistening", "Majestic", "Dazzling", "Enchanted", "Burning"};
+
+        Random rand1 = new Random();
+        Random rand2 = new Random();
+
+        String randomNoun = nouns[rand1.nextInt(nouns.length)];
+        String randomAdjective = adjectives[rand2.nextInt(adjectives.length)];
+
+        this.name = randomAdjective + " " + randomNoun;
+
         UUID uuid = UUID.randomUUID();
         this.id = uuid.toString();
     }

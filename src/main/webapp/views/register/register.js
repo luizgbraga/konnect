@@ -1,6 +1,9 @@
 const usernameInput = document.getElementById('username-input');
 const passwordInput = document.getElementById('password-input');
 const registerButton = document.getElementById('register-button');
+if (localStorage.getItem('id')) {
+    window.location.href = 'http://localhost:8080/server_war_exploded/feed'
+}
 
 let username = '';
 let password = '';

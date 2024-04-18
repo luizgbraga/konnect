@@ -1,3 +1,7 @@
+if (!localStorage.getItem('id')) {
+    window.location.href = 'http://localhost:8080/server_war_exploded/home'
+}
+
 const contentInput = document.getElementById('content-input');
 const searchInput = document.getElementById('search-input');
 const postButton = document.getElementById('post-button');
@@ -11,7 +15,14 @@ backButton.addEventListener('click', () => {
     window.location.href = url.href;
 })
 
+let params = new URL(document.location).searchParams;
+let groupId = params.get("group");
+if (!groupId) {
+    backButton.style.display = 'none'
+}
+
 logout.addEventListener('click', () => {
+    localStorage.removeItem('id');
     window.location.href = 'http://localhost:8080/server_war_exploded/home'
 })
 
@@ -104,9 +115,10 @@ const handleSearchChange = async (e) => {
 
 const handleSubmit = () => {
     PostModel.post(content).then((res) => {
-        search = ''
+        content = ''
+        contentInput.value = ''
+        listAll(minDegree, maxDegree)
     })
-    listAll(minDegree, maxDegree)
 }
 
 const updateMinDegree = () => {

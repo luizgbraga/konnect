@@ -9,11 +9,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5d537cde-9ab9-4317-83fa-c5918c7f2eb0" name="Changes" comment="oopsie">
+    <list default="true" id="5d537cde-9ab9-4317-83fa-c5918c7f2eb0" name="Changes" comment="commit na master liberado">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/styles/grid.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/styles/grid.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/styles/spacings.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/styles/spacings.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/feed/feed.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/feed/feed.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/social_network/server/entities/Kn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/social_network/server/entities/Kn.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -303,7 +301,23 @@
       <option name="project" value="LOCAL" />
       <updated>1713403977788</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="icones">
+      <option name="closed" value="true" />
+      <created>1713408374008</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1713408374010</updated>
+    </task>
+    <task id="LOCAL-00015" summary="commit na master liberado">
+      <option name="closed" value="true" />
+      <created>1713441923423</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1713441923423</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -328,7 +342,9 @@
     <MESSAGE value="TUDO FUNCIONA" />
     <MESSAGE value="tudo funciona lindo" />
     <MESSAGE value="oopsie" />
-    <option name="LAST_COMMIT_MESSAGE" value="oopsie" />
+    <MESSAGE value="icones" />
+    <MESSAGE value="commit na master liberado" />
+    <option name="LAST_COMMIT_MESSAGE" value="commit na master liberado" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -73,3 +73,9 @@
 .quaternary {
   color: var(--quaternary);
 }
+
+.bordered {
+  border-width: 1px;
+  border-color: #10436A;
+  border-style: solid;
+}
