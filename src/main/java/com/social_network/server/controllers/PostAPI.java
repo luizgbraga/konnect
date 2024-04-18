@@ -35,7 +35,7 @@ public class PostAPI extends HttpServlet {
             transaction.begin();
             HashMap<String, String> parameters = this.getPostParameters(request);
 
-            Post post = new Post(parameters.get("content"), parameters.get("userId"));
+            Post post = new Post(parameters.get("content"), parameters.get("userId"), parameters.get("knId"));
             System.out.println(post.getId());
             System.out.println(post.getContent());
             System.out.println(post.getUserId());
@@ -58,11 +58,18 @@ public class PostAPI extends HttpServlet {
         Integer minDepthParam = Integer.parseInt(request.getParameter("minDepth"));
         Integer maxDepthParam = Integer.parseInt(request.getParameter("maxDepth"));
         String userId = request.getParameter("userId");
+        String knId = request.getParameter("groupId");
         ArrayList<Post> posts = Post.list(minDepthParam, maxDepthParam, userId);
         ArrayList<User> users = User.list("");
         StringBuilder responseBuilder = new StringBuilder();
         responseBuilder.append("[");
         for (Post post : posts) {
+            if (!knId.equals("null") && !post.getKnId().equals(knId)) {
+                continue;
+            }
+            if (knId.equals("null") && !post.getKnId().equals("null")) {
+                continue;
+            }
             String username = "Not found";
             for (User user : users) {
                 if (post.getUserId().equals(user.getId())) {
@@ -149,9 +156,11 @@ public class PostAPI extends HttpServlet {
         JSONObject jsonObject = new JSONObject(jsonData);
         String content = jsonObject.getString("content");
         String userId = jsonObject.getString("userId");
+        String groupId = jsonObject.getString("groupId");
         HashMap<String, String> parameters = new HashMap<String, String>();
         parameters.put("content", content);
         parameters.put("userId", userId);
+        parameters.put("knId", groupId);
         return parameters;
     }
 }

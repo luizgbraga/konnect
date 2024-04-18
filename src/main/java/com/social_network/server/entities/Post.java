@@ -93,7 +93,11 @@ public class Post {
     }
 
     public String getKnId() {
-        return knId;
+        if (this.knId == null) {
+            return "null";
+        } else {
+            return this.knId;
+        }
     }
 
     public void setKnId(String knId) {
@@ -102,9 +106,12 @@ public class Post {
 
     public Post() {}
 
-    public Post(String content, String userId) throws NoSuchAlgorithmException, InvalidKeySpecException {
+    public Post(String content, String userId, String knId) throws NoSuchAlgorithmException, InvalidKeySpecException {
         this.content = content;
         this.userId = userId;
+        if (!knId.equals("null")) {
+            this.knId = knId;
+        }
 
         UUID uuid = UUID.randomUUID();
         this.id = uuid.toString();
