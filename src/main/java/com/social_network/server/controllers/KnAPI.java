@@ -29,6 +29,14 @@ public class KnAPI extends HttpServlet {
         ArrayList<KnUser> knUsers = KnUser.getFromUser( userId);
         ArrayList<Kn> kns = Kn.list();
         StringBuilder responseBuilder = new StringBuilder();
+        if (knUsers == null) {
+            responseBuilder.append("[]");
+            String responseMessage = this.getResponseMessage(responseBuilder.toString());
+            response.setStatus(201);
+            response.getOutputStream().println(responseMessage);
+            response.setContentType("application/json");
+            return;
+        }
         responseBuilder.append("[");
         for (KnUser knUser : knUsers) {
             // Constructing JSON-like representation for each user

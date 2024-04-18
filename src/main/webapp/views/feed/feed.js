@@ -1,6 +1,15 @@
 const contentInput = document.getElementById('content-input');
 const searchInput = document.getElementById('search-input');
 const postButton = document.getElementById('post-button');
+const backButton = document.getElementById('back-button');
+
+backButton.addEventListener('click', () => {
+    const url = new URL(window.location.href);
+
+    url.searchParams.delete('group')
+    window.location.href = url.href;
+})
+
 
 // Get the elements for minimum degree counter
 const minMinusBtn = document.getElementById("min-minus-btn");
@@ -225,11 +234,13 @@ class PostModel {
 async function upvote(e)  {
     const postId = e.target.id;
     await PostModel.upvote(postId);
+    listAll(minDegree, maxDegree)
 }
 
 async function downvote(e)  {
     const postId = e.target.id;
     await PostModel.downvote(postId);
+    listAll(minDegree, maxDegree)
 }
 
 

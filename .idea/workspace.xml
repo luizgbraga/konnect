@@ -68,7 +68,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Tomcat Server.Tomcat 10.1.19.executor": "Debug",
-    "git-widget-placeholder": "filtering-and-fetching",
+    "git-widget-placeholder": "main",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -284,7 +284,23 @@
       <option name="project" value="LOCAL" />
       <updated>1713383634928</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="tudo funciona lindo">
+      <option name="closed" value="true" />
+      <created>1713403832255</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1713403832255</updated>
+    </task>
+    <task id="LOCAL-00013" summary="oopsie">
+      <option name="closed" value="true" />
+      <created>1713403977788</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1713403977788</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -307,7 +323,9 @@
     <MESSAGE value="commit na master pt2" />
     <MESSAGE value="notifications" />
     <MESSAGE value="TUDO FUNCIONA" />
-    <option name="LAST_COMMIT_MESSAGE" value="TUDO FUNCIONA" />
+    <MESSAGE value="tudo funciona lindo" />
+    <MESSAGE value="oopsie" />
+    <option name="LAST_COMMIT_MESSAGE" value="oopsie" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
