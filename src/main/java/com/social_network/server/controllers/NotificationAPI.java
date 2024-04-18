@@ -34,6 +34,14 @@ public class NotificationAPI extends HttpServlet {
         ArrayList<ConnectsTo> connections = ConnectsTo.notifications(userId);
         ArrayList<User> users = User.list("");
         StringBuilder responseBuilder = new StringBuilder();
+        if (connections == null) {
+            responseBuilder.append("[]");
+            String responseMessage = this.getResponseMessage(responseBuilder.toString());
+            response.setStatus(201);
+            response.getOutputStream().println(responseMessage);
+            response.setContentType("application/json");
+            return;
+        }
         responseBuilder.append("[");
         for (ConnectsTo connection : connections) {
             String username = "Not found";

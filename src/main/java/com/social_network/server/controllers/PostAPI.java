@@ -5,6 +5,8 @@ import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import com.social_network.server.HibernateUtil;
 import com.social_network.server.entities.ConnectsTo;
@@ -60,16 +62,26 @@ public class PostAPI extends HttpServlet {
         String userId = request.getParameter("userId");
         String knId = request.getParameter("groupId");
         ArrayList<Post> posts = Post.list(minDepthParam, maxDepthParam, userId);
+        if (posts == null) {
+            String responseMessage = this.getResponseMessage("[]");
+            response.setStatus(201);
+            response.getOutputStream().println(responseMessage);
+            response.setContentType("application/json");
+            return;
+        }
         ArrayList<User> users = User.list("");
+        List<Post> filteredPosts = posts.stream()
+                .filter(post -> {
+                    if (!knId.equals("null")) {
+                        return post.getKnId().equals(knId);
+                    } else {
+                        return post.getKnId().equals("null");
+                    }
+                })
+                .collect(Collectors.toList());
         StringBuilder responseBuilder = new StringBuilder();
         responseBuilder.append("[");
-        for (Post post : posts) {
-            if (!knId.equals("null") && !post.getKnId().equals(knId)) {
-                continue;
-            }
-            if (knId.equals("null") && !post.getKnId().equals("null")) {
-                continue;
-            }
+        for (Post post : filteredPosts) {
             String username = "Not found";
             for (User user : users) {
                 if (post.getUserId().equals(user.getId())) {
@@ -86,7 +98,7 @@ public class PostAPI extends HttpServlet {
                     .append("\"downvotes\": \"").append(post.getDownvotes()).append("\" ")
                     .append("}, ");
         }
-        if (!posts.isEmpty()) {
+        if (!filteredPosts.isEmpty()) {
             responseBuilder.delete(responseBuilder.length() - 2, responseBuilder.length());
         }
 
