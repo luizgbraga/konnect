@@ -234,11 +234,13 @@ class PostModel {
 async function upvote(e)  {
     const postId = e.target.id;
     await PostModel.upvote(postId);
+    listAll(minDegree, maxDegree)
 }
 
 async function downvote(e)  {
     const postId = e.target.id;
     await PostModel.downvote(postId);
+    listAll(minDegree, maxDegree)
 }
 
 

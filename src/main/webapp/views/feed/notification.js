@@ -67,12 +67,15 @@ class NotificationModel {
 async function acceptConnection(e)  {
     const userFromId = e.target.id;
     await NotificationModel.accept(userFromId);
+    listNotifications()
 }
 
-NotificationModel.list().then((res) => {
-    const notifications = JSON.parse(res.message)
-    console.log(notifications);
-    for (const notification of notifications) {
+async function listNotifications() {
+    NotificationModel.list().then((res) => {
+        const notifications = JSON.parse(res.message)
+        console.log(notifications);
+        notificationsContainer.innerHTML = ""
+        for (const notification of notifications) {
 
             const notificationElement = document.createElement("div");
             notificationElement.classList.add("box-shadow", "w-full", "p-12", "flex", "justify-between", "align-center");
@@ -85,6 +88,9 @@ NotificationModel.list().then((res) => {
             acceptButton.addEventListener("click", acceptConnection);
 
             notificationsContainer.appendChild(notificationElement);
-    }
+        }
 
-})
+    })
+}
+
+listNotifications()
