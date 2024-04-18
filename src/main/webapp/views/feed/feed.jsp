@@ -20,9 +20,18 @@
 <!-- <label for="content-input">Content</label>
 <input id="content-input" type="text" placeholder="content">
 <div id="post-button" class="btn primary-btn login">Post</div> -->
-    <div id="notifications-container" class="absolute right-12 top-36 w-400">
+<div class="absolute right-12 top-36 w-250">
+    <p class="mb-20">Notificações</p>
+    <div id="notifications-container" class="flex flex-column gap-6 w-250">
 
     </div>
+</div>
+<div class="absolute left-12 top-36 w-250">
+    <p class="mb-20">Grupos</p>
+    <div id="groups-container" class="flex flex-column gap-6 w-250">
+
+    </div>
+</div>
   <div class="flex flex-column align-center w-vw h-vh bg-white pl-24 pr-24 gap-24">
     <!-- Header -->
     <div class="flex w-full max-w-660 pt-12 pb-12 " id="header">
@@ -67,15 +76,15 @@
     <!-- Post new message -->
     <div class="flex w-full max-w-660 flex-column align-end gap-18" id="new-message-container">
       <div class="forms">
-        <input class="flex w-full min-h-100 h-fit-content box-shadow" id="content-input" type="text" placeholder="O que você está pensando?">
+        <input class="flex w-full min-h-60 h-fit-content box-shadow" id="content-input" type="text" placeholder="O que você está pensando?">
       </div>
       <a id="post-button" class="btn primary-btn">Postar</a>
     </div>
 
     <!-- Feed -->
-    <div class="flex flex-column gap-6 w-full max-w-660" id="feed-container">
+    <div class="flex flex-column gap-18 w-full max-w-660" id="feed-container">
     </div>
-      <div class="flex flex-column gap-6 w-full max-w-660" id="users-container">
+      <div class="flex flex-column gap-18 w-full max-w-660" id="users-container">
       </div>
 
   </div>
@@ -84,4 +93,5 @@
 <script type="module" src="${pageContext.request.contextPath}/views/feed/feed.js"></script>
 <script type="module" src="${pageContext.request.contextPath}/views/feed/connection.js"></script>
 <script type="module" src="${pageContext.request.contextPath}/views/feed/notification.js"></script>
+<script type="module" src="${pageContext.request.contextPath}/views/feed/kn.js"></script>
 </html>

@@ -46,8 +46,9 @@
 
         <div class="btn-ctn flex flex-row align-end">
           <a class="btn secondary-btn" href="${pageContext.request.contextPath}/login">Voltar</a>
-  
-          <div id="register-button" class="btn primary-btn register">Cadastrar</div>
+          <a href="login" class="button">
+            <div id="register-button" class="btn primary-btn register">Cadastrar</div>
+          </a>
         </div>
       </div>
     </div>

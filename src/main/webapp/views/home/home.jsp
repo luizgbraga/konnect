@@ -31,7 +31,7 @@
           <img src="${pageContext.request.contextPath}/assets/images/konnect-home-line.svg" alt="line">
         </div>
         <a href="login" class="button">
-          <div id="login-button" class="btn primary-btn">Entrar</div>|
+          <div id="login-button" class="btn primary-btn">Entrar</div>
         </a>
         <div class="flex flex-row gap-12">
           <p class="dark-gray">Não tem uma conta?</p>
@@ -41,7 +41,7 @@
     </div>
 
     <div class="absolute w-full bottom-0 flex flex-row align-center justify-center gap-12 pb-12">
-      <a href="register" class="button">
+      <a href="feed" class="button">
         <div id="register-button" class="btn tertiary-btn">Sobre</div>
       </a>
       <a href="login" class="button">

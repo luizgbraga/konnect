@@ -93,7 +93,11 @@ public class Post {
     }
 
     public String getKnId() {
-        return knId;
+        if (this.knId == null) {
+            return "null";
+        } else {
+            return this.knId;
+        }
     }
 
     public void setKnId(String knId) {
@@ -102,9 +106,12 @@ public class Post {
 
     public Post() {}
 
-    public Post(String content, String userId) throws NoSuchAlgorithmException, InvalidKeySpecException {
+    public Post(String content, String userId, String knId) throws NoSuchAlgorithmException, InvalidKeySpecException {
         this.content = content;
         this.userId = userId;
+        if (!knId.equals("null")) {
+            this.knId = knId;
+        }
 
         UUID uuid = UUID.randomUUID();
         this.id = uuid.toString();
@@ -112,6 +119,26 @@ public class Post {
         this.upvotes = 0;
     }
 
+    public static Post get(String postId) {
+        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.getTransaction();
+
+        try (session) {
+            transaction.begin();
+            String hql = "FROM Post WHERE id = :id";
+            Query query = session.createQuery(hql, Post.class);
+            query.setParameter("id", postId);
+            Post post = (Post) query.getResultList().get(0);
+
+            transaction.commit();
+            return post;
+        } catch (Exception e) {
+            e.printStackTrace();
+            transaction.rollback();
+            return null;
+        }
+    }
     public static ArrayList<Post> list(Integer minDepth, Integer maxDepth, String userId) {
         ArrayList<ConnectsTo> connections = ConnectsTo.list();
         Graph graph = new Graph(connections);

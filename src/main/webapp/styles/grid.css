@@ -6,8 +6,16 @@
   flex-direction: column;
 }
 
+.flex-column-rev {
+  flex-direction: column-reverse;
+}
+
 .flex-row {
   flex-direction: row;
+}
+
+.flex-row-rev {
+  flex-direction: row-reverse;
 }
 
 .justify-center {
@@ -82,6 +90,10 @@
   gap: 30px;
 }
 
+.w-250 {
+  width: 250px;
+}
+
 .w-400 {
   width: 400px;
 }
@@ -128,6 +140,10 @@
 
 .min-h-100vh {
   min-height: 100vh;
+}
+
+.min-h-60 {
+  min-height: 60px;
 }
 
 .min-h-100 {

@@ -45,7 +45,7 @@ class NotificationAPI extends API {
 
     async accept(userFromId) {
         const userToId = localStorage.getItem("id")
-        const query = `userFromId=${userFromId}&userToId=${userToId};`
+        const query = `userFromId=${userFromId}&userToId=${userToId}`
         return this.request('PUT', '', null, null, query);
     }
 }
@@ -77,7 +77,7 @@ NotificationModel.list().then((res) => {
             const notificationElement = document.createElement("div");
             notificationElement.classList.add("box-shadow", "w-full", "p-12", "flex", "justify-between", "align-center");
             notificationElement.innerHTML = `
-                <p>${notification.id}</p>
+                <p>${notification.username}</p>
                 <a class="small-btn primary-btn" id="${notification.id}">Aceitar</a>
             `;
 

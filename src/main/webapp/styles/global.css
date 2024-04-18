@@ -2,4 +2,13 @@
 
 * {
     font-family: "Golos Text", sans-serif;
+    box-sizing: border-box;
+}
+
+.green {
+    color: darkgreen;
+}
+
+.red {
+    color: crimson;
 }
