@@ -55,8 +55,7 @@ public class ConnectsTo {
 
     public ConnectsTo() {}
 
-    public static Map<String, List<List<String>>> checkGroups() {
-        ArrayList<ConnectsTo> connections = ConnectsTo.list();
+    public static Map<String, List<List<String>>> checkGroups(ArrayList<ConnectsTo> connections) {
         Graph graph = new Graph(connections);
         List<List<List<String>>> listOfKns = new ArrayList<>();
 
@@ -268,6 +267,26 @@ public class ConnectsTo {
         try (session) {
             transaction.begin();
             String hql = "FROM ConnectsTo";
+            Query query = session.createQuery(hql, ConnectsTo.class);
+            ArrayList<ConnectsTo> connections = (ArrayList<ConnectsTo>) query.getResultList();
+
+            transaction.commit();
+            return connections;
+        } catch (Exception e) {
+            e.printStackTrace();
+            transaction.rollback();
+            return null;
+        }
+    }
+
+    public static ArrayList<ConnectsTo> listActives() {
+        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.getTransaction();
+
+        try (session) {
+            transaction.begin();
+            String hql = "FROM ConnectsTo WHERE status = 'active'";
             Query query = session.createQuery(hql, ConnectsTo.class);
             ArrayList<ConnectsTo> connections = (ArrayList<ConnectsTo>) query.getResultList();
 

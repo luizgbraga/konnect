@@ -43,28 +43,6 @@ public class ConnectionAPI extends HttpServlet {
             String userToId = parameters.get("userToId");
             ConnectsTo connection = new ConnectsTo(userFromId, userToId);
             session.persist(connection);
-            Map<String, List<List<String>>> result = ConnectsTo.checkGroups();
-            List<List<String>> mustCreate = result.get("mustCreate");
-            List<String> mustDelete = result.get("mustDelete").get(0);
-            System.out.println(mustCreate);
-            System.out.println(mustDelete);
-            if (!mustDelete.isEmpty()) {
-                session.createQuery("DELETE FROM KnUser WHERE id.userId IN :ids")
-                        .setParameterList("ids", mustDelete)
-                        .executeUpdate();
-            }
-            if (!mustCreate.isEmpty()) {
-                for (List<String> kn : mustCreate) {
-                    Kn group = new Kn();
-                    System.out.println(group);
-                    session.persist(group);
-                    for (String userId : kn) {
-                        KnUser belongs = new KnUser(userId, group.getId());
-                        System.out.println(belongs);
-                        session.persist(belongs);
-                    }
-                }
-            }
             transaction.commit();
             String responseMessage = this.getResponseMessage("Connection created successfully");
             response.setStatus(201);

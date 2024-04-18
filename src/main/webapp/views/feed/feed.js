@@ -143,8 +143,10 @@ const handleMinMinusClick = () => {
 }
 
 const handleMinPlusClick = () => {
-    minDegree++;
-    updateMinDegree();
+    if (maxDegree > minDegree) {
+        minDegree++;
+        updateMinDegree();
+    }
 }
 
 const handleMaxMinusClick = () => {
