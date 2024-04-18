@@ -91,13 +91,13 @@ public class ConnectionAPI extends HttpServlet {
                 if (connections.containsKey(user.getId())) {
                     responseBuilder.append("{")
                             .append("\"id\": \"").append(user.getId()).append("\", ")
-                            .append("\"username\": \"").append(user.getUsername()).append("\"")
+                            .append("\"username\": \"").append(user.getUsername()).append("\", ")
                             .append("\"status\": \"").append(connections.get(user.getId())).append("\"")
                             .append("}, ");
                 } else {
                     responseBuilder.append("{")
                             .append("\"id\": \"").append(user.getId()).append("\", ")
-                            .append("\"username\": \"").append(user.getUsername()).append("\"")
+                            .append("\"username\": \"").append(user.getUsername()).append("\", ")
                             .append("\"status\": \"").append("none").append("\"")
                             .append("}, ");
                 }
