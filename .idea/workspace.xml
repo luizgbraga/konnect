@@ -9,17 +9,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5d537cde-9ab9-4317-83fa-c5918c7f2eb0" name="Changes" comment="oopsie">
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/images/bell.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/images/group.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/images/logout.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/images/user.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c0a6dd5d-23f2-40b7-a1ce-faeed089e68b.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/c0a6dd5d-23f2-40b7-a1ce-faeed089e68b.xml" afterDir="false" />
+    <list default="true" id="5d537cde-9ab9-4317-83fa-c5918c7f2eb0" name="Changes" comment="icones">
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/assets/images/edit.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/styles/buttons.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/styles/buttons.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/views/feed/feed.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/feed/feed.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/feed/feed.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/feed/feed.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/feed/kn.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/feed/kn.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/login/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/login/login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/register/register.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/register/register.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -309,7 +305,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713403977788</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="icones">
+      <option name="closed" value="true" />
+      <created>1713408374008</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1713408374010</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -334,7 +338,8 @@
     <MESSAGE value="TUDO FUNCIONA" />
     <MESSAGE value="tudo funciona lindo" />
     <MESSAGE value="oopsie" />
-    <option name="LAST_COMMIT_MESSAGE" value="oopsie" />
+    <MESSAGE value="icones" />
+    <option name="LAST_COMMIT_MESSAGE" value="icones" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -1,3 +1,7 @@
+if (localStorage.getItem('id')) {
+    window.location.href = 'http://localhost:8080/server_war_exploded/feed'
+}
+
 const usernameInput = document.getElementById('username-input');
 const passwordInput = document.getElementById('password-input');
 const loginButton = document.getElementById('login-button');

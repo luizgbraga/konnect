@@ -66,9 +66,15 @@ KnModel.list().then((res) => {
     const kns = JSON.parse(res.message)
     console.log(kns);
     for (const kn of kns) {
+        const url = new URL(window.location.href);
+
+        const groupId = url.searchParams.get('group');
 
         const groupElement = document.createElement("div");
         groupElement.classList.add("box-shadow", "w-full", "p-12", "flex", "justify-between", "align-center", "pointer");
+        if (kn.id == groupId) {
+            groupElement.classList.add("bordered")
+        }
         groupElement.innerHTML += `
                 <p id="${kn.id}">${kn.name}</p>
             `;
