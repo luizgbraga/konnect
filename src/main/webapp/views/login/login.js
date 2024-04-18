@@ -35,7 +35,7 @@ const handleSubmit = () => {
             spinner.style.display = 'none'
             console.log(err);
             const errorMessage = document.getElementById('error-message');
-            errorMessage.textContent = err.message;
+            errorMessage.textContent = 'Usuário ou senha inválidos';
         });
 }
 

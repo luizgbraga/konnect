@@ -35,20 +35,22 @@
       </div>
   
       <div class="credentials-ctn relative flex flex-column align-end justify-start">
-        <div class="credentials flex flex-column w-full align-star pt-36">
-          <div class="forms flex-column align-start justify-center">
-            <label for="username-input">Username</label>
-            <input id="username-input" type="text" placeholder="kool_username">
+        <div class="credentials h-250 flex flex-column w-full align-start justify-between pt-36">
+          <div class="flex flex-column gap-12 w-full">
+            <div class="forms flex-column align-start justify-center w-full">
+              <label for="username-input">Username</label>
+              <input id="username-input" type="text" placeholder="kool_username">
+            </div>
+            
+            <div class="forms flex-column align-start justify-center w-full">
+              <label for="password-input">Senha</label>
+              <input id="password-input" type="password" placeholder="******">
+            </div>
           </div>
           
-          <div class="forms flex-column align-start justify-center">
-            <label for="password-input">Senha</label>
-            <input id="password-input" type="password" placeholder="******">
-          </div>
-          
-          <div class="reset-password">
+          <div class="reset-password flex flex-column gap-6">
             <div class="red sm-body p-0 m-0 w-full" id="error-message"></div>
-            <p class="text-btn small-title dark-gray mt-6">Esqueceu a senha?</p>
+            <p class="text-btn small-title dark-gray">Esqueceu a senha?</p>
           </div>
         </div>
 
