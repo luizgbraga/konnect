@@ -34,20 +34,21 @@
         </div>
       </div>
   
-      <div class="credentials-ctn relative flex flex-column align-end justify-center">
-        <div class="credentials flex flex-column">
-          <div class="forms flex-column align-start justify-center">
-            <label for="username-input">Username</label>
-            <input id="username-input" type="text" placeholder="Escolha um nome">
-          </div>
-
-          <div class="forms flex-column align-start justify-center">
-            <label for="password-input">Senha</label>
-            <input id="password-input" type="password" placeholder="Insira pelo menos 6 caracteres">
+      <div class="credentials-ctn relative flex flex-column align-end justify-center relative">
+        <div class="credentials h-250 flex flex-column w-full align-start justify-between pt-36">
+          <div class="flex flex-column gap-12 w-full">
+            <div class="forms flex-column align-start justify-center w-full">
+              <label for="username-input">Username</label>
+              <input id="username-input" type="text" placeholder="kool_username">
+            </div>
+            
+            <div class="forms flex-column align-start justify-center w-full">
+              <label for="password-input">Senha</label>
+              <input id="password-input" type="password" placeholder="******">
+            </div>
           </div>
         </div>
-
-        <div class="btn-ctn flex flex-row align-end">
+        <div class="btn-ctn flex flex-row align-end absolute bottom-0 right-0">
           <a class="btn secondary-btn" href="${pageContext.request.contextPath}/login">Voltar</a>
           <a href="login" class="button">
             <div id="register-button" class="btn primary-btn register">Cadastrar</div>

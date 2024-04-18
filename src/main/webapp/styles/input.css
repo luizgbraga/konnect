@@ -47,6 +47,7 @@
 }
 
 .forms {
+  gap: 6px;
   display: flex;
   width: 100%;
 }

@@ -54,18 +54,6 @@
   align-items: flex-end;
 }
 
-.align-between {
-  align-items: space-between;
-}
-
-.align-around {
-  align-items: space-around;
-}
-
-.justify-evenly {
-  align-items: space-evenly;
-}
-
 .gap-0 {
   gap: 0;
 }
@@ -188,6 +176,10 @@
 
 .h-20 {
   height: 12px;
+}
+
+.h-250 {
+  height: 250px;
 }
 
 .h-400 {
