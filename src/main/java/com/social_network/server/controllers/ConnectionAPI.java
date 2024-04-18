@@ -103,7 +103,7 @@ public class ConnectionAPI extends HttpServlet {
                 }
             }
         }
-        if (!users.isEmpty()) {
+        if (!users.isEmpty() && responseBuilder.length() > 1) {
             responseBuilder.delete(responseBuilder.length() - 2, responseBuilder.length());
         }
 

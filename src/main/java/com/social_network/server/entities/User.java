@@ -133,7 +133,7 @@ public class User {
             transaction.commit();
             for (int i = 0; i < users.size(); i++) {
                 if (!users.get(i).getUsername().contains(searchFilter)) {
-                    users.remove(i);
+                    users.remove(i--);
                 }
             }
             return users;
