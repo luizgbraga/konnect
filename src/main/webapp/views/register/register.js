@@ -1,6 +1,8 @@
 const usernameInput = document.getElementById('username-input');
 const passwordInput = document.getElementById('password-input');
 const registerButton = document.getElementById('register-button');
+const spinner = document.getElementById('spinner');
+
 if (localStorage.getItem('id')) {
     window.location.href = 'http://localhost:8080/server_war_exploded/feed'
 }
@@ -18,15 +20,20 @@ const handlePasswordChange = (e) => {
 
 const handleSubmit = () => {
     document.body.style.filter = "brightness(50%)";
+    spinner.style.display = 'flex'
     RegisterModel.register(username, password)
         .then((res) => {
             document.body.style.filter = "brightness(100%)";
+            spinner.style.display = 'none'
             const user = JSON.parse(res.message)
+            console.log(user)
             localStorage.setItem("id", user.id)
             localStorage.setItem("username", user.username)
-            window.location.replace('http://localhost:8080/server_war_exploded/feed')
+           // window.location.replace('http://localhost:8080/server_war_exploded/feed')
         })
         .catch((err) => {
+            document.body.style.filter = "brightness(100%)";
+            spinner.style.display = 'none'
             console.log(err);
         });
 }

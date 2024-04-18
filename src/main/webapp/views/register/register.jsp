@@ -16,6 +16,9 @@
 </head>
 
 <body>
+<div id="spinner">
+  <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
+</div>
   <div class="background-ctn">
     <div class="login-box box-shadow">
       <div class="greetings-ctn relative flex flex-column align-start justify-center">

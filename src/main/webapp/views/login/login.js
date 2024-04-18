@@ -5,6 +5,7 @@ if (localStorage.getItem('id')) {
 const usernameInput = document.getElementById('username-input');
 const passwordInput = document.getElementById('password-input');
 const loginButton = document.getElementById('login-button');
+const spinner = document.getElementById('spinner');
 
 let username = '';
 let password = '';
@@ -19,15 +20,19 @@ const handlePasswordChange = (e) => {
 
 const handleSubmit = () => {
     document.body.style.filter = "brightness(50%)";
+    spinner.style.display = 'flex'
     LoginModel.login(username, password)
         .then((res) => {
             document.body.style.filter = "brightness(100%)";
+            spinner.style.display = 'none'
             const user = JSON.parse(res.message)
             localStorage.setItem("id", user.id)
             localStorage.setItem("username", user.username)
             window.location.replace('http://localhost:8080/server_war_exploded/feed')
         })
         .catch((err) => {
+            document.body.style.filter = "brightness(100%)";
+            spinner.style.display = 'none'
             console.log(err);
         });
 }
