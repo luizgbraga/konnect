@@ -28,8 +28,8 @@
 </div>
 <div class="absolute left-12 top-36 w-250">
     <p class="mb-20">Grupos</p>
-    <a id="back-button" class="btn secondary-btn mb-20">Voltar para o feed</a>
-    <div id="groups-container" class="flex flex-column gap-6 w-250">
+    <a id="back-button" class="btn secondary-btn">Voltar para o feed</a>
+    <div id="groups-container" class="flex flex-column gap-6 w-250 mt-20">
 
     </div>
 </div>
