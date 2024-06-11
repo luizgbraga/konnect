@@ -43,10 +43,18 @@ public class PostAPI extends HttpServlet {
             System.out.println(post.getUserId());
             session.persist(post);
             transaction.commit();
-            String responseMessage = this.getResponseMessage("Post created successfully");
+            StringBuilder responseBuilder = new StringBuilder();
+            responseBuilder.append("{")
+                    .append("\"id\": \"").append(post.getId()).append("\", ")
+                    .append("\"content\": \"").append(post.getContent()).append("\", ")
+                    .append("\"userId\": \"").append(post.getUserId()).append("\", ")
+                    .append("\"knId\": \"").append(post.getKnId()).append("\"")
+                    .append("}");
+
+            String responseMessage = this.getResponseMessage(responseBuilder.toString());
             response.setStatus(201);
-            response.getOutputStream().println(responseMessage);
             response.setContentType("application/json");
+            response.getOutputStream().println(responseMessage);
         } catch (NoSuchAlgorithmException | InvalidKeySpecException e) {
             transaction.rollback();
             throw new RuntimeException(e);
