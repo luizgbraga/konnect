@@ -77,34 +77,42 @@ public class NotificationAPI extends HttpServlet {
             transaction.begin();
             String userFromId = request.getParameter("userFromId");
             String userToId = request.getParameter("userToId");
+            String action = request.getParameter("action");
             System.out.println(userFromId);
             System.out.println(userToId);
 
             ConnectsTo connection = ConnectsTo.get(userFromId, userToId);
             System.out.println(connection);
-            connection.setStatus("active");
-            session.merge(connection); // Use merge to update detached entity
-            ArrayList<ConnectsTo> connections = ConnectsTo.listActives();
-            System.out.println(connections);
-            Map<String, List<List<String>>> result = ConnectsTo.checkGroups(connections);
-            List<List<String>> mustCreate = result.get("mustCreate");
-            List<String> mustDelete = result.get("mustDelete").get(0);
-            System.out.println(mustCreate);
-            System.out.println(mustDelete);
-            if (!mustDelete.isEmpty()) {
-                session.createQuery("DELETE FROM KnUser WHERE id.userId IN :ids")
-                        .setParameterList("ids", mustDelete)
-                        .executeUpdate();
-            }
-            if (!mustCreate.isEmpty()) {
-                for (List<String> kn : mustCreate) {
-                    Kn group = new Kn();
-                    System.out.println(group);
-                    session.persist(group);
-                    for (String userId : kn) {
-                        KnUser belongs = new KnUser(userId, group.getId());
-                        System.out.println(belongs);
-                        session.persist(belongs);
+            if (action.equals("delete")) {
+                session.createQuery("DELETE FROM ConnectsTo WHERE userFromId = :userFromId AND userToId = :userToId")
+                    .setParameter("userFromId", userFromId)
+                    .setParameter("userToId", userToId)
+                    .executeUpdate();
+            } else {
+                connection.setStatus("active");
+                session.merge(connection); // Use merge to update detached entity
+                ArrayList<ConnectsTo> connections = ConnectsTo.listActives();
+                System.out.println(connections);
+                Map<String, List<List<String>>> result = ConnectsTo.checkGroups(connections);
+                List<List<String>> mustCreate = result.get("mustCreate");
+                List<String> mustDelete = result.get("mustDelete").get(0);
+                System.out.println(mustCreate);
+                System.out.println(mustDelete);
+                if (!mustDelete.isEmpty()) {
+                    session.createQuery("DELETE FROM KnUser WHERE id.userId IN :ids")
+                            .setParameterList("ids", mustDelete)
+                            .executeUpdate();
+                }
+                if (!mustCreate.isEmpty()) {
+                    for (List<String> kn : mustCreate) {
+                        Kn group = new Kn();
+                        System.out.println(group);
+                        session.persist(group);
+                        for (String userId : kn) {
+                            KnUser belongs = new KnUser(userId, group.getId());
+                            System.out.println(belongs);
+                            session.persist(belongs);
+                        }
                     }
                 }
             }
