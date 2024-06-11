@@ -48,9 +48,15 @@ public class RegisterAPI extends HttpServlet {
             response.getOutputStream().println(responseMessage);
             response.setContentType("application/json");
         } catch (NoSuchAlgorithmException | InvalidKeySpecException e) {
+            response.setStatus(401);
+            response.setContentType("application/json");
+            response.getOutputStream().println("__error__: Error registering user");
             transaction.rollback();
             throw new RuntimeException(e);
         } catch (Exception e) {
+            response.setStatus(401);
+            response.setContentType("application/json");
+            response.getOutputStream().println("__error__: Error registering user");
             transaction.rollback();
             e.printStackTrace();
         }

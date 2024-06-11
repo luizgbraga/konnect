@@ -45,7 +45,7 @@ public class LoginAPI extends HttpServlet {
         } catch (NoSuchElementException e) {
             response.setStatus(401);
             response.setContentType("application/json");
-            response.getOutputStream().println("Username or password are incorrect");
+            response.getOutputStream().println("__error__: Username or password are incorrect");
         } finally {
 
         }
